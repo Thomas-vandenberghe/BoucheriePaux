@@ -1,5 +1,9 @@
-@import "~bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 body {
     background-color: rgb(255, 0, 149);
+}
+
+h1{
+    color: blue;
 }
