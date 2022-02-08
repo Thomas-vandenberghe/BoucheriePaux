@@ -3,7 +3,17 @@
 {% block title %}Mon compte{% endblock %}
 
 {% block body %}
-<h1>Mon compte et tout ce qui va avec !</h1>
+<div class="ms-3">
 
-<a href="{{path('deconnexion')}}" class="btn btn-success " >Se deconnecter</a>
+<h1 class="text-center">Mon compte et tout ce qui va avec !</h1>
+
+
+
+<a href=""> Mes commandes</a><br>
+<a href="">Modifier mon mot de passe</a>
+<hr>
+
+<a href="{{path('deconnexion')}}" class="btn btn-success mt-3">Se deconnecter</a>
+</div>
+
 {% endblock %}
