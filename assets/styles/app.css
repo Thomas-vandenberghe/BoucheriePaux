@@ -11958,6 +11958,10 @@ fieldset:disabled .btn {
 }
 
 body {
-  background-color: darkgray;
+  background-color: #ff0095;
+}
+
+h1, .h1 {
+  color: white;
 }
 /*# sourceMappingURL=app.css.map */
