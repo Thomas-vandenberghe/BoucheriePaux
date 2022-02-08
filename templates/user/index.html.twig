@@ -4,6 +4,11 @@
 
 {% block body %}
 
+{% if notification %}
+<div class="alert alert-danger">{{notification}}</div>
+
+{% endif %}
+
 {{form(form)}}
 
 {% endblock %}

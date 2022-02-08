@@ -24,6 +24,8 @@ class UserController extends AbstractController
     #[Route('/inscription', name: 'inscription')]
     public function index( Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
+        $notification = null ;
+
         $user = new User();
 
         $form = $this->createForm(UserType::class, $user);
@@ -40,12 +42,19 @@ class UserController extends AbstractController
                     $this->entityManager->persist($user);
                     $this->entityManager->flush();
 
+                    $this->addFlash('success', 'Votre inscription a bien été prise en compte. Vous pouvez déjà vous connecter.');
+
+                    return $this->redirectToRoute('connexion');
                     //ici ce sera le mail
+                }else{
+                    $notification = "L'email que vous avez renseigné existe déjà.";
                 }
+
         }
 
         return $this->render('user/index.html.twig',[
             'form' => $form->createView(),
+            'notification' => $notification
             
         ]);
     }
