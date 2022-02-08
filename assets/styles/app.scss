@@ -1,9 +1,176 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-body {
-    background-color: rgb(255, 0, 149);
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+$white: #ffffff;
+$black: #000000;
+$dore: #c0aa30;
+
+// body {
+//     overflow: hidden;
+// }
+
+// *********************** style de la navbar ********************************
+.navbar-custom {
+    background: $black;
+    color: $black;
 }
-h1 {
-    color: white;
+.navigation {
+    color: $white;
+    margin-left: 20px;
+    font-size: 20px;   
+        
+        &:visited {
+            color: $white;
+        }
+        &:hover {
+            border-bottom: 2px solid $dore;
+        }
 }
+.logo-navbar {
+    margin-left: 20px;
+}
+.logo {
+    height: 55px;
+}
+.btn-connexion {
+    color: $white;
+    font-weight: bold;
+    background-color: $dore;
+    padding: 10px 30px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+
+        &:hover {
+            color:$white;
+            background-color: $black;
+            border: 3px solid $dore;
+        }
+}
+
+.btn-inscription {
+    color: $black;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 0 30px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+
+        &:hover {
+            color:$white;
+            background-color: $black;
+            border: 3px solid $dore;
+        }
+}
+// **************************************style image page d'accueil ************************
+
+.imageDevanture {
+    height: 410px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.bordure-photo-accueil {
+    background-color: $black;
+}
+.presentationAccueil {
+    position: relative;
+    height: 150px;
+    width: 100%;
+}
+.imageMetro {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    z-index: 1;
+}
+.texteAccueil {
+    position: absolute;
+    z-index: 2;
+    margin: 25px 150px;
+    text-align: center;
+    font-size: 27px;
+    font-weight: 600;
+    font-family: 'Patrick Hand', cursive;
+    color: $black;
+}
+// ******************************* style de la page de presentation **********************
+.infoGenerale {
+    position: relative;
+    height: 550px;
+    width: 100%;
+}
+.imageBg {
+    position: absolute;
+    height: 550px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.presentation {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+}
+.titrePresentation {
+    color: $dore;
+    margin: 20px auto;
+}
+.description {
+    color: $white;
+    text-align: center;
+    padding: 10px 50px;
+}
+.textePresentation {
+    background-color: #0000006b;
+    width: 25%;
+    margin: 20px 20px 0 0;
+    border-radius: 5px;
+}
+.photoBenoitPaux {
+    height: 400px;
+    margin: 20px 0 0 20px;
+    border-radius: 5px;
+}
+
+// ****************************************style du footer *********************************
+.footer-custom {
+    // position: absolute;
+    // z-index: 3;
+    width: 100%;
+    height: 120px;
+    background-color: $black;
+    padding-top: 25px;
+}
+.lien-CVG {
+    color: $dore;
+    text-decoration: none;
+}
+.logo-footer {
+    height: 50px;
+}
+.jours-ouverts {
+    color: $dore;
+}
+.icon-facebook {
+    background-color: $white;
+    background-size: 8px;
+}
+.contact, .horaires {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo-cvg {
+    text-align: center;
+}
+.horaire {
+    text-align: center;
+}
+
+
 
