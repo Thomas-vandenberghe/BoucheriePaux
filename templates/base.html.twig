@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item ">
-                    <a class="nav-link navigation" href="#">Nos produits</a>
+                    <a class="nav-link navigation" href="{{path('nos-produits')}}">Nos produits</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link navigation" href=" {{ path('presentation')}}">Qui sommes-nous?</a>
@@ -39,6 +39,13 @@
     </nav>
 </header>
 {% endblock %}
+
+
+{# ************************* Contenu de la page ************************************ #}
+{% block body %}{% endblock %}
+
+
+
 
 {# ************************* block photo page d'accueil ************************************ #}
 
