@@ -3,6 +3,44 @@
 {% block title %}Hello CommandeController!{% endblock %}
 
 {% block body %}
+{# <div class="container shadow min-vh-100 py-2">
+    <h5>Bootstrap 5 date picker</h5>
+    <div class="row justify-content-center">
+        <div class="col-lg-3 col-sm-6">
+            <label for="startDate">Start</label>
+            <input id="startDate" class="form-control" type="date" />
+            <span id="startDateSelected"></span>
+        </div>
+    </div>
+
+    <script>
+    let startDate = document.getElementById('startDate')
+let endDate = document.getElementById('endDate')
+
+startDate.addEventListener('change',(e)=>{
+  let startDateVal = e.target.value
+  document.getElementById('startDateSelected').innerText = startDateVal
+}) #}
+
+
+{# </script> #}
+
+
+ {# <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({ minDate: +3, maxDate: "+1M +10D" });
+  } );
+  </script>
+</head>
+<body>
+
+<p>Date: <input type="text" id="datepicker"></p> #}
+
+
 <div class="text-light">
     <div class="row">
         <div class="col-md-6">
