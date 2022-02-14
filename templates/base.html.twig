@@ -13,16 +13,28 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-
+<body class="pb-5 bg-dark">
+  
         {# ********************** block header ****************************** #}
 
 {% block header %} 
 <header>
-    <nav class="navbar navbar-expand-md navbar-custom">
+    <nav class="navbar navbar-expand-md navbar-dark navbar-custom navbar-dark">
+    <div class="container">
         <a class="navbar-brand logo-navbar" href="{{ path('home') }}">
             <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="d-inline logo block align-text-top ">
         </a>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        
+         <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item ">
                     <a class="nav-link navigation" href="{{path('nos-produits')}}">Nos produits</a>
@@ -32,12 +44,14 @@
                 </li>
             </ul>            
             <form class="d-flex">
-                <button class="btn-connexion" type="submit">Se connecter</button>
+                <button class="dore btn-connexion" type="submit">Se connecter</button>
                 <button class="btn-inscription" type="submit">S'inscrire</button>
             </form>
         </div>
+        </div>
     </nav>
 </header>
+
 {% endblock %}
 
 
@@ -45,14 +59,12 @@
 {% block body %}{% endblock %}
 
 
-
-
 {# ************************* block photo page d'accueil ************************************ #}
 
 {% if block('photoPageAccueil') is defined %}
-        <div class="container-fluide">
+        <div >
         <div class="row g-0">
-            <div class="col-1 bordure-photo-accueil bg-dark"></div>
+            <div class="col-1 bordure-photo-accueil  bg-dark"></div>
             <div class="col-10">
                 <img src="{{ asset('build/images/devanture.png')}}" class="imageDevanture" alt="devanture">
             </div>
@@ -60,79 +72,98 @@
         </div>
     </div>
 
-        <div class="container-fluide">
-            <div class="row g-0">
-                <div class="col-1 bordure-photo-accueil bg-dark"></div>
-                    <div class="col-10">
-                        <div class=" col-10 presentationAccueil">
-                            <div>
-                                <img src="{{ asset('build/images/metro.png')}}" class="imageMetro" alt="carrelage-metro"> 
-                            </div>
-                            <div class="texteAccueil">
-                                <p> La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter.</p>
-                            </div>
-                        </div>
-                    </div>
-                <div class="col-1 bordure-photo-accueil bg-dark"></div>
+<section
+      class="bg-dark text-light  p-lg-0 pt-lg-5 text-center text-md-start"
+    >
+      <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+          <div>
+            <h1 class="dore text-center my-2">Boucher - Traiteur</h1>
+            
+            <p class="lead my-0 my-lg-5 text-center m-5 texte">
+              La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter. Dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. 
+            </p>
             </div>
+          <img
+            class="img-fluid w-50 d-none d-md-block mb-5 mt-5"
+            src="{{ asset('build/images/viande1.jpg')}}"
+            alt=""
+          />
+          
         </div>
-{% endif %}
+      </div>
+    </section>
 
-{# ************************************** page de presentation **************************** #}
+<section
+      class="bg-dark text-light py-5 p-lg-0 pt-lg-5 text-center text-md-start"
+    >
+      <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
 
-{% if block('presentation') is defined %}
-        <div class="container-fluide">
-            <div class="row g-0">
-                <div class="infoGenerale">
-                    <div>
-                        <img src="{{ asset('build/images/bgViande.jpg')}}" class="imageBg" alt="photo-viande"> 
-                    </div>
-                    <div class="presentation">
-                        <div class="textePresentation">
-                            <h3 class="titrePresentation">Boucherie Paux</h3>
-                            <p class="description"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere dicta, numquam, deleniti debitis nihil eaque exercitationem asperiores tenetur officia aut aspernatur dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. Facere dicta, numquam, deleniti debitis nihil eaque exercitationem asperiores.</p>
-                        </div>
-                        <div>
-                            <img src="{{ asset('build/images/benoitPaux.png')}}" class="photoBenoitPaux" alt="photoGerant">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <img
+            class="img-fluid w-50 d-none d-md-block mb-5"
+            src="{{ asset('build/images/viande2.jpg')}}"
+            alt=""
+          />
+          <div >
+            <h1 class="dore text-center my-2">La qualité au prix juste</h1>
+            <p class="lead my-0 my-lg-5 text-center m-5 texte">
+              La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter. Dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. 
+            </p>
+</div>
         </div>
-    
+      </div>
+    </section>
+
 {% endif %}
 
 {# **************************** block footer *********************************************** #}
 
 {% block footer %}
-        <footer class="footer-custom">
-            <div class="container text-white">
-                <div class="row">
-                    <div class="col-2">
-                        <div>
-                            <a href="#">
-                                <img src="{{ asset('build/images/facebook.png')}}" class="icon-facebook" alt="icon-facebook">
+        <footer class="footer-custom ">
+            <div class="container text-white align-middle">
+                <div class="row ">
+                    <div class="col-4 ">
+                        <div class="d-flex justify-content-between align-center ">
+                           <a href="#">
+                                <img src="{{ asset('build/images/facebook.svg')}}" class="bg-primary icon-facebook"   width="26" height="26" alt="icon-facebook">
                             </a>
+                          <div class=" contact foot text-center ">
+                            <p class = "jours-ouverts ">Contact</p>  
+                            <p>03.21.95.21.54</p>  
+                            <p> info@paux.fr</p>
+                          </div>
                         </div>
-                    </div>
-                    <div class="col-3 contact">
-                        <p>Téléphone: 03.21.95.21.54</p>  
-                        <p> Mail: xxxxxxx@xxxx.fr</p>
-                    </div>
-                    <div class="col-4 logo-cvg">
+                      </div>
+                    <div class="col-4 logo-cvg d-flex justify-content-center">
+                      <div>
                         <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="logo-footer"> 
-                        <a href="" class="lien-CVG">
+                        <a href="" class="lien-CVG foot">
                             <p>Conditions d'utilisation</p>
                         </a>
+                      </div>
                     </div>
-                    <div class="col-3 horaires">
-                        <p>Horaires: </p>
-                        <p>Du <span class="jours-ouverts">lundi au samedi </span> de 07h00 à 12h30 et de 14h30 à 19h00. </p>
-                        
-                    </div>
+                  <div class="col-4 horaires d-flex justify-content-between align-middle">
+                <div class="foot align-center">
+                  <p class='foot d-block '>
+                    <p class="jours-ouverts">
+                    lundi au samedi 
+                    </p>
+                    <p>
+                    07h00-12h30
+                    </p>
+                    <p>
+                    14h30-19h00
+                    </p>
+                        </p>
+                        </div>
+                        <a href="#" class="">
+                                <img src="{{ asset('build/images/arrow-up-circle.svg')}}" class="icon-up " width="32" height="32" alt="icon-facebook">
+                            </a>
                 </div>
-            </div>
+              </div>
         </footer>
+
 {% endblock %}
 
     </body>
