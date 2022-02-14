@@ -1,6 +1,10 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import '~js-datepicker/src/datepicker';
 
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+
+
 
 $white: #ffffff;
 $black: #000000;
@@ -66,7 +70,7 @@ p{
     color: $black;
     font-weight: bold;
     background-color: #fff;
-    padding: 0 30px;
+    padding: 10px 30px;
     border: none;
     border-radius: 5px;
     margin-right: 10px;
@@ -77,6 +81,12 @@ p{
             border: 3px solid $dore;
         }
 }
+
+@media (min-width: 990px)  {
+    .navbar-collapse {
+        display: none !important;
+    }
+ }
 // **************************************style image page d'accueil ************************
 @media (max-width: 770px) { 
 
@@ -147,6 +157,7 @@ p{
     background-size: cover;
     background-position: center;
     height: 1400px;
+    margin-left: -10px;
 }
 .logoBig{
     height: 200px;
@@ -270,12 +281,21 @@ p{
 }
 
 .imgSize{
-    // height: 200px;
-    width: 300px;
+    height: 200px;
+    background-position:center;
+    background-size: cover;
 }
 
 .containerBase{
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
+}
+
+.card{
+    background-image: url('../images/metro6.png');
+    background-size: 400%;
+    background-repeat: no-repeat;
+    filter: brightness(100%);
+    border-radius: 2%;
 }

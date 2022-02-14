@@ -19,6 +19,9 @@ class CommandeType extends AbstractType
             ->add('finishedAt', DateType::class,[
                 'label'=> 'Date de retrait souhaitée',
                 'required'=> true,
+                'widget' => 'single_text',
+                //   'html5' => false,
+                  'attr' => ['class' => 'js-datepicker'],
                 // 'expanded'=>true
             ])
         ->add('submit', SubmitType::class,[
