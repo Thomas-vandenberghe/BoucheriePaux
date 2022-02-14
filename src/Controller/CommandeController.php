@@ -39,7 +39,7 @@ class CommandeController extends AbstractController
     }
 
 
-    #[Route('/commande/validation', name: 'commande-validation')]
+    #[Route('/commande/validation', name: 'commande-validation', methods: 'POST')]
     public function validation(Panier $panier, Request $request): Response
     {
 

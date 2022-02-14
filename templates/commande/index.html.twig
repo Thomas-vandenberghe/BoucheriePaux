@@ -3,40 +3,41 @@
 {% block title %}Hello CommandeController!{% endblock %}
 
 {% block body %}
+<div class="text-light">
+    <div class="row">
+        <div class="col-md-6">
+            {% set formHtml %}
+            {{form_start(form,{action:path('commande-validation')}) }} 
+            {{form_end(form)}} 
+            {% endset %}
 
-<div class="row">
-    <div class="col-md-6">
-        {% set formHtml %}
-          {{form_start(form,{action:path('commande-validation')}) }} 
-          {{form_end(form)}} 
-        {% endset %}
+            {{ formHtml|replace({'[br]' : '</br>'})|raw }}
 
-          {{ formHtml|replace({'[br]' : '</br>'})|raw }}
-
-    </div>
-
-     <div class="col-md-6">
-        <div class='text-center'>
-            <b>Récap de ma commande</b> <br>
-            <p>Retrouvez le récapitulatif de vos produits.</p>
         </div>
 
+        <div class="col-md-6">
+            <div class='text-center'>
+                <b>Récap de ma commande</b> <br>
+                <p>Retrouvez le récapitulatif de vos produits.</p>
+            </div>
 
-       <div class="order-summary">
-            {% for produit in panier %}
-                <div class="row mt-2" >
-                    <div class="col-2">
-                        <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" height='75px'>
+
+        <div class="order-summary">
+                {% for produit in panier %}
+                    <div class="row mt-2" >
+                        <div class="col-2">
+                            <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" height='75px'>
+                        </div>
+                        <div class="col-8 my-auto">
+                            {{produit.produit.name}} <br>
+                            <small>{{produit.produit.subtitle}}</small>
+                        </div> 
+                        <div class="col-2 my-auto">
+                            x {{produit.quantity}}
+                        </div>
                     </div>
-                    <div class="col-8 my-auto">
-                        {{produit.produit.name}} <br>
-                        <small>{{produit.produit.subtitle}}</small>
-                    </div> 
-                    <div class="col-2 my-auto">
-                        x {{produit.quantity}}
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
