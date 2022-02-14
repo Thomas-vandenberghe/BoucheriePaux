@@ -15,6 +15,7 @@
         {% endblock %}
 <body class="pb-5 bg-dark">
   
+  {% block javascript %}{% endblock %}
         {# ********************** block header ****************************** #}
 
 {% block header %} 
@@ -167,4 +168,5 @@
 {% endblock %}
 
     </body>
+    {% block script %}{% endblock %}
 </html>
