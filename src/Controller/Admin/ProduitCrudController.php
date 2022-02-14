@@ -32,7 +32,7 @@ class ProduitCrudController extends AbstractCrudController
     ->setUploadDir('public/uploads/')
     ->setUploadedFileNamePattern('[randomhash].[extension]')
     ->setRequired(false),
-        NumberField::new('subtitle', 'Quantité par portion (en gramme)'),
+        TextField::new('subtitle', 'Quantité par portion (en gramme)'),
         TextareaField::new('description'),
        // BooleanField::new('isBest'),
         MoneyField::new('priceKg','Prix au Kg')->setCurrency('EUR'),
