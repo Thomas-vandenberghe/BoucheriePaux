@@ -1,14 +1,17 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Mon panier{% endblock %}
 
 {% block body %}
+
+<div class="text-light">
 <h1>Mon panier</h1>
 <hr>
 
 {% if panier|length > 0 %}
 
-    <table class="table mt-3">
+    <table class="table mt-3 text-light">
     <thead>
         <tr>
         <th scope="col">Produit</th>
@@ -36,7 +39,7 @@
         </td>
 
         <td>
-            <a href="{{path('panier-reduire', {'id' : produit.produit.id }) }} ">
+            <a href="{{path('panier-reduire', {'id' : produit.produit.id }) }}">
                 <img src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">   
             </a>
                 x {{produit.quantity}}
@@ -71,6 +74,6 @@
         <b><p>Votre panier est vide</p></b>
     {% endif %} 
 
-
+</div>
 {% endblock %}
 

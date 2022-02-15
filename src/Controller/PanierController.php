@@ -29,7 +29,16 @@ class PanierController extends AbstractController
 
     }
 
+    #[Route('/panier/ajouterVersProduits/{id}', name: 'panier-ajouter-vers-produits')]
+    public function ajouterVersProduits(Panier $panier, $id): Response
+    {
+        $panier->ajouterVersProduits($id);
 
+        return $this->redirectToRoute('nos-produits');
+
+    }
+
+    
    
     #[Route('/panier/vider', name: 'panier-vider')]
     public function remove(Panier $panier): Response

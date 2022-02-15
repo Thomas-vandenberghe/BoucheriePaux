@@ -23,6 +23,7 @@ class RecetteCrudController extends AbstractCrudController
             AssociationField::new('produit','Produit correspondant à la recette'),
             
         ];
+        
     }
     
 }

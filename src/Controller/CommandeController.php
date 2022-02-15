@@ -39,12 +39,11 @@ class CommandeController extends AbstractController
     }
 
 
-    #[Route('/commande/validation', name: 'commande-validation')]
+    #[Route('/commande/validation', name: 'commande-validation', methods: 'POST')]
     public function validation(Panier $panier, Request $request): Response
     {
-
         $form = $this->createForm(CommandeType::class, null, [
-            'user'=>$this->getUser()
+            'user'=>$this->getUser(),
         ]);
 
         $form->handleRequest($request);

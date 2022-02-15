@@ -33,6 +33,21 @@ class Panier
 
     }
 
+    public function ajouterVersProduits($id)
+    {
+        $panier = $this->session->get('panier',[]);
+
+        if(!empty($panier[$id]))
+        {
+            $panier[$id]++;
+        }else{
+            $panier[$id]=1;
+        }
+
+        $this->session->set('panier', $panier);
+
+    }
+
     public function get()
     {
         return $this->session->get('panier');
