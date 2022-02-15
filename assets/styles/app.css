@@ -11958,6 +11958,7 @@ fieldset:disabled .btn {
   }
 }
 
+<<<<<<< HEAD
 body {
   padding: 0;
   margin: 0;
@@ -11966,6 +11967,22 @@ body {
 
 html {
   height: auto;
+=======
+html {
+  position: relative;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+p {
+  margin: 0;
+}
+
+.dore {
+  color: #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .navbar-custom {
@@ -11984,7 +12001,11 @@ html {
 }
 
 .navigation:hover {
+<<<<<<< HEAD
   border-bottom: 2px solid #c0aa30;
+=======
+  border-bottom: 2px solid #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .logo-navbar {
@@ -11998,7 +12019,11 @@ html {
 .btn-connexion {
   color: #ffffff;
   font-weight: bold;
+<<<<<<< HEAD
   background-color: #c0aa30;
+=======
+  background-color: #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   padding: 10px 30px;
   margin-right: 20px;
   border: none;
@@ -12008,7 +12033,11 @@ html {
 .btn-connexion:hover {
   color: #ffffff;
   background-color: #000000;
+<<<<<<< HEAD
   border: 3px solid #c0aa30;
+=======
+  border: 3px solid #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .btn-inscription {
@@ -12024,7 +12053,36 @@ html {
 .btn-inscription:hover {
   color: #ffffff;
   background-color: #000000;
+<<<<<<< HEAD
   border: 3px solid #c0aa30;
+=======
+  border: 3px solid #b48700;
+}
+
+@media (max-width: 770px) {
+  .texte {
+    background-image: url("../images/metro2.png");
+    border-radius: 15px;
+    padding: 5px;
+    color: #000000;
+    font-weight: 500;
+    font-size: 15px;
+  }
+}
+
+.texte {
+  background-image: url("../images/metro2.png");
+  border-radius: 15px;
+  padding: 5px;
+  color: #000000;
+  font-weight: 500;
+  font-size: 20x;
+}
+
+.metro {
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .imageDevanture {
@@ -12035,37 +12093,57 @@ html {
 }
 
 .bordure-photo-accueil {
+<<<<<<< HEAD
   background-color: #000000;
 }
 
 .bordure-photo-accueil2 {
   background-color: #000000;
+=======
+  background-color: #181818;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .presentationAccueil {
   position: relative;
+<<<<<<< HEAD
   height: 200px;
+=======
+  height: 350px;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   width: 100%;
 }
 
 .imageMetro {
   position: absolute;
+<<<<<<< HEAD
   background-position: center;
   background-size: cover;
   width: 100%;
   height: auto;
+=======
+  width: 100%;
+  height: 350px;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   z-index: 1;
 }
 
 .texteAccueil {
   position: absolute;
   z-index: 2;
+<<<<<<< HEAD
   height: 200px;
   text-align: center;
+=======
+  margin: 25px 150px;
+  text-align: center;
+  font-weight: 600;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   font-family: 'Patrick Hand', cursive;
   color: #000000;
 }
 
+<<<<<<< HEAD
 .infoGenerale {
   position: relative;
   height: 550px;
@@ -12094,19 +12172,50 @@ html {
 .titrePresentation {
   color: #c0aa30;
   margin: 20px auto;
+=======
+.photo {
+  margin-left: 20px;
+}
+
+.containerGlobal {
+  background-image: url("../images/bgViande.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 1000px;
+}
+
+.logoBig {
+  height: 200px;
+}
+
+.titrePresentation {
+  color: #b48700;
+  margin: 10px auto;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .description {
   color: #ffffff;
+<<<<<<< HEAD
   text-align: center;
   padding: 10px 50px;
+=======
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .textePresentation {
   background-color: #0000006b;
+<<<<<<< HEAD
   width: 25%;
   margin: 20px 20px 0 0;
   border-radius: 5px;
+=======
+  border-radius: 5px;
+  margin-left: 20px;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .photoBenoitPaux {
@@ -12116,6 +12225,7 @@ html {
 }
 
 .footer-custom {
+<<<<<<< HEAD
   width: 100%;
   height: 120px;
   background-color: #000000;
@@ -12124,6 +12234,18 @@ html {
 
 .lien-CVG {
   color: #c0aa30;
+=======
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  background-color: #000000;
+  padding-top: 9px;
+  bottom: 0;
+}
+
+.lien-CVG {
+  color: #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   text-decoration: none;
 }
 
@@ -12132,6 +12254,7 @@ html {
 }
 
 .jours-ouverts {
+<<<<<<< HEAD
   color: #c0aa30;
 }
 
@@ -12154,6 +12277,20 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+=======
+  color: #b48700;
+}
+
+.icon-facebook, .icon-up {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.icon-up {
+  background-color: #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .logo-cvg {
@@ -12162,5 +12299,19 @@ html {
 
 .horaire {
   text-align: center;
+<<<<<<< HEAD
+=======
+}
+
+.foot {
+  margin-bottom: 0px;
+}
+
+@media (max-width: 770px) {
+  .foot {
+    margin-bottom: 0px;
+    font-size: 10px;
+  }
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 /*# sourceMappingURL=app.css.map */

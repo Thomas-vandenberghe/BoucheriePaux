@@ -3,19 +3,20 @@
 {% block title %}Nos produits{% endblock %}
 
 {% block body %}
-<div class="row ">
-    <div class="col-md-3  ">
-        <h3>Filtrer</h3>
+<div class= 'container'>
+<div class="row text-light ">
+    <div class="col-md-3 ">
+        <h3 class= "mt-5 text-center dore mb-5">Filtrer</h3>
         {{form(form)}}
     </div>
 
     <div class="col-md-9">
-        <h3>Nos produits</h3>
+        <h3 class= "mt-5 mb-5 text-center dore">Nos produits</h3>
 
         <div class="row product-container">
 
             {% for produit in produits %}
-                <div class="col-md-4">
+                <div class="col-md-4 card img-fluid bg-dark m-2" style="width: 300px">
                     {% include "produit/single_produit.html.twig" %}
                 </div>  
             {% endfor %}
@@ -23,6 +24,11 @@
         </div>
 
     </div>
+    </div>
 
 </div>
+
+
+
+
 {% endblock %}

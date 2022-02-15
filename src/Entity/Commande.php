@@ -40,6 +40,16 @@ class Commande
      */
     private $detailsCommandes;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $reference;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $etat;
+
     public function __construct()
     {
         $this->detailsCommandes = new ArrayCollection();
@@ -112,6 +122,30 @@ class Commande
                 $detailsCommande->setCommande(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getEtat(): ?int
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(int $etat): self
+    {
+        $this->etat = $etat;
 
         return $this;
     }
