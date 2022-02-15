@@ -2,21 +2,29 @@
 
 {% block javascript %}
 	<script src="https://js.stripe.com/v3/"></script>
+
+
 {% endblock %}
 
 {% block title %}Valider ma commande{% endblock %}
 
 {% block body %}
 <div class="text-light">
-    <h2>Mon récapitulatif</h2>
-    <p>Vérifiez vos préférences avant de payer votre commande.</p>
-    <hr>
-    <div class="row">
+<h2>Mon récapitulatif</h2>
+<p>Vérifiez vos préférences avant de payer votre commande.</p>
+<hr>
+<div class="row">
 
         <div class="col-md-6">
         <strong> Votre date de retrait :</strong> {{commande.finishedAt|date('d-m-Y')}}
         </div>
 
+
+
+
+    
+        <div class="col-md-6">
+            <b>Ma commande</b> <br>
         
             <div class="col-md-6">
                 <b>Ma commande</b> <br>
@@ -49,7 +57,8 @@
     
 
             <a id="checkout-button" class="btn btn-success btn-block mt-3">Payer | {{(total / 100 )|number_format(2, ',', '.') }} €</a>
-
+</div>
+        </div>
     </div>
 </div>
     {% endblock %}
