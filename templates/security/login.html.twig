@@ -5,7 +5,7 @@
 {% block body %}
 
 {% for message in app.flashes('success') %}
-<div class="alert alert-success">{{message}}</div>
+<div class="alert alert-success ">{{message}}</div>
 {% endfor %}
 
 <form method="post">
@@ -14,21 +14,22 @@
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('deconnexion') }}">Logout</a>
+        <div class="mb-3 text-light">
+            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('deconnexion') }}">Déconnexion</a>
         </div>
     {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+<div class="container">
+    <h1 class="h3 mb-3 font-weight-normal text-center dore mt-5 ">Connectez-vous</h1>
+    <div class="col-6 mx-auto text-light">
     <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control " autocomplete="email" required autofocus>
+    <label for="inputPassword">Mot de passe</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
-
+ 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
         See https://symfony.com/doc/current/security/remember_me.html
@@ -39,9 +40,26 @@
             </label>
         </div>
     #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+    <div class="justify-content-center d-flex mt-3">
+    <button class="btn btn-warning btn-connexion" type="submit">
+        Connexion
+    </button></div>
 </form>
+   </div>
+</div>
+
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({ minDate: +3, maxDate: "+1M +10D" });
+  } );
+  </script>
+</head>
+<body>
+ 
+<p>Date: <input type="text" id="datepicker"></p>
 {% endblock %}
