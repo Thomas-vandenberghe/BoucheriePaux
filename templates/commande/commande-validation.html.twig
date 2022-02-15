@@ -9,33 +9,22 @@
 {% block title %}Valider ma commande{% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
-
+<div class="text-light">
 <h2>Mon récapitulatif</h2>
 <p>Vérifiez vos préférences avant de payer votre commande.</p>
 <hr>
 <div class="row">
-=======
-<div class="text-light">
-    <h2>Mon récapitulatif</h2>
-    <p>Vérifiez vos préférences avant de payer votre commande.</p>
-    <hr>
-    <div class="row">
->>>>>>> e77d0a7e4d57a8b6b71bd80539d0712fa3606dc9
 
     <div class="col-md-6">
     <strong> Votre date de retrait :</strong> {{commande.finishedAt|date('d-m-Y')}}
     </div>
 
-<<<<<<< HEAD
 
 
 
     
         <div class="col-md-6">
             <b>Ma commande</b> <br>
-=======
->>>>>>> e77d0a7e4d57a8b6b71bd80539d0712fa3606dc9
         
             <div class="col-md-6">
                 <b>Ma commande</b> <br>
@@ -68,7 +57,7 @@
     
 
             <a id="checkout-button" class="btn btn-success btn-block mt-3">Payer | {{(total / 100 )|number_format(2, ',', '.') }} €</a>
-
+</div>
         </div>
     </div>
     {% endblock %}

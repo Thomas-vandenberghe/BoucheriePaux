@@ -22,19 +22,11 @@ class CommandeType extends AbstractType
             ->add('finishedAt', TextType::class,[
                 'label'=> 'Date de retrait souhaitée',
                 'required'=> true,
-<<<<<<< HEAD
-                'widget' => 'single_text',
-                //   'html5' => false,
-                  'attr' => ['class' => 'js-datepicker'],
-                // 'expanded'=>true
-            ])
-=======
                 'attr'=>[
                     'class'=>'datepicker'
                 ]
             ])          
 
->>>>>>> e77d0a7e4d57a8b6b71bd80539d0712fa3606dc9
         ->add('submit', SubmitType::class,[
             'label'=>'Valider ma commande',
             'attr'=>[

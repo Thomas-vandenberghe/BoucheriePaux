@@ -3,38 +3,6 @@
 {% block title %}Hello CommandeController!{% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
-
-
-
-<script>
-
-$(document).ready(function() {
-            // you may need to change this code if you are not using Bootstrap Datepicker
-            $('.js-datepicker').datepicker({
-                format: 'yyyy-mm-dd'
-                autoclose: true,
- todayHighlight: true,
- format: 'mm/dd/yyyy',
- startDate: new Date(),
- endDate: new Date(new Date().setDate(new Date().getDate() + 5))
-                
-            });
-        });
-</script>
-
-
-
-<div class="row">
-    <div class="col-md-6">
-        {% set formHtml %}
-          {{form_start(form,{action:path('commande-validation')}) }} 
-          {{form_end(form)}} 
-        {% endset %}
-
-          {{ formHtml|replace({'[br]' : '</br>'})|raw }}
-
-=======
 {# <div class="container shadow min-vh-100 py-2">
     <h5>Bootstrap 5 date picker</h5>
     <div class="row justify-content-center">
@@ -43,7 +11,6 @@ $(document).ready(function() {
             <input id="startDate" class="form-control" type="date" />
             <span id="startDateSelected"></span>
         </div>
->>>>>>> e77d0a7e4d57a8b6b71bd80539d0712fa3606dc9
     </div>
 
     <script>
