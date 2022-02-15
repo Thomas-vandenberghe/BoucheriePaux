@@ -4,6 +4,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -11957,7 +11958,360 @@ fieldset:disabled .btn {
   }
 }
 
+<<<<<<< HEAD
 body {
-  background-color: #ff0095;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+html {
+  height: auto;
+=======
+html {
+  position: relative;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+p {
+  margin: 0;
+}
+
+.dore {
+  color: #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.navbar-custom {
+  background: #000000;
+  color: #000000;
+}
+
+.navigation {
+  color: #ffffff;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.navigation:visited {
+  color: #ffffff;
+}
+
+.navigation:hover {
+<<<<<<< HEAD
+  border-bottom: 2px solid #c0aa30;
+=======
+  border-bottom: 2px solid #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.logo-navbar {
+  margin-left: 20px;
+}
+
+.logo {
+  height: 55px;
+}
+
+.btn-connexion {
+  color: #ffffff;
+  font-weight: bold;
+<<<<<<< HEAD
+  background-color: #c0aa30;
+=======
+  background-color: #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+  padding: 10px 30px;
+  margin-right: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-connexion:hover {
+  color: #ffffff;
+  background-color: #000000;
+<<<<<<< HEAD
+  border: 3px solid #c0aa30;
+=======
+  border: 3px solid #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.btn-inscription {
+  color: #000000;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 0 30px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.btn-inscription:hover {
+  color: #ffffff;
+  background-color: #000000;
+<<<<<<< HEAD
+  border: 3px solid #c0aa30;
+=======
+  border: 3px solid #b48700;
+}
+
+@media (max-width: 770px) {
+  .texte {
+    background-image: url("../images/metro2.png");
+    border-radius: 15px;
+    padding: 5px;
+    color: #000000;
+    font-weight: 500;
+    font-size: 15px;
+  }
+}
+
+.texte {
+  background-image: url("../images/metro2.png");
+  border-radius: 15px;
+  padding: 5px;
+  color: #000000;
+  font-weight: 500;
+  font-size: 20x;
+}
+
+.metro {
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.imageDevanture {
+  height: auto;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.bordure-photo-accueil {
+<<<<<<< HEAD
+  background-color: #000000;
+}
+
+.bordure-photo-accueil2 {
+  background-color: #000000;
+=======
+  background-color: #181818;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.presentationAccueil {
+  position: relative;
+<<<<<<< HEAD
+  height: 200px;
+=======
+  height: 350px;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+  width: 100%;
+}
+
+.imageMetro {
+  position: absolute;
+<<<<<<< HEAD
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+=======
+  width: 100%;
+  height: 350px;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+  z-index: 1;
+}
+
+.texteAccueil {
+  position: absolute;
+  z-index: 2;
+<<<<<<< HEAD
+  height: 200px;
+  text-align: center;
+=======
+  margin: 25px 150px;
+  text-align: center;
+  font-weight: 600;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+  font-family: 'Patrick Hand', cursive;
+  color: #000000;
+}
+
+<<<<<<< HEAD
+.infoGenerale {
+  position: relative;
+  height: 550px;
+  width: 100%;
+}
+
+.imageBg {
+  position: absolute;
+  height: 550px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.presentation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  position: absolute;
+}
+
+.titrePresentation {
+  color: #c0aa30;
+  margin: 20px auto;
+=======
+.photo {
+  margin-left: 20px;
+}
+
+.containerGlobal {
+  background-image: url("../images/bgViande.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 1000px;
+}
+
+.logoBig {
+  height: 200px;
+}
+
+.titrePresentation {
+  color: #b48700;
+  margin: 10px auto;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.description {
+  color: #ffffff;
+<<<<<<< HEAD
+  text-align: center;
+  padding: 10px 50px;
+=======
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.textePresentation {
+  background-color: #0000006b;
+<<<<<<< HEAD
+  width: 25%;
+  margin: 20px 20px 0 0;
+  border-radius: 5px;
+=======
+  border-radius: 5px;
+  margin-left: 20px;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.photoBenoitPaux {
+  height: 400px;
+  margin: 20px 0 0 20px;
+  border-radius: 5px;
+}
+
+.footer-custom {
+<<<<<<< HEAD
+  width: 100%;
+  height: 120px;
+  background-color: #000000;
+  padding-top: 25px;
+}
+
+.lien-CVG {
+  color: #c0aa30;
+=======
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  background-color: #000000;
+  padding-top: 9px;
+  bottom: 0;
+}
+
+.lien-CVG {
+  color: #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+  text-decoration: none;
+}
+
+.logo-footer {
+  height: 50px;
+}
+
+.jours-ouverts {
+<<<<<<< HEAD
+  color: #c0aa30;
+}
+
+.icon-facebook {
+  background-color: #ffffff;
+  background-size: 8px;
+}
+
+.contact, .horaires {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+=======
+  color: #b48700;
+}
+
+.icon-facebook, .icon-up {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.icon-up {
+  background-color: #b48700;
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.logo-cvg {
+  text-align: center;
+}
+
+.horaire {
+  text-align: center;
+<<<<<<< HEAD
+=======
+}
+
+.foot {
+  margin-bottom: 0px;
+}
+
+@media (max-width: 770px) {
+  .foot {
+    margin-bottom: 0px;
+    font-size: 10px;
+  }
+>>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 /*# sourceMappingURL=app.css.map */

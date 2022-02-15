@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+
+
+<div class="ms-3">
+
+<h1 class="text-center">Mon compte et tout ce qui va avec !</h1>
+
+
+
+<a href=""> Mes commandes</a><br>
+<a href="">Modifier mon mot de passe</a>
+<hr>
+
+<a href="{{path('deconnexion')}}" class="btn btn-success mt-3 mb-3">Se deconnecter</a>
+</div>
+
+{% endblock %}
