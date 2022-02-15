@@ -95,7 +95,7 @@ p{
 @media (max-width: 770px) { 
 
     .texte{
-        background-image: url('../images/metro.png');
+        background-image: url('../images/metro6.png');
         border-radius: 15px;
         padding: 10px;
         color : $black;
@@ -106,7 +106,7 @@ p{
 }
 
 .texte{
-    background-image: url('../images/metro2.png');
+    background-image: url('../images/metro6.png');
     border-radius: 15px;
     padding: 10px;
     color : $black;
@@ -161,23 +161,23 @@ p{
     background-image: url('../images/bgViande.jpg');
     background-size: cover;
     background-position: center;
-      height: 800px;
-    // margin-left: -12px;
+      height: 1100px;
+    margin-left: -12px;
     
     // height: 700px;
-    margin-left: -12px;
+    // margin-left: -12px;
     // margin-right: -10px;
 
 }
 .containerPhotoTexte {
-    height: 500px;
-    display: flex;
+    // height: 500px;
+    // display: flex;
     text-align: center;
-    justify-content: space-between ;
+    // justify-content: space-between ;
     margin-top: 13px;
 
         @media (max-width: 980px) {
-            flex-flow: column wrap;
+            // flex-flow: column wrap;
             height: 800px;
     }
 }
@@ -215,30 +215,37 @@ p{
     font-weight: 400;
     text-align: center;
     padding: 10px;
-    height: 300px;
+    height: auto;
     margin: auto;
-
+    @media (max-width: 370px) {
+        font-size : 15px;
 }
+}
+
+
 .textePresentation {
     background-color: #0000006b;
     border-radius: 5px;
-    margin-left: 20px;
-    margin-top: 30px;   
+    // margin-left: 20px;
+    margin-top: 30px; 
+      
 }
 // .centre {
 //     text-align: center;
 // }
 
 .photoBenoitPaux {
-    height: 400px;
+    height: auto;
     margin: auto;
     border-radius: 5px;
     padding-bottom: 20px;
 
     @media (max-width: 980px) {
-        height: 300px;
+        height: auto;
 }
 }
+
+
 
 
 // ****************************************style du footer *********************************
@@ -291,6 +298,12 @@ p{
     .foot{
         margin-bottom: 0px;
         font-size: 10px;
+    }
+}
+@media (max-width: 360px) { 
+    .foot{
+        margin-bottom: 0px;
+        font-size: 8px;
     }
 }
 
