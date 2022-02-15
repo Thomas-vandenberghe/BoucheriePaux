@@ -18,63 +18,83 @@
 
 {% block header %} 
 <header>
-    <nav class="navbar navbar-expand-md navbar-custom">
+    <nav class="navbar navbar-expand-md  navbar-dark navbar-custom ">
+    <div class="container">
         <a class="navbar-brand logo-navbar" href="{{ path('home') }}">
             <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="d-inline logo block align-text-top ">
         </a>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item ">
-                    <a class="nav-link navigation" href="#">Nos produits</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link navigation" href=" {{ path('presentation')}}">Qui sommes-nous?</a>
-                </li>
-            </ul>            
-            <form class="d-flex">
-                <button class="btn-connexion" type="submit">Se connecter</button>
-                <button class="btn-inscription" type="submit">S'inscrire</button>
-            </form>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navmenu">
+          <ul class="navbar-nav ms-auto ">
+            <li class="nav-item float-start">
+              <a class="nav-link navigation float-start" href="#">Nos produits</a>
+            </li>
+            <li class="nav-item  space-between">
+              <a class="nav-link mb-2 navigation " href="{{ path('presentation')}}">Qui sommes-nous?</a>
+              </li>
+              
+
+
+            <li class="nav-item">
+              <button class="btn btn-connexion   navigation " type="submit">Connexion</button>
+            </li>
+            <li class="nav-item">
+            <button class="btn btn-inscription   navigation" type="submit">S'inscrire</button>
+            </li>
+          </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
 </header>
+
+
 {% endblock %}
 
 {# ************************* block photo page d'accueil ************************************ #}
 
 {% if block('photoPageAccueil') is defined %}
-        <div class="container-fluide">
+        
         <div class="row g-0">
-            <div class="col-1 bordure-photo-accueil bg-dark"></div>
-            <div class="col-10">
+            <div class="col-md-1 bordure-photo-accueil gx-0 bg-dark"></div>
+            <div class="col-md-10">
                 <img src="{{ asset('build/images/devanture.png')}}" class="imageDevanture" alt="devanture">
             </div>
-            <div class="col-1 bordure-photo-accueil bg-dark"></div>
+            <div class="col-md-1 bordure-photo-accueil2 gx-0 bg-dark"></div>
         </div>
     </div>
 
-        <div class="container-fluide">
             <div class="row g-0">
-                <div class="col-1 bordure-photo-accueil bg-dark"></div>
-                    <div class="col-10">
-                        <div class=" col-10 presentationAccueil">
+                <div class="col-md-1 bordure-photo-accueil gx-0 bg-dark"></div>
+                    <div class="col-md-10">
+                        <div class=" col-md-10 presentationAccueil">
                             <div>
-                                <img src="{{ asset('build/images/metro.png')}}" class="imageMetro" alt="carrelage-metro"> 
+                                {# <img src="{{ asset('build/images/metro.png')}}" class="imageMetro img-fluid" alt="carrelage-metro">  #}
                             </div>
-                            <div class="texteAccueil">
-                                <p> La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter.</p>
+                            
+                            <div class="texteAccueil ">
+                                <p class="col-sm-6 mx-auto fs-3 mt-4 "> La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter.</p>
                             </div>
                         </div>
                     </div>
-                <div class="col-1 bordure-photo-accueil bg-dark"></div>
+                <div class="col-md-1 bordure-photo-accueil2 gx-0  bg-dark"></div>
             </div>
-        </div>
+        
 {% endif %}
 
 {# ************************************** page de presentation **************************** #}
 
 {% if block('presentation') is defined %}
-        <div class="container-fluide">
+        <div class="container-fluid">
             <div class="row g-0">
                 <div class="infoGenerale">
                     <div>
@@ -95,12 +115,13 @@
     
 {% endif %}
 
+    </body>
 {# **************************** block footer *********************************************** #}
 
 {% block footer %}
-        <footer class="footer-custom">
-            <div class="container text-white">
-                <div class="row">
+        <footer class="footer-custom position-absolute ">
+            
+                <div class="row text-white">
                     <div class="col-2">
                         <div>
                             <a href="#">
@@ -109,7 +130,7 @@
                         </div>
                     </div>
                     <div class="col-3 contact">
-                        <p>Téléphone: 03.21.95.21.54</p>  
+                        <span>Téléphone: 03.21.95.21.54</span>  
                         <p> Mail: xxxxxxx@xxxx.fr</p>
                     </div>
                     <div class="col-4 logo-cvg">
@@ -119,7 +140,7 @@
                         </a>
                     </div>
                     <div class="col-3 horaires">
-                        <p>Horaires: </p>
+                        <span>Horaires: </span>
                         <p>Du <span class="jours-ouverts">lundi au samedi </span> de 07h00 à 12h30 et de 14h30 à 19h00. </p>
                         
                     </div>
@@ -128,5 +149,4 @@
         </footer>
 {% endblock %}
 
-    </body>
 </html>

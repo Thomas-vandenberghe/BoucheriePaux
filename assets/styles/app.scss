@@ -6,9 +6,23 @@ $white: #ffffff;
 $black: #000000;
 $dore: #c0aa30;
 
-// body {
-//     overflow: hidden;
-// }
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    // overflow-y: hidden;
+    width: auto;
+    margin-bottom: -10px;
+}
+
+html{
+    // height: auto;
+    position: relative;
+    
+}
+p{
+    margin-bottom: -10px;
+}
 
 // *********************** style de la navbar ********************************
 .navbar-custom {
@@ -19,12 +33,13 @@ $dore: #c0aa30;
     color: $white;
     margin-left: 20px;
     font-size: 20px;   
+    // width: auto;
         
         &:visited {
             color: $white;
         }
         &:hover {
-            border-bottom: 2px solid $dore;
+            border-bottom: 1px solid $dore;
         }
 }
 .logo-navbar {
@@ -37,8 +52,9 @@ $dore: #c0aa30;
     color: $white;
     font-weight: bold;
     background-color: $dore;
-    padding: 10px 30px;
-    margin-right: 20px;
+    padding: 10px 16px;
+    margin-right: 5px;
+    margin-top:5px;
     border: none;
     border-radius: 5px;
 
@@ -53,10 +69,11 @@ $dore: #c0aa30;
     color: $black;
     font-weight: bold;
     background-color: #fff;
-    padding: 0 30px;
+    padding: 10px 30px;
     border: none;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
+    margin-top:5px;
 
         &:hover {
             color:$white;
@@ -67,32 +84,42 @@ $dore: #c0aa30;
 // **************************************style image page d'accueil ************************
 
 .imageDevanture {
-    height: 410px;
+    height: auto;
     width: 100%;
     background-position: center;
     background-size: cover;
 }
 .bordure-photo-accueil {
     background-color: $black;
+    
+    
+}
+.bordure-photo-accueil2 {
+    background-color: $black;
+     
+    
 }
 .presentationAccueil {
     position: relative;
-    height: 150px;
+    height: 350px;
+    
     width: 100%;
 }
 .imageMetro {
     position: absolute;
+    background-position: center;
+    background-size: cover;
     width: 100%;
-    height: 150px;
+    height: auto;
     z-index: 1;
 }
 .texteAccueil {
     position: absolute;
     z-index: 2;
-    margin: 25px 150px;
+    height: 200px;
     text-align: center;
-    font-size: 27px;
-    font-weight: 600;
+    // font-size: 27px;
+    // font-weight: 600;
     font-family: 'Patrick Hand', cursive;
     color: $black;
 }
@@ -138,12 +165,13 @@ $dore: #c0aa30;
 
 // ****************************************style du footer *********************************
 .footer-custom {
-    // position: absolute;
+    //  position: absolute;
     // z-index: 3;
     width: 100%;
     height: 120px;
     background-color: $black;
     padding-top: 25px;
+    
 }
 .lien-CVG {
     color: $dore;
@@ -171,6 +199,4 @@ $dore: #c0aa30;
 .horaire {
     text-align: center;
 }
-
-
 
