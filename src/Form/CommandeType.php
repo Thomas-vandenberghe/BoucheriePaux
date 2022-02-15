@@ -19,16 +19,13 @@ class CommandeType extends AbstractType
         $user = $options['user'];
 
         $builder
-            ->add('finishedAt', DateType::class,[
+            ->add('finishedAt', TextType::class,[
                 'label'=> 'Date de retrait souhaitée',
                 'required'=> true,
-                'widget' => 'single_text',
-                // 'attr' => [
-                //     'min'=> ""
-                // ]
-            ])
-
-          
+                'attr'=>[
+                    'class'=>'datepicker'
+                ]
+            ])          
 
         ->add('submit', SubmitType::class,[
             'label'=>'Valider ma commande',
