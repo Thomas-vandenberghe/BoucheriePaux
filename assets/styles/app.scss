@@ -17,9 +17,10 @@ body {
     overflow-x: hidden;
     // position: relative;
     // background-color: $black;
-    // min-height:1400px;
+     min-height:auto;
     margin-right: -12px;
     height: auto;
+    margin-bottom: 40px ;
    
 }
 p{
@@ -94,9 +95,9 @@ p{
 @media (max-width: 770px) { 
 
     .texte{
-        background-image: url('../images/metro2.png');
+        background-image: url('../images/metro.png');
         border-radius: 15px;
-        padding: 5px;
+        padding: 10px;
         color : $black;
         font-weight:500;
          font-size: 15px;
@@ -107,7 +108,7 @@ p{
 .texte{
     background-image: url('../images/metro2.png');
     border-radius: 15px;
-    padding: 5px;
+    padding: 10px;
     color : $black;
     font-weight:500;
      font-size: 20x;
@@ -160,7 +161,7 @@ p{
     background-image: url('../images/bgViande.jpg');
     background-size: cover;
     background-position: center;
-     // height: 1400px;
+      height: 800px;
     // margin-left: -12px;
     
     // height: 700px;

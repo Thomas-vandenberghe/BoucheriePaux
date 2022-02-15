@@ -13,14 +13,14 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-<body class="pb-5 bg-dark">
+<body class="pb-5 bg-dark bodybase">
   
   {% block javascript %}{% endblock %}
         {# ********************** block header ****************************** #}
 
 {% block header %} 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-dark ">
     <div class="container">
         <a class="navbar-brand logo-navbar" href="{{ path('home') }}">
             <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="d-inline logo block align-text-top ">
@@ -94,14 +94,14 @@
       <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
           <div>
-            <h1 class="dore text-center my-2">Boucher - Traiteur</h1>
+            <h1 class="dore text-center my-2 mt-3">Boucher - Traiteur</h1>
             
             <p class="lead my-0 my-lg-5 text-center m-5 texte">
               La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter. Dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. 
             </p>
             </div>
           <img
-            class="img-fluid w-50 d-none d-md-block mb-5 mt-5"
+            class="img-fluid col-5 d-none d-md-block mb-5 mt-5"
             src="{{ asset('build/images/viande1.jpg')}}"
             alt=""
           />
@@ -117,7 +117,7 @@
         <div class="d-sm-flex align-items-center justify-content-between">
 
         <img
-            class="img-fluid w-50 d-none d-md-block mb-5"
+            class="img-fluid col-5 d-none d-md-block mb-5"
             src="{{ asset('build/images/viande2.jpg')}}"
             alt=""
           />
@@ -183,8 +183,6 @@
 
 {% endblock %}
 
-
     </body>
     {% block script %}{% endblock %}
-
 </html>
