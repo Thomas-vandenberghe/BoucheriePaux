@@ -357,3 +357,19 @@ p{
     filter: brightness(100%);
     border-radius: 2%;
 }
+// *********************************** style du panier **********************
+.titrePanier {
+    text-align: center;
+}
+.enteteTableau {
+    color: $dore;
+}
+.lienX {
+    text-decoration: none;
+}
+.imgPanier {
+    filter: invert(100%);
+}
+.containerValidation {
+    height: 220px;
+}
