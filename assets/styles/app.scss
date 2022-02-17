@@ -420,3 +420,22 @@ filter: invert(100%)
     width: 50%;
     margin: 50px auto;
 }
+.articleSimple {
+    background-image: url('../images/metro6.png');
+    background-size: 200%;
+    border-radius: 10px;
+    // background-repeat: no-repeat;
+
+    @media (max-width: 768px) { 
+        background-size: 400%;
+    }
+
+    @media (max-width: 360px) { 
+        background-size: 450%;
+    }
+
+    @media (max-width: 310px) { 
+        background-size: 500%;
+    }
+
+}
