@@ -3,13 +3,16 @@
 {% block title %}Mon panier{% endblock %}
 
 {% block body %}
-<h1>Mon panier</h1>
-<hr>
+
+<div class="container text-light">
+
+<h1 class="mt-4 titrePanier">Mon panier</h1>
+<br> <br>
 
 {% if panier|length > 0 %}
 
-    <table class="table mt-3">
-    <thead>
+    <table class="table mt-2 table table-dark table-hover">
+    <thead class="headPanier">
         <tr>
         <th scope="col">Produit</th>
         <th scope="col"></th>
@@ -36,18 +39,18 @@
         </td>
 
         <td>
-            <a href="{{path('panier-reduire', {'id' : produit.produit.id }) }} ">
-                <img src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">   
+            <a class="quantite" href="{{path('panier-reduire', {'id' : produit.produit.id }) }} ">
+                <img class="imgPanier" src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction" >   
             </a>
                 x {{produit.quantity}}
-            <a href="{{path('panier-ajouter', {'id' : produit.produit.id }) }}">
-                <img src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">   
+            <a class="quantite" href="{{path('panier-ajouter', {'id' : produit.produit.id }) }}">
+                <img class="imgPanier" src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">   
             </a>
         </td>
 
         <td>{{(produit.produit.priceQuantity / 100)|number_format(2, ',', '.')}} €</td>
         <td>{{((produit.produit.priceQuantity * produit.quantity)/ 100 )|number_format(2, ',', '.') }} €</td>
-        <td> <a href="{{path('panier-supprimer', {'id': produit.produit.id})}}"> <img src="{{ asset('assets/images/delete.png') }}" height="18px" alt="supression"></a> </td>
+        <td> <a href="{{path('panier-supprimer', {'id': produit.produit.id})}}"> <img class="imgPanier" src="{{ asset('assets/images/delete.png') }}" height="18px" alt="supression"></a> </td>
 
 
             {% set nb_produit = nb_produit + produit.quantity %}
@@ -57,20 +60,17 @@
     {% endfor %}
     </table>
 
-    <div class="mb-5  text-right">
-    <b>Nombre de produits :</b> {{ nb_produit }} <br>
-    <b>Totale de mon panier :</b> {{(total / 100 )|number_format(2, ',', '.') }} € <br>
-    <a href=" {{path('commande')}} "class="btn btn-success btn-block mt-2">Valider mon panier</a>
-
+    <div class="mb-8 pb-5 float-end containerValidation">
+        <b>Nombre de produits :</b> {{ nb_produit }} <br>
+        <b>Totale de mon panier :</b> {{(total / 100 )|number_format(2, ',', '.') }} € <br>
+        <a href=" {{path('commande')}} "class="btn btn-block mt-2 btn-connexion">Valider mon panier</a>
     </div>
-
 
     
     {% else %}
         <hr>
         <b><p>Votre panier est vide</p></b>
     {% endif %} 
-
-
+</div>
 {% endblock %}
 

@@ -314,3 +314,19 @@ p{
     margin-right: 10%;
     width: 80%;
 }
+// ******************************* mise en page du panier ******************
+.imgPanier {
+    filter: invert(100%);
+}
+.headPanier {
+    color:$dore;
+}
+.quantite {
+    text-decoration: none;
+}
+.containerValidation {
+    height: 220px;
+}
+.titrePanier {
+    text-align: center;
+}
