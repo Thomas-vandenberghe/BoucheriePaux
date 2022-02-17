@@ -14,7 +14,7 @@
     <table class="table table-dark table-hover mt-3">
     <thead class="enteteTableau">
         <tr>
-        <th scope="col">Produit</th>
+        <th class="textProduit" scope="col">Produit</th>
         <th scope="col"></th>
         <th scope="col">Qantité</th>
         <th scope="col">Prix</th>
@@ -31,8 +31,8 @@
     
          <tr>
         
-        <td>
-        <img src="/uploads/{{produit.produit.illustration}}" alt="nom" height='75px'>  <br>
+        <td class="imgPanier">
+        <img  src="/uploads/{{produit.produit.illustration}}" alt="nom" height='75px'>  <br>
         </td>
         <td>{{produit.produit.name}} <br>
             <small> {{produit.produit.subtitle}}</small>
@@ -40,17 +40,17 @@
 
         <td>
             <a class="lienX" href="{{path('panier-reduire', {'id' : produit.produit.id }) }}">
-                <img class="imgPanier" src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">   
+                <img class="iconPanier" src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">   
             </a>
                 x {{produit.quantity}}
             <a class="lienX" class="quantite" href="{{path('panier-ajouter', {'id' : produit.produit.id }) }}">
-                <img class="imgPanier" class="imgPanier" src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">   
+                <img class="iconPanier" class="imgPanier" src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">   
             </a>
         </td>
 
         <td>{{(produit.produit.priceQuantity / 100)|number_format(2, ',', '.')}} €</td>
         <td>{{((produit.produit.priceQuantity * produit.quantity)/ 100 )|number_format(2, ',', '.') }} €</td>
-        <td> <a class="lienX" href="{{path('panier-supprimer', {'id': produit.produit.id})}}"> <img class="imgPanier" src="{{ asset('assets/images/delete.png') }}" height="18px" alt="supression"></a> </td>
+        <td> <a class="lienX" href="{{path('panier-supprimer', {'id': produit.produit.id})}}"> <img class="iconPanier" src="{{ asset('assets/images/delete.png') }}" height="18px" alt="supression"></a> </td>
 
 
             {% set nb_produit = nb_produit + produit.quantity %}
