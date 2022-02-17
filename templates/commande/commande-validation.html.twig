@@ -2,76 +2,86 @@
 
 {% block javascript %}
 	<script src="https://js.stripe.com/v3/"></script>
+
+
 {% endblock %}
 
 {% block title %}Valider ma commande{% endblock %}
 
 {% block body %}
+<div class="text-light">
 <h2>Mon récapitulatif</h2>
 <p>Vérifiez vos préférences avant de payer votre commande.</p>
 <hr>
 <div class="row">
 
-<div class="col-md-6">
-<strong> Votre date de retrait :</strong> {{commande.finishedAt|date('d-m-Y')}}
-</div>
+    <div class="col-md-6">
+    <strong> Votre date de retrait :</strong> {{commande.finishedAt|date('d-m-Y')}}
+    </div>
+
+
+
 
     
         <div class="col-md-6">
             <b>Ma commande</b> <br>
         
+            <div class="col-md-6">
+                <b>Ma commande</b> <br>
+            
 
-       <div class="order-summary">
-       {% set total = null %}
-            {% for produit in panier %}
-                <div class="row mt-2" >
-                    <div class="col-2">
-                        <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" height='75px'>
+        <div class="order-summary">
+        {% set total = null %}
+                {% for produit in panier %}
+                    <div class="row mt-2" >
+                        <div class="col-2">
+                            <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" height='75px'>
+                        </div>
+                        <div class="col-8 my-auto">
+                            {{produit.produit.name}} <br>
+                            <small>{{produit.produit.subtitle}}
+                            <br> x {{produit.quantity}}</small>
+                        </div> 
+                        <div class="col-2 my-auto">
+                    <p>Sous-total : {{((produit.produit.priceQuantity * produit.quantity)/ 100 )|number_format(2, ',', '.') }} €</p>
+                        </div>
                     </div>
-                    <div class="col-8 my-auto">
-                        {{produit.produit.name}} <br>
-                        <small>{{produit.produit.subtitle}}
-                        <br> x {{produit.quantity}}</small>
-                    </div> 
-                    <div class="col-2 my-auto">
-                   <p>Sous-total : {{((produit.produit.priceQuantity * produit.quantity)/ 100 )|number_format(2, ',', '.') }} €</p>
-                    </div>
+                    {% set total = total + produit.produit.priceQuantity * produit.quantity %}
+                {% endfor %}
                 </div>
-                {% set total = total + produit.produit.priceQuantity * produit.quantity %}
-            {% endfor %}
             </div>
         </div>
-    </div>
-    <hr>
-    <strong>Total : </strong>{{(total / 100 )|number_format(2, ',', '.') }} €
-    <hr>
-   
+        <hr>
+        <strong>Total : </strong>{{(total / 100 )|number_format(2, ',', '.') }} €
+        <hr>
+    
 
-        <a id="checkout-button" class="btn btn-success btn-block mt-3">Payer | {{(total / 100 )|number_format(2, ',', '.') }} €</a>
-
-    </div>
+            <a id="checkout-button" class="btn btn-success btn-block mt-3">Payer | {{(total / 100 )|number_format(2, ',', '.') }} €</a>
 </div>
-{% endblock %}
+        </div>
+    </div>
+    {% endblock %}
 
-{% block script %}
-	<script type="text/javascript">
-		const stripe = Stripe("pk_test_51KNvM5HEXSAkgjcrCFbgGosEFP3xkE2QDK2PRGcBstCx7fPMLd469zzQ5ri9looB2DFpnvvHNhiLwoUiry45T78X00sk9fC5nW");
-		const checkoutButton = document.getElementById("checkout-button");
-		checkoutButton.addEventListener("click", function () {
-			fetch("/commande/create-session/{{reference}}", {method: "POST"})
-				.then(function (response) {
-					return response.json();})
-				.then(function (session) {
-					if(session.error === 'commande'){
-						windows.location.replace('{{path('commande')}}')
-					}
-					return stripe.redirectToCheckout({sessionId: session.id});})
-				.then(function (result) {
-					if (result.error) {
-						alert(result.error.message);
-					}})
-				.catch(function (error) {
-					console.error("Error:", error);});
-		});
-	</script>
+    {% block script %}
+        <script type="text/javascript">
+            const stripe = Stripe("pk_test_51KNvM5HEXSAkgjcrCFbgGosEFP3xkE2QDK2PRGcBstCx7fPMLd469zzQ5ri9looB2DFpnvvHNhiLwoUiry45T78X00sk9fC5nW");
+            const checkoutButton = document.getElementById("checkout-button");
+            checkoutButton.addEventListener("click", function () {
+                fetch("/commande/create-session/{{reference}}", {method: "POST"})
+                    .then(function (response) {
+                        return response.json();})
+                    .then(function (session) {
+                        if(session.error === 'commande'){
+                            windows.location.replace('{{path('commande')}}')
+                        }
+                        return stripe.redirectToCheckout({sessionId: session.id});})
+                    .then(function (result) {
+                        if (result.error) {
+                            alert(result.error.message);
+                        }})
+                    .catch(function (error) {
+                        console.error("Error:", error);});
+            });
+        </script>
+</div>
 {% endblock %}

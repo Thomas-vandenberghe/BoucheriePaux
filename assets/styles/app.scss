@@ -2,6 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
+
+
+
 $white: #ffffff;
 $black: #000000;
 $border :#181818;
@@ -14,8 +17,11 @@ body {
     overflow-x: hidden;
     // position: relative;
     // background-color: $black;
-    min-height:auto;
+     min-height:auto;
     margin-right: -12px;
+    height: auto;
+    margin-bottom: 40px ;
+   
 }
 p{
     margin: 0;
@@ -38,7 +44,7 @@ p{
             color: $white;
         }
         &:hover {
-            border-bottom: 2px solid $dore;
+            border-bottom: 1px solid $dore;
         }
 }
 .logo-navbar {
@@ -51,8 +57,9 @@ p{
     color: $white;
     font-weight: bold;
     background-color: $dore;
-    padding: 10px 30px;
-    margin-right: 20px;
+    padding: 10px 16px;
+    margin-right: 5px;
+    margin-top:5px;
     border: none;
     border-radius: 5px;
 
@@ -66,10 +73,11 @@ p{
     color: $black;
     font-weight: bold;
     background-color: #fff;
-    padding: 0 30px;
+    padding: 10px 30px;
     border: none;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
+    margin-top:5px;
 
         &:hover {
             color:$white;
@@ -77,13 +85,19 @@ p{
             border: 3px solid $dore;
         }
 }
+
+@media (min-width: 990px)  {
+    .navbar-collapse {
+        display: none !important;
+    }
+ }
 // **************************************style image page d'accueil ************************
 @media (max-width: 770px) { 
 
     .texte{
-        background-image: url('../images/metro2.png');
+        background-image: url('../images/metro6.png');
         border-radius: 15px;
-        padding: 5px;
+        padding: 10px;
         color : $black;
         font-weight:500;
          font-size: 15px;
@@ -92,9 +106,9 @@ p{
 }
 
 .texte{
-    background-image: url('../images/metro2.png');
+    background-image: url('../images/metro6.png');
     border-radius: 15px;
-    padding: 5px;
+    padding: 10px;
     color : $black;
     font-weight:500;
      font-size: 20x;
@@ -120,6 +134,8 @@ p{
 }
 .imageMetro {
     position: absolute;
+    background-position: center;
+    background-size: cover;
     width: 100%;
     height: 350px;
     z-index: 1;
@@ -127,7 +143,7 @@ p{
 .texteAccueil {
     position: absolute;
     z-index: 2;
-    margin: 25px 150px;
+    height: 200px;
     text-align: center;
     
     font-weight: 600;
@@ -145,20 +161,23 @@ p{
     background-image: url('../images/bgViande.jpg');
     background-size: cover;
     background-position: center;
-    // height: 700px;
+      height: 1100px;
     margin-left: -12px;
+    
+    // height: 700px;
+    // margin-left: -12px;
     // margin-right: -10px;
 
 }
 .containerPhotoTexte {
-    height: 500px;
-    display: flex;
+    // height: 500px;
+    // display: flex;
     text-align: center;
-    justify-content: space-between ;
+    // justify-content: space-between ;
     margin-top: 13px;
 
         @media (max-width: 980px) {
-            flex-flow: column wrap;
+            // flex-flow: column wrap;
             height: 800px;
     }
 }
@@ -196,30 +215,37 @@ p{
     font-weight: 400;
     text-align: center;
     padding: 10px;
-    height: 300px;
+    height: auto;
     margin: auto;
-
+    @media (max-width: 370px) {
+        font-size : 15px;
 }
+}
+
+
 .textePresentation {
     background-color: #0000006b;
     border-radius: 5px;
-    margin-left: 20px;
-    margin-top: 30px;   
+    // margin-left: 20px;
+    margin-top: 30px; 
+      
 }
 // .centre {
 //     text-align: center;
 // }
 
 .photoBenoitPaux {
-    height: 400px;
+    height: auto;
     margin: auto;
     border-radius: 5px;
     padding-bottom: 20px;
 
     @media (max-width: 980px) {
-        height: 300px;
+        height: auto;
 }
 }
+
+
 
 
 // ****************************************style du footer *********************************
@@ -232,6 +258,8 @@ p{
     padding-top: 9px;
     padding-bottom: 3px;
     bottom: 0;
+    // margin-top :90px; ---------------------------------
+    
     margin-top :30px;
     // padding-top: 25px;
 
@@ -272,6 +300,12 @@ p{
         font-size: 10px;
     }
 }
+@media (max-width: 360px) { 
+    .foot{
+        margin-bottom: 0px;
+        font-size: 8px;
+    }
+}
 
 //*************************************** CATALOGUE*********************************************
 .produit-item h5 {
@@ -305,8 +339,9 @@ p{
 }
 
 .imgSize{
-    // height: 200px;
-    width: 300px;
+    height: 200px;
+    background-position:center;
+    background-size: cover;
 }
 
 .containerBase{
@@ -314,19 +349,11 @@ p{
     margin-right: 10%;
     width: 80%;
 }
-// ******************************* mise en page du panier ******************
-.imgPanier {
-    filter: invert(100%);
-}
-.headPanier {
-    color:$dore;
-}
-.quantite {
-    text-decoration: none;
-}
-.containerValidation {
-    height: 220px;
-}
-.titrePanier {
-    text-align: center;
+
+.card{
+    background-image: url('../images/metro6.png');
+    background-size: 400%;
+    background-repeat: no-repeat;
+    filter: brightness(100%);
+    border-radius: 2%;
 }
