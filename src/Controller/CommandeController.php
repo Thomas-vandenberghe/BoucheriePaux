@@ -83,7 +83,6 @@ class CommandeController extends AbstractController
             $this->entityManager->persist($DetailCommande);
         }
 
-        $this->entityManager->flush();
     
         return $this->render('commande/commande-validation.html.twig',[
             // 'form'=> $form->createView(),
