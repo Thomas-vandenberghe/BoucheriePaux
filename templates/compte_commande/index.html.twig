@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+
+<h1 class=" dore">Mes commandes</h1>
+<p class="text-light"> C'est dans cet espace que vous allez pouvoir gérer toutes vos commandes. </p>
+    <a href="{{path('mon-compte')}}" class="text-light">Retour</a> <br><br>
+    {% if commandes|length == 0  %}
+    <hr>
+        <p class= "text-center text-light">
+            Vous n'avez pas encore passé de commandes sur La Boutique Française.
+        </p>
+    {% else %}
+<table class="table mt-4 table-dark ">
+  <thead>
+    <tr>
+        <th scope="col">Référence</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Passée le</th>
+        <th scope="col">Produit(s)</th>
+        <th scope="col">Total</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for commande in commandes %}
+  
+    <tr class ="align-middle">
+      <td><span class="badge badge-primary">{{commande.reference}}</span></td>
+    
+    <td >
+        {% if commande.etat == 1 %}
+        Paiement accepté.
+        {% elseif commande.etat == 2 %}
+        Commande prête
+        {% endif %}
+    </td>
+      <td>{{commande.createdAt|date('d/m/Y')}}</td>
+      <td>{{commande.detailsCommandes|length}} </td>
+      <td  class ="align-middle">{{((commande.getTotal) / 100)|number_format(2, ',', '.')}} €</td>
+      <td class="text-right"><a class ="btn-connexion btn" href="{{path('compte-commande-afficher', {'reference': commande.reference})}}">Voir ma commande</a></td>
+    </tr>
+  
+  {% endfor %}
+  </tbody>
+</table>
+    
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commande{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="dore">Ma commande {{commande.reference}}</h1>
+    <a class="text-light" href="{{path('compte-commande')}}">Retour</a>
+    <hr>
+    <div class="text-light">
+    <strong class="text-light">Statut de la commande :</strong>
+    {% if commande.etat == 1 %}
+        Paiement accepté.
+        {% elseif commande.etat == 2 %}
+        Commande prête
+        {% endif %}
+        <br>
+        
+     <strong class="text-light"> Commande passée le :</strong> {{commande.createdAt|date('d/m/Y')}} <br>
+    <strong class="text-light">Référence de la commande :</strong> <small>{{commande.reference}}</small> <br>
+    <hr>
+    </div>
+    <strong class="text-light">Détails</strong>
+  
+<table class="table mt-4 table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Produit</th>
+      <th scope="col">Quantité </th>
+      <th scope="col">Prix par portion</th>
+      <th scope="col">Prix total</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for produit in commande.detailsCommandes %}
+
+    <tr >
+      <td >{{produit.product}}</td>
+      <td>{{produit.price}}</td>
+      <td>{{(produit.price / 100)|number_format(2, ',', ',')}} €</td>
+      <td>{{(produit.total / 100)|number_format(2, ',', ',')}} €</td>
+      
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="text-right text-light">
+    <strong >Total :</strong> {{(commande.getTotal / 100)|number_format(2, ',', ',')}} €<br>
+
+</div>
+</div>
+{% endblock %}

@@ -19,7 +19,7 @@ body {
     // background-color: $black;
      min-height:auto;
     margin-right: -12px;
-    height: auto;
+    min-height: 900px;
     margin-bottom: 40px ;
    
 }
@@ -251,6 +251,7 @@ p{
 // ****************************************style du footer *********************************
 .footer-custom {
     position: absolute;
+    
     // z-index: 3;
     width: 100%;
     height: 90px;
@@ -356,4 +357,8 @@ p{
     background-repeat: no-repeat;
     filter: brightness(100%);
     border-radius: 2%;
+}
+
+.couleur-icone{
+filter: invert(100%)
 }

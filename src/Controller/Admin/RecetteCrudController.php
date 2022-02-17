@@ -18,7 +18,7 @@ class RecetteCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            NumberField::new('quantity', 'Quantité requise'),
+            NumberField::new('quantity', 'Quantité requise (grammes)'),
             AssociationField::new('ingredient','Ingrédient'),
             AssociationField::new('produit','Produit correspondant à la recette'),
             

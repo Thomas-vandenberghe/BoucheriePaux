@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-7 my-auto">
         <h3 class=> {{produit.name}} </h3>
-        <p>{{produit.subtitle}}gr</p>
+        <p>{{produit.subtitle}} Gr</p>
         <span class="produit-page-price"> {{(produit.priceQuantity / 100)|number_format(2, ',', '.') }} €/portion  |  {% if produit.priceKg %}{{(produit.priceKg / 100)|number_format(2, ',', '.') }} €/kg{% endif %}</span> 
         <hr>
         <p>
