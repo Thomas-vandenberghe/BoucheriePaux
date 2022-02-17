@@ -19,6 +19,18 @@ class CommandeRepository extends ServiceEntityRepository
         parent::__construct($registry, Commande::class);
     }
 
+    public function findCommandesPayees($user)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.etat > 0')
+            ->andWhere('c.user = :user')
+            ->setParameter('user', $user)
+            ->orderBy('c.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
     // /**
     //  * @return Commande[] Returns an array of Commande objects
     //  */

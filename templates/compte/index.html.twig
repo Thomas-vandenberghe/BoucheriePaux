@@ -4,18 +4,17 @@
 
 {% block body %}
 
+<div class="container">
+<div class="mt-5  text-light">
 
-<div class="ms-3">
-
-<h1 class="text-center">Mon compte et tout ce qui va avec !</h1>
+<h1 class="text-center dore mb-5">Bienvenue dans votre espace</h1>
 
 
-
-<a href=""> Mes commandes</a><br>
-<a href="">Modifier mon mot de passe</a>
+<img src="{{ asset('assets/images/box-open-solid.svg')}}" height ="25px" class="couleur-icone me-2"> <a href="{{path('compte-commande')}}"> Mes commandes</a><br> <br>
+ <img src="{{ asset('assets/images/key-solid.svg')}}" height ="25px" class="couleur-icone me-2" > <a  href="#"> Modifier mon mot de passe</a> 
 <hr>
 
-<a href="{{path('deconnexion')}}" class="btn btn-success mt-3 mb-3">Se deconnecter</a>
+<a href="{{path('deconnexion')}}" class="btn btn-inscription mt-3 mb-3">Se déconnecter</a>
 </div>
-
+</div>
 {% endblock %}

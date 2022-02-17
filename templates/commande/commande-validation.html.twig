@@ -15,9 +15,9 @@
 <hr>
 <div class="row">
 
-    <div class="col-md-6">
-    <strong> Votre date de retrait :</strong> {{commande.finishedAt|date('d-m-Y')}}
-    </div>
+        <div class="col-md-6">
+        <strong> Votre date de retrait :</strong> {{commande.finishedAt|date('d-m-Y')}}
+        </div>
 
 
 
@@ -30,25 +30,25 @@
                 <b>Ma commande</b> <br>
             
 
-        <div class="order-summary">
-        {% set total = null %}
-                {% for produit in panier %}
-                    <div class="row mt-2" >
-                        <div class="col-2">
-                            <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" height='75px'>
-                        </div>
-                        <div class="col-8 my-auto">
-                            {{produit.produit.name}} <br>
-                            <small>{{produit.produit.subtitle}}
-                            <br> x {{produit.quantity}}</small>
-                        </div> 
-                        <div class="col-2 my-auto">
-                    <p>Sous-total : {{((produit.produit.priceQuantity * produit.quantity)/ 100 )|number_format(2, ',', '.') }} €</p>
-                        </div>
-                    </div>
+                 <div class="order-summary">
+                     {% set total = null %}
+                        {% for produit in panier %}
+                            <div class="row mt-2" >
+                                <div class="col-2">
+                                    <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" height='75px'>
+                                </div>
+                                <div class="col-8 my-auto">
+                                    {{produit.produit.name}} <br>
+                                     <small>{{produit.produit.subtitle}}
+                                    <br> x {{produit.quantity}}</small>
+                                </div> 
+                                <div class="col-2 my-auto">
+                                    <p>Sous-total : {{((produit.produit.priceQuantity * produit.quantity)/ 100 )|number_format(2, ',', '.') }} €</p>
+                                 </div>
+                            </div>
                     {% set total = total + produit.produit.priceQuantity * produit.quantity %}
                 {% endfor %}
-                </div>
+                 </div>
             </div>
         </div>
         <hr>
@@ -60,6 +60,7 @@
 </div>
         </div>
     </div>
+</div>
     {% endblock %}
 
     {% block script %}

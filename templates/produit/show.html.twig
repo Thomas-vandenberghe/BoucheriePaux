@@ -3,6 +3,9 @@
 {% block title %}{{produit.name}}{% endblock %}
 
 {% block body %}
+<div class="container  ">
+    <div class="row articleSimple p-5  text-dark  mt-5  mb-5 ">
+        <div class="col-md-4 ">
 
 <div class="row mb-5 text-light">
     <div class="col-md-5 ">
@@ -10,7 +13,7 @@
     </div>
     <div class="col-md-7 my-auto">
         <h3 class=> {{produit.name}} </h3>
-        <p>{{produit.subtitle}}gr</p>
+        <p>{{produit.subtitle}} Gr</p>
         <span class="produit-page-price"> {{(produit.priceQuantity / 100)|number_format(2, ',', '.') }} €/portion  |  {% if produit.priceKg %}{{(produit.priceKg / 100)|number_format(2, ',', '.') }} €/kg{% endif %}</span> 
         <hr>
         <p>
@@ -19,19 +22,31 @@
         <hr>
         <a href="{{path('panier-ajouter-vers-produits', {'id' : produit.id}) }}" class="btn btn-primary">Ajouter au panier</a>
 
-        {# {{path('add-to-cart', {'id': produit.id})  }} #}
+        <div class="col-md-4 my-auto">
+            <h3 class=> {{produit.name}} </h3>
+            <p>{{produit.subtitle}}</p>
+            <span class="produit-page-price"> {{(produit.priceQuantity / 100)|number_format(2, ',', '.') }} €/portion  {% if produit.priceKg %} | {{(produit.priceKg / 100)|number_format(2, ',', '.') }} €/kg{% endif %}</span> 
+            <br> <br>
+            <p>
+                {{produit.description}}
+            </p>
+            <br> <br>
+            <a href="{{path('panier-ajouter-vers-produits', {'id' : produit.id}) }}" class="btn btn-primary">Ajouter au panier</a>
 
+            {# {{path('add-to-cart', {'id': produit.id})  }} #}
+        </div>
     </div>
 </div>
-<hr>    
-{# <h2>Nos meilleures ventes</h2>
-         <p>Découvrez nos articles les plus vendues.</p>
-        <div class="row ">
+
+<div class="container text-light ">
+<h2>Nos meilleures ventes</h2>
+         <p>Découvrez nos produits les plus vendues.</p>
+        <div class="row d-flex justify-content-around mt-3">
             {% for produit in produits %}
-                <div class="col-md-3">
+                <div class="col-md-4 text-light card m-1 mb-4 " style="width: 300px">
                     {% include "produit/single_produit.html.twig" %}
                 </div>
             {% endfor %}
-        </div><!-- /.row --> #}
-
+        </div><!-- /.row -->
+</div>
 {% endblock %}

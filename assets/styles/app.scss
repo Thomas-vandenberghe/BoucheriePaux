@@ -19,7 +19,7 @@ body {
     // background-color: $black;
      min-height:auto;
     margin-right: -12px;
-    height: auto;
+    min-height: 900px;
     margin-bottom: 40px ;
    
 }
@@ -251,6 +251,7 @@ p{
 // ****************************************style du footer *********************************
 .footer-custom {
     position: absolute;
+    
     // z-index: 3;
     width: 100%;
     height: 90px;
@@ -356,4 +357,85 @@ p{
     background-repeat: no-repeat;
     filter: brightness(100%);
     border-radius: 2%;
+}
+
+.couleur-icone{
+filter: invert(100%)
+}
+// *********************************** style du panier **********************
+.titrePanier {
+    text-align: center;
+}
+.enteteTableau {
+    color: $dore;
+}
+.lienX {
+    text-decoration: none;
+}
+.iconPanier {
+    filter: invert(100%);
+    @media (max-width: 462px) {
+        height: 8px;
+
+}
+}
+.containerValidation {
+    height: 220px;
+}
+.imgPanier {
+    @media (max-width: 462px) {
+        display: none;
+}
+}
+.textProduit {
+    @media (max-width: 462px) {
+        display: none;
+}
+}
+.container {
+    @media (max-width: 462px) {
+        font-size: 10px;
+}
+}
+
+// ********************************** style des CGV **************************
+
+
+.h1Cgv {
+    color: $white;
+    margin: 30px 0;
+    text-align: center;
+}
+.h3Cgv {
+    margin: 10px 0;
+    text-decoration: underline;
+    color: $dore;
+}
+.texteCgv {
+    line-height: 30px;
+}
+.line {
+    height: 3px;
+    background-color: $white;
+    width: 50%;
+    margin: 50px auto;
+}
+.articleSimple {
+    background-image: url('../images/metro6.png');
+    background-size: 200%;
+    border-radius: 10px;
+    // background-repeat: no-repeat;
+
+    @media (max-width: 768px) { 
+        background-size: 400%;
+    }
+
+    @media (max-width: 360px) { 
+        background-size: 450%;
+    }
+
+    @media (max-width: 310px) { 
+        background-size: 500%;
+    }
+
 }
