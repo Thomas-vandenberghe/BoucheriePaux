@@ -16,7 +16,7 @@
         <tr>
         <th class="textProduit" scope="col">Produit</th>
         <th scope="col"></th>
-        <th scope="col">Qantité</th>
+        <th scope="col">Quantité</th>
         <th scope="col">Prix</th>
         <th scope="col">Total</th>
         <th scope="col"></th>
@@ -32,12 +32,12 @@
          <tr>
         
         <td class="imgPanier">
-        <img  src="/uploads/{{produit.produit.illustration}}" alt="nom" height='75px'>  <br>
+        <img  src="/uploads/{{produit.produit.illustration}}" alt="nom" height='100px' width='150px'>  <br>
         </td>
         <td>{{produit.produit.name}} <br>
-            <small> {{produit.produit.subtitle}}</small>
+            <small> {{produit.produit.subtitle}} Gr</small>
         </td>
-
+        
         <td>
             <a class="lienX" href="{{path('panier-reduire', {'id' : produit.produit.id }) }}">
                 <img class="iconPanier" src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">   

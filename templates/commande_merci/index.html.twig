@@ -3,16 +3,21 @@
 {% block title %}Confirmation de commande{% endblock %}
 
 {% block body %}
-<div class="text-light"> 
-
-    <h2>Confirmation de commande</h2>
-    <p>Bonjour {{commande.user.firstname}} {{commande.user.lastname}}, <br> <br>
-    Nous vous remercions pour votre commande n° <strong>{{commande.reference}}</strong>. <br>
-    Une confirmation vient de vous être envoyée par email <strong>{{commande.user.email}}</strong>.
-    <hr>
-    Vous pourrez passer prendre votre commande le {{commande.finishedAt|date('d-m-Y')}}.
-    <hr>
-    Pour suivre votre commande rendez-vous dans <a href="{{path('mon-compte') }}">votre compte</a>.
-    </p>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+            <div class="text-light col-8"> 
+                <h2 class= "dore text-center mt-5 mb-3">Confirmation de commande</h2><br>
+                <h5><p>Merci {{commande.user.firstname}} !</h5><br> 
+                Votre commande n° <strong>{{commande.reference}}</strong> a bien été prise en compte. <br>
+                Une confirmation vient de vous être envoyée par email à <strong>{{commande.user.email}}</strong>.
+                <hr>
+                Vote commande sera disponible le {{commande.finishedAt|date('d-m-Y')}}.
+                <hr>
+                Pour plus d'informations, rendez-vous dans <a class="dore" href="{{path('mon-compte') }}">votre compte</a>.
+                </p>
+            </div>
+        <div class="col-2"></div>
+    </div>
 </div>
 {% endblock %}
