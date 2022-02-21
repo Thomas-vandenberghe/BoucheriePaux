@@ -35,7 +35,7 @@
         {% if commande.etat == 1 %}
         Paiement accepté.
         {% elseif commande.etat == 2 %}
-        Commande prête
+        Commande prête  <img src="/assets/images/check.svg" height="20px" alt="checked">
         {% endif %}
     </td>
       <td>{{commande.createdAt|date('d/m/Y')}}</td>

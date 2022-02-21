@@ -38,7 +38,7 @@
   </script>
 
 <div class='text-center mt-5  '>
-    <b class="dore  fs-2 mb-5"> <u> Récapitulatif de ma commande </u></b> <br>
+    <b class="dore  fs-2 mb-5">Récapitulatif de ma commande</b> <br>
     <p class= "fs-3 text-light mb-5 mt-3"> Quand retirer ma commande ? </p>
     <hr class="bg-light col-6 mx-auto">
 </div>
@@ -68,7 +68,7 @@
         <div class="order-summary ms-4 text-light ">
                 {% for produit in panier %}
                     <div class="row mt-2 mb-2" >
-                        <div class ="col-2"></div>
+                        <div class ="col-1"></div>
                             <div class="col-md-4">
                                 <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" width='200px' height="133px" style="border-radius:3px">
                             </div>
@@ -76,8 +76,11 @@
                             {{produit.produit.name}} <br>
                             <small>{{produit.produit.subtitle}} Gr</small>
                         </div> 
+                        <div class="col-1 my-auto">
+                            x{{produit.quantity}} 
+                        </div>
                         <div class="col-2 my-auto">
-                            x {{produit.quantity}} 
+                             {{(produit.produit.priceQuantity / 100 )|number_format(2, ',', '.') }}€
                         </div>
                     </div>
                 {% endfor %}
