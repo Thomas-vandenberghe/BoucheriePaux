@@ -20,17 +20,19 @@ class CommandeType extends AbstractType
 
         $builder
             ->add('finishedAt', TextType::class,[
-                'label'=> 'Date de retrait souhaitée',
+                'label'=> false,
                 'required'=> true,
                 'attr'=>[
-                    'class'=>'datepicker'
+                    'class'=>'datepicker',
+                    
+
                 ]
             ])          
 
         ->add('submit', SubmitType::class,[
-            'label'=>'Valider ma commande',
+            'label'=>'Valider cette date',
             'attr'=>[
-                'class'=>'btn btn-success btn-block'
+                'class'=>'btn btn-connexion mt-3 d-flex justify-content-center mx-auto'
             ]
         ])
         ;
