@@ -29,6 +29,9 @@ p{
 .dore{
     color: $dore;
 }
+.black{
+    color: $black;
+}
 
 // *********************** style de la navbar ********************************
 .navbar-custom {
@@ -84,6 +87,11 @@ p{
             background-color: $black;
             border: 3px solid $dore;
         }
+}
+.btn-centre {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 @media (min-width: 990px)  {
@@ -309,6 +317,16 @@ p{
 }
 
 //*************************************** CATALOGUE*********************************************
+.filtre{
+    background-color: $black;
+    border-radius: 3px;
+}
+.bgFiltre{
+background-color: $dore;
+border-radius: 3px;
+max-width: 280px;
+min-width: 170px;
+}
 .produit-item h5 {
     text-transform: uppercase;
     font-size: 15px;
@@ -394,7 +412,7 @@ filter: invert(100%)
 }
 .container {
     @media (max-width: 462px) {
-        font-size: 10px;
+        font-size: 12px;
 }
 }
 
@@ -420,6 +438,10 @@ filter: invert(100%)
     width: 50%;
     margin: 50px auto;
 }
+
+
+// -------------------Vue simple--------------------------
+
 .articleSimple {
     background-image: url('../images/metro6.png');
     background-size: 200%;
@@ -439,3 +461,37 @@ filter: invert(100%)
     }
 
 }
+
+
+//-----------------------------------DATEPICKER CSS-------------------------------------------
+
+.ui-widget-header{
+    background-color: $black !important ; 
+    color: $dore !important;
+}
+.ui-widget-content{
+    background-color: $dore !important;
+    color: $white !important;
+}
+table.ui-datepicker-calendar{
+    background-color: $black !important ; 
+    color: $dore !important;
+}
+.ui-state-default{
+    background-color: $dore !important;
+    color: $white !important;
+    
+}
+.ui-state-unselectable{
+    background-color: $dore !important;
+
+}
+.ui-state-disabled{
+    opacity: .30 !important;
+    font-weight:lighter !important;
+}
+.ui-state-active{
+    color: $black !important;
+    font-weight: 600 !important;
+}
+

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -41,6 +42,11 @@ class UserController extends AbstractController
 
                     $this->entityManager->persist($user);
                     $this->entityManager->flush();
+
+                    $mail = new Mail();
+                    $content = "Bonjour ".$user->getFirstname()."<br/> Bienvenue sur le site de la  boucherie Paux.<br/> Votre inscription a bien été prise en compte, vous pouvez dès à présent profiter des fonctionnalités que vous offre le site";
+                    
+                    $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur La Boucherie Paux', $content);
 
                     $this->addFlash('success', 'Votre inscription a bien été prise en compte. Vous pouvez déjà vous connecter.');
 
