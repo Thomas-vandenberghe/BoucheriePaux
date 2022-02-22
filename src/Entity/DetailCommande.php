@@ -10,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class DetailCommande
 {
+
+
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

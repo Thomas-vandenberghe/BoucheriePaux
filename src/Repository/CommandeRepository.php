@@ -25,10 +25,24 @@ class CommandeRepository extends ServiceEntityRepository
             ->andWhere('c.etat > 0')
             ->andWhere('c.user = :user')
             ->setParameter('user', $user)
-            ->orderBy('c.id', 'DESC')
             ->getQuery()
             ->getResult();
     }
+
+
+    public function findCommandesSemaine( $date)
+    {
+        return $this->createQueryBuilder('c')
+        ->andWhere('c.finishedAt = :finishedAt')
+        ->setParameter('finishedAt', $date)
+        ->orderBy('c.id', 'DESC')
+        ->getQuery()
+        ->getResult();
+
+    }
+
+
+
 
 
     // /**

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use DateTime;
+
 use App\Classe\Panier;
 use App\Entity\Commande;
 use App\Form\CommandeType;
@@ -52,12 +52,12 @@ class CommandeController extends AbstractController
         {
             
 
-            $createdAt = new DateTime();
+            $createdAt =  Date('Y-m-d');
             $finishedAt = $form->get('finishedAt')->getData();
 
              // enregistrer ma commade Order
              $commande = new Commande();
-             $reference =  $createdAt->format('dmY').'-'.uniqid();
+             $reference =  $createdAt.'-'.uniqid();
              $commande->setReference($reference);
              $commande->setUser($this->getUser());
              $commande->setCreatedAt($createdAt);

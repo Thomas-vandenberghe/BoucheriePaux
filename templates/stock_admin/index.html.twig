@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StockAdminController!{% endblock %}
+
+{% block body %}
+{% for produits in com %}
+    <p class="text-light">{{ produits.product }}</p>
+{% endfor %}
+    
+
+
+{% endblock %}
