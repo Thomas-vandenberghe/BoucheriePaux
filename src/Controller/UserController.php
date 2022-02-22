@@ -44,7 +44,7 @@ class UserController extends AbstractController
                     $this->entityManager->flush();
 
                     $mail = new Mail();
-                    $content = "Bonjour ".$user->getFirstname()."<br/> Bienvenue sur le site de la  boucherie Paux.<br/> Votre inscription a bien été prise en compte, vous pouvez dès à présent profiter des fonctionnalités que vous offre le site";
+                    $content = "Bonjour ".$user->getFirstname()."<br/><br/> Bienvenue sur le site de la  boucherie Paux.<br/><br/> Votre inscription a bien été prise en compte, vous pouvez dès à présent profiter des fonctionnalités que vous offre le site";
                     
                     $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur La Boucherie Paux', $content);
 

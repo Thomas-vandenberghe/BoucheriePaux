@@ -52,17 +52,17 @@ class CommandeController extends AbstractController
         {
             
 
-            $createdAt = new DateTime();
+            $createdAt = Date('Y-m-d');
             $finishedAt = $form->get('finishedAt')->getData();
 
              // enregistrer ma commade Order
              $commande = new Commande();
-             $reference =  $createdAt->format('dmY').'-'.uniqid();
+             $reference =  $createdAt.'-'.uniqid();
              $commande->setReference($reference);
              $commande->setUser($this->getUser());
              $commande->setCreatedAt($createdAt);
              $commande->setFinishedAt($finishedAt);
-            
+
              $commande->setEtat(0);
  
              $this->entityManager->persist($commande);

@@ -33,17 +33,17 @@ class CommandeMerciController extends AbstractController
         if ($commande->getEtat() == 0) {
 
         // Vider la SessionCart.
-          $panier->vider();   
+        $panier->vider();   
 
          //Modifier le statut isPaid de notre commande en passanr le boolean à 1
-         $commande->setEtat(1);
-         $this->entityManager->flush();
+        $commande->setEtat(1);
+        $this->entityManager->flush();
 
         //Envoyer un mail a notre client pour valider sa commande
         
         $mail = new Mail();
 
-        $content = "Bonjour ".$commande->getUser()->getFirstname()."<br/><br/> Merci pour votre commande.<br/><br/> Votre commande est validée, vous pourrais récupérer votre commande à la date indiquée lors de la validation. <br/> boucherie Paux vous remercie de votre confiance et vous souhaite bonne dégustation.";
+        $content = "Bonjour ".$commande->getUser()->getFirstname()."<br/><br/> Merci pour votre commande.<br/><br/> Votre commande est bien validée, vous pourrais récupérer votre commande à la date indiquée lors de la validation. <br/><br/> boucherie Paux vous remercie de votre confiance et vous souhaite bonne dégustation.";
         
         $mail->send($commande->getUser()->getEmail(), $commande->getUser()->getFirstname(), 'Votre commande sur la Boucherie Paux est bien validée.', $content);
 
