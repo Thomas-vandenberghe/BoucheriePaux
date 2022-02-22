@@ -4,8 +4,9 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1 class="dore">Ma commande {{commande.reference}}</h1>
-    <a class="text-light" href="{{path('compte-commande')}}">Retour</a>
+    <h1 class="dore text-center mb-5">Ma commande {{commande.reference}}</h1>
+    <h5 class="text-light ">Ci-dessous, vous retrouverez le contenu de la commande que vous avez passée</h5>
+    <a class="dore" href="{{path('compte-commande')}}">Retour</a>
     <hr>
     <div class="text-light">
     <strong class="text-light">Statut de la commande :</strong>
@@ -22,31 +23,29 @@
     </div>
     <strong class="text-light">Détails</strong>
   
-<table class="table mt-4 table-dark">
+<table class="table mt-4 dore">
   <thead>
     <tr>
       <th scope="col">Produit</th>
       <th scope="col">Quantité </th>
       <th scope="col">Prix par portion</th>
-      <th scope="col">Prix total</th>
+      <th scope="col">Sous-total</th>
     </tr>
   </thead>
   <tbody>
   {% for produit in commande.detailsCommandes %}
 
-    <tr >
+    <tr class="text-light" >
       <td >{{produit.product}}</td>
-      <td>{{produit.price}}</td>
+      <td>{{produit.quantity}}</td>
       <td>{{(produit.price / 100)|number_format(2, ',', ',')}} €</td>
       <td>{{(produit.total / 100)|number_format(2, ',', ',')}} €</td>
-      
-      
     </tr>
     {% endfor %}
   </tbody>
 </table>
-<div class="text-right text-light">
-    <strong >Total :</strong> {{(commande.getTotal / 100)|number_format(2, ',', ',')}} €<br>
+<div class="text-start text-light mt-4">
+    <strong class=" fs-5"> <p class=" dore d-inline"> Montant total : </p>{{(commande.getTotal / 100)|number_format(2, ',', ',')}} €</strong><br>
 
 </div>
 </div>
