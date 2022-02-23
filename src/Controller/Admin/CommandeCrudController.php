@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
@@ -40,7 +41,11 @@ class CommandeCrudController extends AbstractCrudController
 
         return $actions
         ->add('detail', $updatePreparation)
-        ->add('index', 'detail');
+        ->add('index', 'detail')
+        ->remove('index', 'edit')
+        ->remove('index', 'delete')
+        ->remove('detail', 'edit')
+        ->remove('detail', 'delete');
     }
 
     public function updatePreparation(AdminContext $context)
@@ -69,7 +74,7 @@ return $this->redirect($routeBuilder->setController(CommandeCrudController::clas
     {
         return [
             IdField::new('id'),
-            DateTimeField::new('createdAt', 'Passée le'),
+            TextField::new('createdAt', 'Passée le'),
             TextField::new('user.lastname', "Nom"),
             TextField::new('user.firstname', "Prénom"),
             MoneyField::new('total', 'Total produit')->setCurrency('EUR'),

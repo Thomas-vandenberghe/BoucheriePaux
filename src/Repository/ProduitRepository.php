@@ -50,6 +50,16 @@ class ProduitRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function findProduitsCommandesSemaine($nom)
+    {
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.name = :nom')
+        ->setParameter('nom', $nom)
+        ->orderBy('p.id', 'DESC')
+        ->getQuery()
+        ->getResult();
+    }
+
 
     // /**
     //  * @return Produit[] Returns an array of Produit objects
