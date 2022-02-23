@@ -30,7 +30,7 @@ class StockAdminController extends AbstractController
         foreach ($commandes as $commande){
             $com [] = $commande->getDetailsCommandes()->getValues();
         }
-// dd($commandes);
+
         foreach ($com as $co){
             foreach ($co as $produit){
                 $produits []=  $this->entityManager->getRepository(Produit::class)->findProduitsCommandesSemaine($produit->getProduct());
@@ -41,36 +41,38 @@ class StockAdminController extends AbstractController
         foreach ($produits as $produitUniques){
                 foreach ($produitUniques as $produitUnique){
                     $id []= $produitUnique->getId();
+            }
         }
-    }
-    
-    
-    $tableau = [];
-    for ($i=0; $i < count($id) ; $i++) { 
-        $tableau []= [ $id[$i] => $quantite[$i]];
-    }
-// dd($tableau);
-    foreach ($tableau as $table) {
-        foreach ($table as $produit => $quantite) {
-        //   $merged[$produit] = $quantite + ($merged[$produit] ?? 0); 
-        }
-    }
-    // dd($table);
-    dd($sum);
-                             // iterate both arrays
-                             
+        
+            $tableau = [];
+            for ($i=0; $i<count($id) ; $i++) { 
 
-                           
+        if(isset($tableau[$id[$i]])  ){
+                    $tableau[$id[$i]] = ($quantite[$i] + $tableau[$id[$i]]); 
+                }
+                else{
+                    $tableau[$id[$i]] =  $quantite[$i] ;
+                }
+    }
+    // dd($i);
+  dd($tableau);
 
+    
+    // foreach ($tableau as $table) {
+        
+    //     foreach ($table as $produit => $quantite) {
+    //     $tableauvide [] = $merged[$produit] = $quantite + ($merged[$produit] ?? 0); 
+    //    }
+    // }
     // dd($tableau);
-                // dd($quantite);
-                // dd($com);
+    // // dd($tableauvide);
+    //  dd($merged[$produit]);
+                             // iterate both arrays
+    // foreach ($table as $produit => $quantite) {   
+    //     // dd($key);                  // iterate all keys+values
+    //       // merge and add
+    // }
 
-                // => $produit->getQuantity()]
-        // $produits = $this->entityManager->getRepository(DetailCommande::class)->findProduitsCommandesSemaine($id);
-          
-
-        // dd($produits);
 
         return $this->render('stock_admin/index.html.twig', [
             'commandes' => $commandes,

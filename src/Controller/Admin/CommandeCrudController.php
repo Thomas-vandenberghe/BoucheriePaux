@@ -40,7 +40,11 @@ class CommandeCrudController extends AbstractCrudController
 
         return $actions
         ->add('detail', $updatePreparation)
-        ->add('index', 'detail');
+        ->add('index', 'detail')
+        ->remove('index', 'edit')
+        ->remove('index', 'delete')
+        ->remove('detail', 'edit')
+        ->remove('detail', 'delete');
     }
 
     public function updatePreparation(AdminContext $context)
@@ -69,7 +73,7 @@ return $this->redirect($routeBuilder->setController(CommandeCrudController::clas
     {
         return [
             IdField::new('id'),
-            DateTimeField::new('createdAt', 'Passée le'),
+            TextField::new('createdAt', 'Passée le'),
             TextField::new('user.lastname', "Nom"),
             TextField::new('user.firstname', "Prénom"),
             MoneyField::new('total', 'Total produit')->setCurrency('EUR'),
