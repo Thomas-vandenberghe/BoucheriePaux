@@ -1,12 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello StockAdminController!{% endblock %}
+{% block title %}Prévisions de renouvellement de stock{% endblock %}
 
 {% block body %}
-{# {% for produits in com %} #}
-    {# <p class="text-light">{{ produits.product }}</p> #}
-{# {% endfor %} #}
-    
-
-
+<h1 class="dore my-5 text-center">Gestion des stocks d'ingrédients</h1>
+<div class="container text-light">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+                <table class="table mt-4 table-dark ">
+                    <thead>
+                        <tr class="dore">
+                            <th scope="col">Ingrédient</th>
+                            <th scope="col">Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for key, ingredient in tableFinale %}
+                       <tr>
+                            <td>{{ key }}</td>
+                            <td>{{ingredient}}</td>
+                        </tr>
+                        {% endfor %} 
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <div class="col-sm-3 mb-5"></div>
+     
+     <a href="{{path('admin')}}" class="btn-sm btn-connexion ">Retour au panneau d'administration</a>
+</div>
 {% endblock %}

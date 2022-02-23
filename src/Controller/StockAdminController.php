@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
+use App\Entity\Ingredient;
 use App\Entity\Produit;
 use App\Entity\Recette;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,7 +19,7 @@ class StockAdminController extends AbstractController
     {
         $this->entityManager= $entityManager;
     }
-    #[Route('/stock/admin', name: 'stock_admin')]
+    #[Route('/admin/stock', name: 'admin_stock')]
     public function index(): Response
     {
         $datemin = date('Y-m-d');
@@ -81,16 +82,39 @@ class StockAdminController extends AbstractController
                     $tableIngredient[$result[$i]] =  $portions[$i] ;
                 }
             }
-            // dd($portions);
-// dd($recette);
+
+            foreach ($tableIngredient as $ingredient2=>$portions2){
+              $test =  $this->entityManager->getRepository(Ingredient::class)->findUnite($ingredient2);
+                foreach($test as $objetIngredient){
+                    $unit = $objetIngredient->getUnit();
+                }
+
+              $tableFinale[$ingredient2] =  $portions2.' '.$unit;
+                                  
+            }
+           
+            // dd($tableFinale);
+           
+
+//             $tableFinale = [];
+//             for ($i=0; $i<count($tableIngredient) ; $i++) { 
+// dd($tableIngredient[$i]);
+//                     $tableFinale[$tableIngredient[$i]] =  $tableIngredient[$i].' '.$tableUnite[$i] ;
+//                 }
+
+// dd($tableFinale);
 // dd($result);
-dd($tableIngredient);
+// dd($tableUnite);
 
 
 
         return $this->render('stock_admin/index.html.twig', [
             'commandes' => $commandes,
             'produits' => $produits,
+            // 'tableIngredient' => $tableIngredient,
+            // 'tableUnite' => $tableUnite
+            'tableFinale'=> $tableFinale
+
             
 
         ]
