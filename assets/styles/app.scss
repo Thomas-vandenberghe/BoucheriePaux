@@ -88,6 +88,11 @@ p{
             border: 3px solid $dore;
         }
 }
+.btn-centre {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
 
 @media (min-width: 990px)  {
     .navbar-collapse {

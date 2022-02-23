@@ -2,12 +2,13 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Classe\Panier;
 use App\Entity\Commande;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CommandeMerciController extends AbstractController
 {
@@ -32,18 +33,19 @@ class CommandeMerciController extends AbstractController
         if ($commande->getEtat() == 0) {
 
         // Vider la SessionCart.
-          $panier->vider();   
+        $panier->vider();   
 
          //Modifier le statut isPaid de notre commande en passanr le boolean à 1
-         $commande->setEtat(1);
-         $this->entityManager->flush();
+        $commande->setEtat(1);
+        $this->entityManager->flush();
 
         //Envoyer un mail a notre client pour valider sa commande
         
-        // $mail = new Mail();
-        // $content ="Bonjour ".$order->getUser()->getFirstName()."<br>Merci pour votre commande. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at repellat quia aperiam,<br> amet dolorem? Dolorem doloribus, nam ullam ab quaerat fugit nisi. Provident, reiciendis. ";
+        $mail = new Mail();
 
-        // $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstName(), 'Votre commande La Boutique Francaise est bien validée', $content);
+        $content = "Bonjour ".$commande->getUser()->getFirstname()."<br/><br/> Merci pour votre commande.<br/><br/> Votre commande est bien validée, vous pourrais récupérer votre commande à la date indiquée lors de la validation. <br/><br/> boucherie Paux vous remercie de votre confiance et vous souhaite bonne dégustation.";
+        
+        $mail->send($commande->getUser()->getEmail(), $commande->getUser()->getFirstname(), 'Votre commande sur la Boucherie Paux est bien validée.', $content);
 
         }
         
