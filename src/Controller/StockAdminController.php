@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Commande;
 use App\Entity\Produit;
+use App\Entity\Recette;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,9 +21,11 @@ class StockAdminController extends AbstractController
     #[Route('/stock/admin', name: 'stock_admin')]
     public function index(): Response
     {
-        $date = date('Y-m-d', strtotime("+3 days"));
+        $datemin = date('Y-m-d');
+        $datemax = date('Y-m-d', strtotime("+10 days"));
 
-        $commandes = $this->entityManager->getRepository(Commande::class)->findCommandesSemaine($date);
+
+        $commandes = $this->entityManager->getRepository(Commande::class)->findCommandesSemaine($datemin, $datemax);
         if(!$commandes){
             return $this->render('stock_admin/vide.html.twig');
         }
@@ -52,25 +55,37 @@ class StockAdminController extends AbstractController
                 else{
                     $tableau[$id[$i]] =  $quantite[$i] ;
                 }
-    }
-    // dd($i);
-  dd($tableau);
+            }
+// dd($i);
+//   dd($tableau);
+    // $recette = [];
+                foreach ($tableau as $produit=>$quantite){
+                    $recettes [] = $this->entityManager->getRepository(Recette::class)->findRecettes($produit);
+                }
+            
+                foreach ( $recettes as $recette){
+                    foreach($recette as $ingredient){
+                    $portions[] = $ingredient->getQuantity();
+                    $result [] = $ingredient->getIngredient()->getName(); 
+                }
+                
+            }
 
-    
-    // foreach ($tableau as $table) {
-        
-    //     foreach ($table as $produit => $quantite) {
-    //     $tableauvide [] = $merged[$produit] = $quantite + ($merged[$produit] ?? 0); 
-    //    }
-    // }
-    // dd($tableau);
-    // // dd($tableauvide);
-    //  dd($merged[$produit]);
-                             // iterate both arrays
-    // foreach ($table as $produit => $quantite) {   
-    //     // dd($key);                  // iterate all keys+values
-    //       // merge and add
-    // }
+            $tableIngredient = [];
+            for ($i=0; $i<count($portions) ; $i++) { 
+
+        if(isset($tableIngredient[$result[$i]])  ){
+                    $tableIngredient[$result[$i]] = ($portions[$i] + $tableIngredient[$result[$i]]); 
+                }
+                else{
+                    $tableIngredient[$result[$i]] =  $portions[$i] ;
+                }
+            }
+            // dd($portions);
+// dd($recette);
+// dd($result);
+dd($tableIngredient);
+
 
 
         return $this->render('stock_admin/index.html.twig', [
