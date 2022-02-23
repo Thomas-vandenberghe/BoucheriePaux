@@ -84,7 +84,7 @@ class Commande
         return $this->createdAt;
     }
 
-    public function setCreatedAt( $createdAt): self
+    public function setCreatedAt($createdAt): self
     {
         $this->createdAt = $createdAt;
 

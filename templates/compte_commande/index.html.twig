@@ -27,11 +27,12 @@
   </thead>
   <tbody>
     {% for commande in commandes %}
+      
   
     <tr class ="align-middle text-light">
       <td><span class="badge badge-primary">{{commande.reference}}</span></td>
     
-    <td >
+    <td>
         {% if commande.etat == 1 %}
         Paiement accepté.
         {% elseif commande.etat == 2 %}
