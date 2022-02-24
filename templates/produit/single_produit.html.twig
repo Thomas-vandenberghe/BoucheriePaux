@@ -6,10 +6,25 @@
         {% if produit.priceKg %}
         <span class="produit-subtitle card-body">{{(produit.priceKg / 100)|number_format(2, ',', '.') }} €/Kg</span> <br> 
          
-              
+         <div class="position-relative mt-4">
+         
+                {# x {{produit.quantity}} #}
+            <a class=" iconPanier2  position-absolute bottom-0 end-0 " href="{{path('panier-ajouter-vers-produits', {'id' : produit.id }) }}">
+                <img class=" iconPanier2 " src="{{ asset('assets/images/ajouter-un-panier.png') }}" height="40px" alt="augmentation" title="Ajouter au panier">   
+            </a>
+        </div>
+
+        {% else %}
+      <div class="position-relative mt-4">
+         <br>
+                {# x {{produit.quantity}} #}
+            <a class=" iconPanier2 position-absolute bottom-0 end-0 " href="{{path('panier-ajouter-vers-produits', {'id' : produit.id }) }}" alt="augmentation"  title="Ajouter au panier">
+                <img class=" iconPanier2 " src="{{ asset('assets/images/ajouter-un-panier.png') }}" height="40px" >   
+            </a>
+        </div>
+
         {% endif %}
-        
-        
+
         
         
   </div>

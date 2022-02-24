@@ -35,6 +35,7 @@ class CommandeRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('c')
         ->andWhere('c.finishedAt >= :datemin')
         ->andWhere('c.finishedAt <= :datemax')
+        ->andWhere('c.etat = 1')
         ->setParameter('datemin', $datemin)
         ->setParameter('datemax', $datemax)
         ->orderBy('c.id', 'DESC')
