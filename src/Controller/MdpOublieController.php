@@ -50,6 +50,7 @@ class MdpOublieController extends AbstractController
                 $url = $this->generateUrl('modifier-mot-de-passe-oublie', [
                     'token' => $mdp_oublie->getToken()
                 ]);
+                
 
                 $content = "Bonjour ".$user->getFirstname()."<br>Vous avez demandé à réinitialiser votre mot de passe sur la Boucherie Paux.<br><br>";
                 $content .= "Merci de bien vouloir cliquer sur le lien suivant pour <a href='".$url."'>mettre à jour votre mot de passe</a>.";
