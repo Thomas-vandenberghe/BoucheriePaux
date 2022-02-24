@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\Commande;
+use Knp\Snappy\Pdf;
 use App\Entity\Order;
+use App\Entity\Commande;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CompteCommandeController extends AbstractController
 {
@@ -43,5 +45,10 @@ class CompteCommandeController extends AbstractController
         return $this->render('compte_commande/commande_unique.html.twig',[
             'commande' => $commande
         ]);
+
+        
     }
+  
 }
+    
+
