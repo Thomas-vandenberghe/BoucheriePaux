@@ -26,6 +26,9 @@ body {
 p{
     margin: 0;
 }
+.text-dark{
+    text-decoration: none !important;
+}
 .dore{
     color: $dore;
 }
@@ -389,6 +392,34 @@ min-width: 170px;
 filter: invert(100%)
 }
 // *********************************** style du panier **********************
+.bouton{
+    background-color: $dore;
+    color: $black;
+    border-radius: 10px;
+    padding : 0px 2px;
+    border: solid $black 2px;
+    margin-top: 10px;
+}
+.bouton:hover{
+    background-color: $dore;
+    color: $white;
+    font-weight: bold;
+}
+.bg-qty{
+    background-color: $black;
+    color: $dore;
+    border-radius: 3px;
+    padding-bottom: 5px;
+}
+.qty-width{
+    min-width:100px;
+    @media (max-width:325px) {
+        max-width: 79px;
+        min-width: 10px;
+        min-height: 1400px;
+        
+    }
+}
 .titrePanier {
     text-align: center;
 }
@@ -468,22 +499,27 @@ height: 50px;
     border-radius: 10px;
     // background-repeat: no-repeat;
 
+    @media (max-width: 993px) { 
+        background-size: 500%;
+    }
     @media (max-width: 768px) { 
-        background-size: 400%;
+        background-size: 600%;
     }
 
     @media (max-width: 360px) { 
-        background-size: 450%;
+        background-size: 850%;
     }
 
     @media (max-width: 310px) { 
-        background-size: 500%;
+        background-size: 900%;
+        
+    }
+    @media (max-width: 290px) { 
+        background-size: 1100%;
+        
     }
 
 }
-
-
-
 .labeldore{
     color: $dore;
     font-weight: 600;

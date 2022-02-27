@@ -1,8 +1,8 @@
 <div class="produit-item text-center text-dark ">
-         <a href="{{path('produit',{'slug': produit.slug})}}"> <img src="/uploads/{{produit.illustration}}" alt="{{produit.name}}" class="img-fluid card-img-top imgSize"  ></a> 
+         <a href="" data-bs-toggle="modal" data-bs-target="#modal{{produit.id}}"> <img src="/uploads/{{produit.illustration}}" alt="{{produit.name}}" class="img-fluid card-img-top imgSize"  ></a> 
         <h5 class="mt-3 fw-bold mb-2"> {{produit.name}}</h5>
         
-        <span class="produit-subtitle card-body "> ~ {{produit.subtitle}} Gr | <strong> {{(produit.priceQuantity / 100)|number_format(2, ',', '.') }} €</strong></span><br>
+        <span class="produit-subtitle card-body "> <strong>~ {{produit.subtitle}} Gr |  {{(produit.priceQuantity / 100)|number_format(2, ',', '.') }} €</strong></span><br>
         {% if produit.priceKg %}
         <span class="produit-subtitle card-body">{{(produit.priceKg / 100)|number_format(2, ',', '.') }} €/Kg</span> <br> 
          
