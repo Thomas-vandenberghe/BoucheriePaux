@@ -10,8 +10,11 @@
             <div class="mt-5  text-light col-8">
                 <h1 class="text-center dore mb-5">Bienvenue dans votre espace</h1><br>
                 <img src="{{ asset('assets/images/box-open-solid.svg')}}" width ="25px" height="25" class="couleur-icone me-2"> <a class="dore mt-5" href="{{path('compte-commande')}}">Mes commandes</a><br> <br>
-                <img src="{{ asset('assets/images/key-solid.svg')}}" width ="25px" height="25" class="couleur-icone me-2" > <a class="dore"  href="#"> Modifier mon mot de passe</a> 
-                <br>
+                <img src="{{ asset('assets/images/key-solid.svg')}}" width ="25px" height="25" class="couleur-icone me-2" > <a class="dore"  href="{{path('compte-mdp')}}"> Modifier mon mot de passe</a> 
+                <br><br>
+                {% if is_granted ('ROLE_ADMIN') %}
+                    <img src="{{ asset('assets/images/screwdriver-wrench-solid.svg')}}" width ="25px" height="25" class="couleur-icone me-2" ><a class="dore"  href="{{path('admin')}}">Espace Administrateur</a> 
+                {% endif %}
                 <hr>
                 <a href="{{path('deconnexion')}}" class="btn btn-inscription mt-3 mb-3">Se déconnecter</a>
             </div>

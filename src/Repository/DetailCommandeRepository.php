@@ -19,6 +19,21 @@ class DetailCommandeRepository extends ServiceEntityRepository
         parent::__construct($registry, DetailCommande::class);
     }
 
+
+
+    // public function findProduitsCommandesSemaine($id)
+    // {
+    //     return $this->createQueryBuilder('d')
+    //     ->andWhere('d.commande = :id')
+    //     ->setParameter('id', $id)
+    //     ->orderBy('d.id', 'DESC')
+    //     ->getQuery()
+    //     ->getResult();
+    // }
+
+
+
+
     // /**
     //  * @return DetailCommande[] Returns an array of DetailCommande objects
     //  */

@@ -25,10 +25,27 @@ class CommandeRepository extends ServiceEntityRepository
             ->andWhere('c.etat > 0')
             ->andWhere('c.user = :user')
             ->setParameter('user', $user)
-            ->orderBy('c.id', 'DESC')
             ->getQuery()
             ->getResult();
     }
+
+
+    public function findCommandesSemaine($datemin, $datemax)
+    {
+        return $this->createQueryBuilder('c')
+        ->andWhere('c.finishedAt >= :datemin')
+        ->andWhere('c.finishedAt <= :datemax')
+        ->andWhere('c.etat = 1')
+        ->setParameter('datemin', $datemin)
+        ->setParameter('datemax', $datemax)
+        ->orderBy('c.id', 'DESC')
+        ->getQuery()
+        ->getResult();
+
+    }
+
+
+
 
 
     // /**
@@ -59,4 +76,4 @@ class CommandeRepository extends ServiceEntityRepository
         ;
     }
     */
-}
+} 

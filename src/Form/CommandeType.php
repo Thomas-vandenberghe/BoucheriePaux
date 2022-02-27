@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use DateTime;
+
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -22,8 +22,10 @@ class CommandeType extends AbstractType
             ->add('finishedAt', TextType::class,[
                 'label'=> false,
                 'required'=> true,
+                'constraints' => new Length(null, 2, 12),
                 'attr'=>[
                     'class'=>'datepicker',
+                    'readonly'=>true,
                     
 
                 ]

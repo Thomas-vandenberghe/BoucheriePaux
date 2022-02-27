@@ -7,77 +7,68 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
-class UserType extends AbstractType
+class ChangeMdpType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-            $builder
-            ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
-                'constraints' => new Length(null, 2, 35),
-                'attr' => [
-                    'placeholder'=> 'Merci de saisir votre prénom'
-                ]
-            ])
-            ->add('lastname', TextType::class,[
-                'label'=> 'Nom',
-                'constraints' => new Length(null, 2, 35),
-                'attr' => [
-                    'placeholder' =>'Merci de saisir votre nom'
-                ]
-            ])
-
-            ->add('telephone', TelType::class,[
-                'label' => 'Téléphone',
-                'attr' =>  [
-                    'placeholder' => 'Entrez votre numéro de téléphone'
-                            ]
-                ])
-
-
+        $builder
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'disabled' => true,
+                'label' => "Mon adresse email"
+            ])
+            
+            ->add('firstname', TextType::class, [
+                'disabled' =>true,
+                'label' => "Mon prénom"
+            ])
+            ->add('lastname' , TextType::class, [
+                'disabled' =>true,
+                'label' => "Mon nom"             
+            ])
+            ->add('old_password', PasswordType::class, [
+                'label' => 'Mon mot de passe actuel',
                 'constraints' => new Length(null, 2, 55),
+                'mapped' => false,
                 'attr' => [
-                    'placeholder' => 'Merci de saisir votre adresse email'
+                    'placeholder' => 'Veuillez saisir votre mot de passe actuel'
                 ]
             ])
-
-
-            ->add('password', RepeatedType::class, [
+            ->add('new_password', RepeatedType::class, [
                 'type'=> PasswordType::class,
+                'mapped' => false,
                 'invalid_message'=> 'Le mot de passe et la confirmation doivent être identiques.',
-
+                
                 'required' => true,
                 'first_options'=> [
-                    'label' => 'Mot de passe',
+                    'label' => 'Mon nouveau mot de passe',
                     'constraints' => new Length(null, 2, 55),
                     'attr' => [
-                        'placeholder' => 'Merci de saisir un mot de passe'
+                        'placeholder' => 'Merci de saisir un nouveau mot de passe'
                         ]
                 ],
                 'second_options' => [
-                    'label' => 'Confirmez le mot de passe',
-                    'constraints' => new Length(null, 2, 55),
+                    'label' => 'Confirmez le nouveau mot de passe',
+                    'constraints' => new Length(null, 2, 55),               
                 'attr' => [
-                    'placeholder' => 'Merci confirmer votre mot de passe'
+                    'placeholder' => 'Merci de confirmer votre nouveau mot de passe'
                 ]
-                ],
+                ]
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "S'inscrire",
+                'label' => "Mettre à jour",
                 'attr' => [
-                    'class'=>'btn btn-connexion btn-centre' 
+                    'class' => 'btn btn-connexion d-flex justify-item-center mx-auto mt-5'
                 ]
+                
             ])
-        ;
+            ;
+        
     }
 
     public function configureOptions(OptionsResolver $resolver): void

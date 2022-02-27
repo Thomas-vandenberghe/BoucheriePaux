@@ -29,6 +29,19 @@ class PanierController extends AbstractController
 
     }
 
+
+
+    #[Route('/panier/ajouterCinq/{id}', name: 'panier-ajouter-cinq')]
+    public function ajouterCinq(Panier $panier, $id): Response
+    {
+        $panier->ajouterCinq($id);
+
+        return $this->redirectToRoute('panier');
+
+    }
+
+
+
     #[Route('/panier/ajouterVersProduits/{id}', name: 'panier-ajouter-vers-produits')]
     public function ajouterVersProduits(Panier $panier, $id): Response
     {
@@ -63,6 +76,15 @@ class PanierController extends AbstractController
     public function reduire(Panier $panier, $id): Response
     {
         $panier->reduire($id);
+        
+        return $this->redirectToRoute('panier');
+    }
+
+
+    #[Route('/panier/reduireCinq/{id}', name: 'panier-reduire-cinq')]
+    public function reduireCinq(Panier $panier, $id): Response
+    {
+        $panier->reduireCinq($id);
         
         return $this->redirectToRoute('panier');
     }

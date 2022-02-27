@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}{{produit.name}}{% endblock %}
 
@@ -11,10 +11,10 @@
 
         </div>
  
-        <div class="col-md-2">
+        <div class="col-sm-1">
         </div>
 
-        <div class="col-md-4 my-auto">
+        <div class="col-sm-7 my-auto">
             <h3 class="fs-2" > {{produit.name}} </h3>
             <p>{{produit.subtitle}} Gr</p>
             <span class="produit-page-price"> {{(produit.priceQuantity / 100)|number_format(2, ',', '.') }} €/portion  {% if produit.priceKg %} | {{(produit.priceKg / 100)|number_format(2, ',', '.') }} €/kg{% endif %}</span> 
@@ -25,7 +25,7 @@
             <br> <br>
             <a href="{{path('panier-ajouter-vers-produits', {'id' : produit.id}) }}" class="btn btn-connexion">Ajouter au panier</a>
 
-            {# {{path('add-to-cart', {'id': produit.id})  }} #}
+            {# {{path('add-to-cart', {'id': produit.id})  }} 
         </div>
     </div>
 </div>
@@ -39,6 +39,6 @@
                     {% include "produit/single_produit.html.twig" %}
                 </div>
             {% endfor %}
-        </div><!-- /.row -->
+        </div>
 </div>
-{% endblock %}
+{% endblock %} #}
