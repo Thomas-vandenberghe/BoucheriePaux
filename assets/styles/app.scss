@@ -1,5 +1,6 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 
@@ -102,6 +103,12 @@ p{
         display: none !important;
     }
  }
+
+.cartCount{
+    background-color: $dore;
+    color: black;
+    border-radius: 20px;
+} 
 // **************************************style image page d'accueil ************************
 @media (max-width: 770px) { 
 
@@ -324,7 +331,7 @@ p{
     width: 300px;
 }
 .contour:hover{
-border: solid $dore 3px;
+outline: solid $dore 3px;
 width: 300px;
 height: 370px;
 }
@@ -396,7 +403,7 @@ filter: invert(100%)
     background-color: $dore;
     color: $black;
     border-radius: 10px;
-    padding : 0px 2px;
+    padding : 0px 0px;
     border: solid $black 2px;
     margin-top: 10px;
 }
@@ -404,6 +411,10 @@ filter: invert(100%)
     background-color: $dore;
     color: $white;
     font-weight: bold;
+}
+.badge{
+    padding-left: 4px !important;
+    padding-right: 4px !important;
 }
 .bg-qty{
     background-color: $black;

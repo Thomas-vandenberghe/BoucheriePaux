@@ -22,7 +22,7 @@ class CommandeType extends AbstractType
             ->add('finishedAt', TextType::class,[
                 'label'=> false,
                 'required'=> true,
-                'constraints' => new Length(null, 2, 12),
+                'constraints' => new Length(null, 10, 10),
                 'attr'=>[
                     'class'=>'datepicker',
                     'readonly'=>true,

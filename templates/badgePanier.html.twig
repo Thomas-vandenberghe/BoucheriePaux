@@ -1,0 +1,12 @@
+{% block badge %}
+{% set nb_produit = 0 %}
+
+
+{% for produit in panier %}
+{% set nb_produit = nb_produit + produit.quantity %}
+
+{% endfor %}
+{{nb_produit}}
+{% endblock %}
+
+
