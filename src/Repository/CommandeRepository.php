@@ -30,11 +30,14 @@ class CommandeRepository extends ServiceEntityRepository
     }
 
 
-    public function findCommandesSemaine( $date)
+    public function findCommandesSemaine($datemin, $datemax)
     {
         return $this->createQueryBuilder('c')
-        ->andWhere('c.finishedAt = :finishedAt')
-        ->setParameter('finishedAt', $date)
+        ->andWhere('c.finishedAt >= :datemin')
+        ->andWhere('c.finishedAt <= :datemax')
+        ->andWhere('c.etat = 1')
+        ->setParameter('datemin', $datemin)
+        ->setParameter('datemax', $datemax)
         ->orderBy('c.id', 'DESC')
         ->getQuery()
         ->getResult();

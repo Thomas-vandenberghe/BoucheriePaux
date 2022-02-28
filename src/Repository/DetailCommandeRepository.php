@@ -21,15 +21,15 @@ class DetailCommandeRepository extends ServiceEntityRepository
 
 
 
-    public function findProduitsCommandesSemaine($id)
-    {
-        return $this->createQueryBuilder('d')
-        ->andWhere('d.commande = :id')
-        ->setParameter('id', $id)
-        ->orderBy('d.id', 'DESC')
-        ->getQuery()
-        ->getResult();
-    }
+    // public function findProduitsCommandesSemaine($id)
+    // {
+    //     return $this->createQueryBuilder('d')
+    //     ->andWhere('d.commande = :id')
+    //     ->setParameter('id', $id)
+    //     ->orderBy('d.id', 'DESC')
+    //     ->getQuery()
+    //     ->getResult();
+    // }
 
 
 

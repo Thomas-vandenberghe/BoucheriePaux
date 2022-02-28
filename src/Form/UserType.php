@@ -58,12 +58,14 @@ class UserType extends AbstractType
                 'required' => true,
                 'first_options'=> [
                     'label' => 'Mot de passe',
+                    'constraints' => new Length(null, 2, 55),
                     'attr' => [
                         'placeholder' => 'Merci de saisir un mot de passe'
                         ]
                 ],
                 'second_options' => [
                     'label' => 'Confirmez le mot de passe',
+                    'constraints' => new Length(null, 2, 55),
                 'attr' => [
                     'placeholder' => 'Merci confirmer votre mot de passe'
                 ]

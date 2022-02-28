@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Classe\Panier;
 use App\Entity\Commande;
 use App\Form\CommandeType;
@@ -52,7 +51,7 @@ class CommandeController extends AbstractController
         {
             
 
-            $createdAt =  Date('Y-m-d');
+            $createdAt = Date('Y-m-d');
             $finishedAt = $form->get('finishedAt')->getData();
 
              // enregistrer ma commade Order

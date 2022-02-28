@@ -15,13 +15,71 @@
             </section>
         </div>
         <div class="col-md-9 ">
-            <div class="row product-container">
+            <div class="row product-container-fluid">
             {% for produit in produits %}
-                <div class="col-md-4 card img-fluid bg-dark m-2 pb-1" style="width: 300px">
+             {% if produit.publie == 1 %}
+                <div class="col-md-4 card img-fluid bg-dark m-2 pb-1 contour" >
+                   
                     {% include "produit/single_produit.html.twig" %}
-                </div>  
+                  </div>  
+              
+{# -------- MODAL ---------- #}
+
+ <div class="modal fade" id="modal{{produit.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl  ">
+                        <div class="modal-content bg-dark">
+                            <div class="m-3">
+                                <button type="button" class="btn-connexion float-end" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                <div class="container-fluid  ">
+    <div class="row articleSimple p-5  text-dark  mt-5  mb-5 ">
+        <div class="col-lg-6 ">
+
+            <img src="/uploads/{{produit.illustration}}" alt="{{produit.name}}" class="img-fluid d-none d-sm-block">
+
+        </div>
+ 
+        <div class="col-lg-6 my-auto">
+            <h3 class="fs-4" > {{produit.name}} </h3>
+            <p>{{produit.subtitle}} Gr</p>
+            <span class=""> {{(produit.priceQuantity / 100)|number_format(2, ',', '.') }} €/portion  {% if produit.priceKg %} | {{(produit.priceKg / 100)|number_format(2, ',', '.') }} €/kg{% endif %}</span> 
+            <br> <br>
+            <p>
+                {{produit.description}}
+            </p>
+            <br> <br>
+            <a href="{{path('panier-ajouter-vers-produits', {'id' : produit.id}) }}" class="btn-sm btn btn-connexion">Ajouter au panier</a>
+
+            {# {{path('add-to-cart', {'id': produit.id})  }} #}
+        </div>
+    </div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container text-light bg-dark ">
+<h2 class="text-center dore mt-4">Nos meilleures ventes</h2>
+         <p class="text-center dore">Découvrez nos produits les plus vendus.</p>
+        <div class="row d-flex justify-content-around mt-3">
+            {% for produit in produits %}
+            {% if produit.enAvant == 1 %}
+                
+            
+                <div class="col-md-4 text-light card articleSimple m-1 mb-4 " style="width: 300px">
+                    {% include "produit/single_produit.html.twig" %}
+                </div>
+                {% endif %}
             {% endfor %}
+        </div>
+</div>
+                </div>
+
+            {% endif %}
+            {% endfor %}
+            
+
+
             </div>
+            
         </div>
     </div>
 </div>

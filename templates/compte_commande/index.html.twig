@@ -20,6 +20,7 @@
         <th scope="col">Référence</th>
         <th scope="col">Statut</th>
         <th scope="col">Passée le</th>
+        <th scope="col">Date de retrait</th>
         <th scope="col">Produit(s)</th>
         <th scope="col">Total</th>
       
@@ -27,11 +28,12 @@
   </thead>
   <tbody>
     {% for commande in commandes %}
+      
   
     <tr class ="align-middle text-light">
       <td><span class="badge badge-primary">{{commande.reference}}</span></td>
     
-    <td >
+    <td>
         {% if commande.etat == 1 %}
         Paiement accepté.
         {% elseif commande.etat == 2 %}
@@ -39,6 +41,7 @@
         {% endif %}
     </td>
       <td>{{commande.createdAt|date('d/m/Y')}}</td>
+      <td>{{commande.finishedAt|date('d/m/Y')}}</td>
       <td>{{commande.detailsCommandes|length}} </td>
       <td  class ="align-middle">{{((commande.getTotal) / 100)|number_format(2, ',', '.')}} €</td>
       <td class="text-right"><a class ="btn-connexion btn" href="{{path('compte-commande-afficher', {'reference': commande.reference})}}">Voir ma commande</a></td>

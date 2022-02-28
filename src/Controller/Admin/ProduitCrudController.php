@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -31,9 +32,10 @@ class ProduitCrudController extends AbstractCrudController
     ->setUploadDir('public/uploads/')
     ->setUploadedFileNamePattern('[randomhash].[extension]')
     ->setRequired(false),
-        IntegerField::new('subtitle', 'Quantité par portion (en gramme)'),
+        IntegerField::new('subtitle', 'Quantité/portion'),
         TextareaField::new('description'),
-       // BooleanField::new('isBest'),
+        BooleanField::new('publie', 'Publié'),
+        BooleanField::new('enAvant', 'Mettre en avant'),
         MoneyField::new('priceKg','Prix au Kg')->setCurrency('EUR'),
         MoneyField::new('priceQuantity', 'Prix par portion')->setCurrency('EUR'),
         AssociationField::new('categorie')

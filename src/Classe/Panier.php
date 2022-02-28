@@ -33,6 +33,27 @@ class Panier
 
     }
 
+
+
+
+    public function ajouterCinq($id)
+    {
+        $panier = $this->session->get('panier',[]);
+
+        if(!empty($panier[$id]))
+        {
+            $panier[$id] = $panier[$id] +5;
+        }else{
+            $panier[$id]=5;
+        }
+
+        $this->session->set('panier', $panier);
+
+    }
+
+
+
+
     public function ajouterVersProduits($id)
     {
         $panier = $this->session->get('panier',[]);
@@ -79,6 +100,21 @@ class Panier
         }
         return $this->session->set('panier', $panier);
     }
+
+
+
+    public function reduireCinq($id)
+    {
+        $panier = $this->session->get('panier',[]);
+        if($panier[$id] > 5){
+            $panier[$id] = $panier[$id] -5;
+        }else{
+            unset($panier[$id]);
+        }
+        return $this->session->set('panier', $panier);
+    }
+
+
 
     public function getFull(){
 

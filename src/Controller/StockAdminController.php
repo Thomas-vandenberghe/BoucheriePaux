@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
-use App\Entity\DetailCommande;
+use App\Entity\Ingredient;
 use App\Entity\Produit;
+use App\Entity\Recette;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,12 +19,14 @@ class StockAdminController extends AbstractController
     {
         $this->entityManager= $entityManager;
     }
-    #[Route('/stock/admin', name: 'stock_admin')]
+    #[Route('/admin/stock', name: 'admin_stock')]
     public function index(): Response
     {
-        $date = date('Y-m-d', strtotime("+3 days"));
+        $datemin = date('Y-m-d');
+        $datemax = date('Y-m-d', strtotime("+10 days"));
 
-        $commandes = $this->entityManager->getRepository(Commande::class)->findCommandesSemaine($date);
+
+        $commandes = $this->entityManager->getRepository(Commande::class)->findCommandesSemaine($datemin, $datemax);
         if(!$commandes){
             return $this->render('stock_admin/vide.html.twig');
         }
@@ -53,30 +56,65 @@ class StockAdminController extends AbstractController
                 else{
                     $tableau[$id[$i]] =  $quantite[$i] ;
                 }
-    }
-    // dd($i);
-  dd($tableau);
+            }
+// dd($i);
+//   dd($tableau);
+    // $recette = [];
+                foreach ($tableau as $produit=>$quantite){
+                    $recettes [] = $this->entityManager->getRepository(Recette::class)->findRecettes($produit);
+                }
+            
+                foreach ( $recettes as $recette){
+                    foreach($recette as $ingredient){
+                    $portions[] = $ingredient->getQuantity();
+                    $result [] = $ingredient->getIngredient()->getName(); 
+                }
+                
+            }
 
-    
-    // foreach ($tableau as $table) {
-        
-    //     foreach ($table as $produit => $quantite) {
-    //     $tableauvide [] = $merged[$produit] = $quantite + ($merged[$produit] ?? 0); 
-    //    }
-    // }
-    // dd($tableau);
-    // // dd($tableauvide);
-    //  dd($merged[$produit]);
-                             // iterate both arrays
-    // foreach ($table as $produit => $quantite) {   
-    //     // dd($key);                  // iterate all keys+values
-    //       // merge and add
-    // }
+            $tableIngredient = [];
+            for ($i=0; $i<count($portions) ; $i++) { 
+
+        if(isset($tableIngredient[$result[$i]])  ){
+                    $tableIngredient[$result[$i]] = ($portions[$i] + $tableIngredient[$result[$i]]); 
+                }
+                else{
+                    $tableIngredient[$result[$i]] =  $portions[$i] ;
+                }
+            }
+
+            foreach ($tableIngredient as $ingredient2=>$portions2){
+              $test =  $this->entityManager->getRepository(Ingredient::class)->findUnite($ingredient2);
+                foreach($test as $objetIngredient){
+                    $unit = $objetIngredient->getUnit();
+                }
+
+              $tableFinale[$ingredient2] =  $portions2.' '.$unit;
+                                  
+            }
+           
+            // dd($tableFinale);
+           
+
+//             $tableFinale = [];
+//             for ($i=0; $i<count($tableIngredient) ; $i++) { 
+// dd($tableIngredient[$i]);
+//                     $tableFinale[$tableIngredient[$i]] =  $tableIngredient[$i].' '.$tableUnite[$i] ;
+//                 }
+
+// dd($tableFinale);
+// dd($result);
+// dd($tableUnite);
+
 
 
         return $this->render('stock_admin/index.html.twig', [
             'commandes' => $commandes,
             'produits' => $produits,
+            // 'tableIngredient' => $tableIngredient,
+            // 'tableUnite' => $tableUnite
+            'tableFinale'=> $tableFinale
+
             
 
         ]

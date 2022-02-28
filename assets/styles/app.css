@@ -11958,22 +11958,16 @@ fieldset:disabled .btn {
   }
 }
 
-<<<<<<< HEAD
-body {
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-}
-
-html {
-  height: auto;
-=======
 html {
   position: relative;
 }
 
 body {
   overflow-x: hidden;
+  min-height: auto;
+  margin-right: -12px;
+  min-height: 900px;
+  margin-bottom: 40px;
 }
 
 p {
@@ -11982,7 +11976,10 @@ p {
 
 .dore {
   color: #b48700;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+.black {
+  color: #000000;
 }
 
 .navbar-custom {
@@ -12001,11 +11998,7 @@ p {
 }
 
 .navigation:hover {
-<<<<<<< HEAD
-  border-bottom: 2px solid #c0aa30;
-=======
-  border-bottom: 2px solid #b48700;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+  border-bottom: 1px solid #b48700;
 }
 
 .logo-navbar {
@@ -12019,13 +12012,10 @@ p {
 .btn-connexion {
   color: #ffffff;
   font-weight: bold;
-<<<<<<< HEAD
-  background-color: #c0aa30;
-=======
   background-color: #b48700;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
-  padding: 10px 30px;
-  margin-right: 20px;
+  padding: 10px 16px;
+  margin-right: 5px;
+  margin-top: 5px;
   border: none;
   border-radius: 5px;
 }
@@ -12033,37 +12023,44 @@ p {
 .btn-connexion:hover {
   color: #ffffff;
   background-color: #000000;
-<<<<<<< HEAD
-  border: 3px solid #c0aa30;
-=======
   border: 3px solid #b48700;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .btn-inscription {
   color: #000000;
   font-weight: bold;
   background-color: #fff;
-  padding: 0 30px;
+  padding: 10px 30px;
   border: none;
   border-radius: 5px;
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
 .btn-inscription:hover {
   color: #ffffff;
   background-color: #000000;
-<<<<<<< HEAD
-  border: 3px solid #c0aa30;
-=======
   border: 3px solid #b48700;
+}
+
+.btn-centre {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+@media (min-width: 990px) {
+  .navbar-collapse {
+    display: none !important;
+  }
 }
 
 @media (max-width: 770px) {
   .texte {
-    background-image: url("../images/metro2.png");
+    background-image: url("../images/metro6.png");
     border-radius: 15px;
-    padding: 5px;
+    padding: 10px;
     color: #000000;
     font-weight: 500;
     font-size: 15px;
@@ -12071,9 +12068,9 @@ p {
 }
 
 .texte {
-  background-image: url("../images/metro2.png");
+  background-image: url("../images/metro6.png");
   border-radius: 15px;
-  padding: 5px;
+  padding: 10px;
   color: #000000;
   font-weight: 500;
   font-size: 20x;
@@ -12082,7 +12079,6 @@ p {
 .metro {
   -webkit-filter: grayscale(80%);
           filter: grayscale(80%);
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .imageDevanture {
@@ -12093,86 +12089,34 @@ p {
 }
 
 .bordure-photo-accueil {
-<<<<<<< HEAD
-  background-color: #000000;
-}
-
-.bordure-photo-accueil2 {
-  background-color: #000000;
-=======
   background-color: #181818;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .presentationAccueil {
   position: relative;
-<<<<<<< HEAD
-  height: 200px;
-=======
   height: 350px;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   width: 100%;
 }
 
 .imageMetro {
   position: absolute;
-<<<<<<< HEAD
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: auto;
-=======
-  width: 100%;
   height: 350px;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   z-index: 1;
 }
 
 .texteAccueil {
   position: absolute;
   z-index: 2;
-<<<<<<< HEAD
   height: 200px;
   text-align: center;
-=======
-  margin: 25px 150px;
-  text-align: center;
   font-weight: 600;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   font-family: 'Patrick Hand', cursive;
   color: #000000;
 }
 
-<<<<<<< HEAD
-.infoGenerale {
-  position: relative;
-  height: 550px;
-  width: 100%;
-}
-
-.imageBg {
-  position: absolute;
-  height: 550px;
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-}
-
-.presentation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  position: absolute;
-}
-
-.titrePresentation {
-  color: #c0aa30;
-  margin: 20px auto;
-=======
 .photo {
   margin-left: 20px;
 }
@@ -12181,71 +12125,83 @@ p {
   background-image: url("../images/bgViande.jpg");
   background-size: cover;
   background-position: center;
-  height: 1000px;
+  height: 1100px;
+  margin-left: -12px;
+}
+
+.containerPhotoTexte {
+  text-align: center;
+  margin-top: 13px;
+}
+
+@media (max-width: 980px) {
+  .containerPhotoTexte {
+    height: 800px;
+  }
 }
 
 .logoBig {
   height: 200px;
 }
 
+@media (max-width: 980px) {
+  .logoBig {
+    height: 100px;
+  }
+}
+
 .titrePresentation {
   color: #b48700;
   margin: 10px auto;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .description {
   color: #ffffff;
-<<<<<<< HEAD
-  text-align: center;
-  padding: 10px 50px;
-=======
   font-weight: 400;
   text-align: center;
   padding: 10px;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+  height: auto;
+  margin: auto;
+}
+
+@media (max-width: 370px) {
+  .description {
+    font-size: 15px;
+  }
 }
 
 .textePresentation {
   background-color: #0000006b;
-<<<<<<< HEAD
-  width: 25%;
-  margin: 20px 20px 0 0;
   border-radius: 5px;
-=======
-  border-radius: 5px;
-  margin-left: 20px;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+  margin-top: 30px;
 }
 
 .photoBenoitPaux {
-  height: 400px;
-  margin: 20px 0 0 20px;
+  height: auto;
+  margin: auto;
   border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 980px) {
+  .photoBenoitPaux {
+    height: auto;
+  }
 }
 
 .footer-custom {
-<<<<<<< HEAD
-  width: 100%;
-  height: 120px;
-  background-color: #000000;
-  padding-top: 25px;
-}
-
-.lien-CVG {
-  color: #c0aa30;
-=======
   position: absolute;
   width: 100%;
   height: 90px;
   background-color: #000000;
   padding-top: 9px;
+  padding-bottom: 3px;
   bottom: 0;
+  margin-top: 30px;
 }
 
 .lien-CVG {
   color: #b48700;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
   text-decoration: none;
 }
 
@@ -12254,30 +12210,6 @@ p {
 }
 
 .jours-ouverts {
-<<<<<<< HEAD
-  color: #c0aa30;
-}
-
-.icon-facebook {
-  background-color: #ffffff;
-  background-size: 8px;
-}
-
-.contact, .horaires {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-=======
   color: #b48700;
 }
 
@@ -12290,7 +12222,6 @@ p {
 
 .icon-up {
   background-color: #b48700;
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
 }
 
 .logo-cvg {
@@ -12299,8 +12230,6 @@ p {
 
 .horaire {
   text-align: center;
-<<<<<<< HEAD
-=======
 }
 
 .foot {
@@ -12312,6 +12241,241 @@ p {
     margin-bottom: 0px;
     font-size: 10px;
   }
->>>>>>> 966936c73dd7b961cde99bfe57308b4089d181b8
+}
+
+@media (max-width: 360px) {
+  .foot {
+    margin-bottom: 0px;
+    font-size: 8px;
+  }
+}
+
+.contour {
+  width: 300px;
+}
+
+.contour:hover {
+  border: solid #b48700 3px;
+  width: 300px;
+  height: 370px;
+}
+
+.filtre {
+  background-color: #000000;
+  border-radius: 3px;
+}
+
+.bgFiltre {
+  background-color: #b48700;
+  border-radius: 3px;
+  max-width: 280px;
+  min-width: 170px;
+}
+
+.produit-item h5, .produit-item .h5 {
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-bottom: 1px;
+}
+
+.produit-item {
+  margin-top: 50px;
+}
+
+.produit-item .product-subtitle {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.produit-item .product-price {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.produit-container {
+  margin-bottom: 125px;
+}
+
+.produit-page-price {
+  font-size: 19px;
+}
+
+.imgSize {
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+}
+
+.containerBase {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+}
+
+.card {
+  background-image: url("../images/metro6.png");
+  background-size: 400%;
+  background-repeat: no-repeat;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+  border-radius: 2%;
+}
+
+.couleur-icone {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.titrePanier {
+  text-align: center;
+}
+
+.enteteTableau {
+  color: #b48700;
+}
+
+.lienX {
+  text-decoration: none;
+}
+
+.iconPanier {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+@media (max-width: 462px) {
+  .iconPanier {
+    height: 8px;
+  }
+}
+
+.iconPanier2 {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+@media (max-width: 462px) {
+  .iconPanier2 {
+    height: 30px;
+  }
+}
+
+.iconPanier2 :hover {
+  height: 50px;
+}
+
+@media (max-width: 462px) {
+  .iconPanier2 :hover {
+    height: 40px;
+  }
+}
+
+.containerValidation {
+  height: 220px;
+}
+
+@media (max-width: 462px) {
+  .imgPanier {
+    display: none;
+  }
+}
+
+@media (max-width: 462px) {
+  .textProduit {
+    display: none;
+  }
+}
+
+@media (max-width: 462px) {
+  .container {
+    font-size: 12px;
+  }
+}
+
+.h1Cgv {
+  color: #ffffff;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.h3Cgv {
+  margin: 10px 0;
+  text-decoration: underline;
+  color: #b48700;
+}
+
+.texteCgv {
+  line-height: 30px;
+}
+
+.line {
+  height: 3px;
+  background-color: #ffffff;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.articleSimple {
+  background-image: url("../images/metro6.png");
+  background-size: 200%;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .articleSimple {
+    background-size: 400%;
+  }
+}
+
+@media (max-width: 360px) {
+  .articleSimple {
+    background-size: 450%;
+  }
+}
+
+@media (max-width: 310px) {
+  .articleSimple {
+    background-size: 500%;
+  }
+}
+
+.labeldore {
+  color: #b48700;
+  font-weight: 600;
+}
+
+.ui-widget-header {
+  background-color: #000000 !important;
+  color: #b48700 !important;
+}
+
+.ui-widget-content {
+  background-color: #b48700 !important;
+  color: #ffffff !important;
+}
+
+table.ui-datepicker-calendar {
+  background-color: #000000 !important;
+  color: #b48700 !important;
+}
+
+.ui-state-default {
+  background-color: #b48700 !important;
+  color: #ffffff !important;
+}
+
+.ui-state-unselectable {
+  background-color: #b48700 !important;
+}
+
+.ui-state-disabled {
+  opacity: .30 !important;
+  font-weight: lighter !important;
+}
+
+.ui-state-active {
+  color: #000000 !important;
+  font-weight: 600 !important;
 }
 /*# sourceMappingURL=app.css.map */
