@@ -18,6 +18,7 @@
             <div class="row pe-2 product-container-fluid d-flex justify-content-center">
             {% for produit in produits %}
              {% if produit.publie == 1 %}
+             
                 <div class="col-md-4 card img-fluid bg-dark m-2 pb-1 contour" >
                    
                     {% include "produit/single_produit.html.twig" %}
@@ -64,7 +65,7 @@
             {% if produit.enAvant == 1 %}
                 
             
-                <div class="col-md-4 text-light card articleSimple m-1 mb-4 " style="width: 300px">
+                <div class="col-md-4 text-light card articleSimple m-1 mb-4 contour" style="width: 300px">
                     {% include "produit/single_produit.html.twig" %}
                 </div>
                 {% endif %}

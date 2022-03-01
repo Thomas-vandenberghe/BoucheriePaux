@@ -57,7 +57,8 @@ class UserType extends AbstractType
 
             ->add('email', EmailType::class, [
                 'label' => 'Email',
-                'constraints' => new Length(null, 2, 55),
+                'constraints' => [new Length(null, 2, 55), new Email()],
+                               
                 'attr' => [
                     'placeholder' => 'Merci de saisir votre adresse email'
                 ]
@@ -107,3 +108,4 @@ class UserType extends AbstractType
         ]);
     }
 }
+
