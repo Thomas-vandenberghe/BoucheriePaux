@@ -32,6 +32,7 @@ class StockAdminController extends AbstractController
         }
         foreach ($commandes as $commande){
             $com [] = $commande->getDetailsCommandes()->getValues();
+            
         }
 
         foreach ($com as $co){
