@@ -41,17 +41,17 @@
         <td class="qty-width"> 
         <span class="ms-1 me-1 dore bg-qty px-1 pt-1 fw-bold ms-3">x {{produit.quantity}}</span> <br> <br>
             
-            <a class="lienX bouton me-1 dore  " href="{{path('panier-reduire', {'id' : produit.produit.id }) }}"> <span>-1</span>
+            <a class="lienX bouton me-0 dore  " href="{{path('panier-reduire', {'id' : produit.produit.id }) }}"> <span class="badge text-dark">-1</span>
                 {# <img class="iconPanier" src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">    #}
             </a>
-            <a class="lienX dore  ms-1 " class="quantite" href="{{path('panier-ajouter', {'id' : produit.produit.id }) }}"><span class="bouton">+1</span>  <br> 
+            <a class="lienX dore bouton ms-1 " class="quantite" href="{{path('panier-ajouter', {'id' : produit.produit.id }) }}"><span class="badge text-dark">+1</span>  <br> 
                 {# <img class="iconPanier" class="imgPanier" src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">    #}
             </a> 
-             <a class="lienX  me-1 dore  bouton  mt-2 " href="{{path('panier-reduire-cinq', {'id' : produit.produit.id }) }}"> <span class="mt-2">-5</span>
+             <a class="lienX  me-0 dore  bouton  mt-2 " href="{{path('panier-reduire-cinq', {'id' : produit.produit.id }) }}"> <span class="mt-2 badge text-dark">-5</span>
                 {# <img class="iconPanier" src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">     #}
             </a>
            
-            <a class="lienX  ms-1 quantite bouton dore mt-2 "  href="{{path('panier-ajouter-cinq', {'id' : produit.produit.id }) }}"><span class="mt-2">+5</span>
+            <a class="lienX  ms-1 quantite bouton dore mt-2 "  href="{{path('panier-ajouter-cinq', {'id' : produit.produit.id }) }}"><span class="mt-2 badge text-dark">+5</span>
                 {# <img class="iconPanier" class="imgPanier" src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">    #}
             </a>
             

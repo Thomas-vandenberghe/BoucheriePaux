@@ -11,6 +11,8 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\Regex;
+
 
 class SearchType extends AbstractType
 {
@@ -33,6 +35,11 @@ class SearchType extends AbstractType
                 'label'=>false,
                 'required'=> false,
                 'constraints' => new Length(null, 2, 30),
+                'constraints' => new Regex([
+                    'pattern' => '/\d/',
+                    'match' => false,
+                    'message' => 'Vous ne pouvez faire de recherche avec un chiffre',
+                ]),
                 'attr'=>[
                 'placeholder'=>'Votre recherche...',
                 'class'=>'form-control-sm'

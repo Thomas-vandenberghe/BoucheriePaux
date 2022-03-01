@@ -89,4 +89,13 @@ class PanierController extends AbstractController
         return $this->redirectToRoute('panier');
     }
 
+
+    #[Route('/badge-panier', name: 'badge-panier')]
+    public function getBadge(Panier $panier): Response
+    {
+        return $this->render('badgePanier.html.twig',[
+            'panier'=> $panier->getFull(),
+        ]);
+    }
+
 } 

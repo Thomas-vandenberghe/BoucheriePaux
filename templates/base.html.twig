@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    
       {% if block('cookies') is defined %}
       
         <script type="text/javascript" src="https://tarteaucitron.io/load.js"></script>
@@ -105,8 +106,22 @@
          {% endif %}
             </form>
             </div>
-            <a href=" {{path('panier')}}" class="">
-                <img src="{{ asset('assets/images/shopping-cart.png')}}" class ="cart-icon m-3" alt="Mon panier">
+            <a href=" {{path('panier')}}" class="position-relative">
+                <img src="{{ asset('assets/images/shopping-cart.png')}}" class ="cart-icon ms-3 " alt="Mon panier"><span id="cart-count-badge" class='badge position-absolute top-0 start-100 translate-middle cartCount'>
+
+{{ render(controller('App\\Controller\\PanierController::getBadge' )) }}
+
+{# 
+{% set nb_produit = null %}
+{% for produit in panier %}
+{% set nb_produit = nb_produit + produit.quantity %}
+{% endfor %}
+{{nb_produit}} #}
+
+
+
+
+</span>
             </a>
         </div>
         
