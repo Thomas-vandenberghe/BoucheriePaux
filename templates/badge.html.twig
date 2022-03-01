@@ -17,14 +17,8 @@
   
   {% block javascript %}{% endblock %}
         {# ********************** block header ****************************** #}
-        {% block header %}
 
-        {% if vide is defined %}
-
-
-{% else %}
-  
- 
+{% block header %} 
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-dark ">
     <div class="container">
@@ -65,15 +59,16 @@
             <a href=" {{path('panier')}}" class="">
                 <img src="{{ asset('assets/images/shopping-cart.png')}}" class ="cart-icon m-3" alt="Mon panier">
             </a>
-        </div>      
+        </div>   
+            {{ render(controller('App\\Controller\\PanierController::', {'': 'valeur'})) }}
     </nav>
 </header>
 
-{% endif %}
+
+
+
+
 {% endblock %}
-
-
-
 
 
 {# ************************* Contenu de la page ************************************ #}
@@ -141,63 +136,7 @@
     </body>
 {# **************************** block footer *********************************************** #}
 
-
-
 {% block footer %}
-{% if vide is defined %}
-
-
-
-
-        <footer class="footer-custom " style=" color:white;" >
-            <div class="container text-white align-middle">
-                <div class="row ">
-                    <div class="col-4 ">
-                        <div class="d-flex justify-content-between align-center ">
-                           <a href="https://www.facebook.com/Boucherie-Merlier-Paux-366599614148895">
-                                {# <img src="{{ asset('build/images/facebook.svg')}}" class="bg-primary icon-facebook"   width="26" height="26" alt="icon-facebook"> #}
-                            </a>
-                          <div class=" contact foot text-center ">
-                            <p class = "jours-ouverts ">Contact</p>  
-                            <p>03.21.95.21.54</p>  
-                            <p> info@paux.fr</p>
-                          </div>
-                        </div>
-                      </div>
-                    <div class="col-4 logo-cvg d-flex justify-content-center">
-                      <div>
-                        {# <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="logo-footer">  #}
-                        <a href="{{ path('condition_utilisation')}}" class="lien-CVG foot" style="color:white; ">
-                            <p>Conditions d'utilisation</p>
-                        </a>
-                      </div>
-                    </div>
-                  <div class="col-4 horaires d-flex justify-content-between align-middle">
-                <div class="foot align-center">
-                  <p class='foot d-block '>
-                    <p class="jours-ouverts">
-                    lundi au samedi 
-                    </p>
-                    <p>
-                    07h00-12h30
-                    </p>
-                    <p>
-                    14h30-19h00
-                    </p>
-                        </p>
-                        </div>
-                        {# <a href="#" class=""> #}
-                                {# <img src="{{ asset('build/images/arrow-up-circle.svg')}}" class="icon-up " width="32" height="32" alt="icon-facebook"> #}
-                            {# </a> #}
-                </div>
-              </div>
-        </footer>
-
-{% else %}
-
-
-
- 
         <footer class="footer-custom  ">
             <div class="container text-white align-middle">
                 <div class="row ">
@@ -241,7 +180,7 @@
                 </div>
               </div>
         </footer>
- {% endif %}
+
 {% endblock %}
 
     </body>

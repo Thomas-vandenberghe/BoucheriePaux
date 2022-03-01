@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -21,7 +22,8 @@ class UserType extends AbstractType
             $builder
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom',
-                'constraints' => new Length(null, 2, 35),
+                'constraints' =>  new Length(null, 2, 35)
+                ,
                 'attr' => [
                     'placeholder'=> 'Merci de saisir votre prénom'
                 ]
@@ -44,7 +46,8 @@ class UserType extends AbstractType
 
             ->add('email', EmailType::class, [
                 'label' => 'Email',
-                'constraints' => new Length(null, 2, 55),
+                'constraints' => [new Length(null, 2, 55), new Email()],
+                               
                 'attr' => [
                     'placeholder' => 'Merci de saisir votre adresse email'
                 ]
@@ -87,3 +90,4 @@ class UserType extends AbstractType
         ]);
     }
 }
+
