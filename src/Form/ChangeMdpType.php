@@ -4,13 +4,15 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ChangeMdpType extends AbstractType
 {
@@ -32,6 +34,7 @@ class ChangeMdpType extends AbstractType
             ])
             ->add('old_password', PasswordType::class, [
                 'label' => 'Mon mot de passe actuel',
+                'constraints' => new Length(null, 2, 55),
                 'mapped' => false,
                 'attr' => [
                     'placeholder' => 'Veuillez saisir votre mot de passe actuel'
@@ -45,12 +48,22 @@ class ChangeMdpType extends AbstractType
                 'required' => true,
                 'first_options'=> [
                     'label' => 'Mon nouveau mot de passe',
+                    'constraints' => new Length(null, 8, 55),
+                    'constraints' => new Regex([
+                        'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$/',
+                        'message' => 'Doit contenir au moins 8 caractères dont une majuscule et un symbole parmi cette liste : #?!@$%^&-= ',
+                        ]),
                     'attr' => [
                         'placeholder' => 'Merci de saisir un nouveau mot de passe'
                         ]
                 ],
                 'second_options' => [
-                    'label' => 'Confirmez le nouveau mot de passe',               
+                    'label' => 'Confirmez le nouveau mot de passe',
+                    'constraints' => new Length(null, 8, 55),
+                'constraints' => new Regex([
+                    'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$/',
+                    'message' => 'Doit contenir au moins 8 caractères dont une majuscule et un symbole parmi cette liste : #?!@$%^&-= ',
+                    ]),               
                 'attr' => [
                     'placeholder' => 'Merci de confirmer votre nouveau mot de passe'
                 ]

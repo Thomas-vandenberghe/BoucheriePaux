@@ -65,6 +65,16 @@ class Produit
      */
     private $recettes;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $Publie;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $EnAvant;
+
     public function __construct()
     {
         $this->recettes = new ArrayCollection();
@@ -206,6 +216,34 @@ class Produit
         return $this->getName();
     }
 
+    public function getPublie(): ?bool
+    {
+        return $this->Publie;
+    }
+
+    public function setPublie(bool $Publie): self
+    {
+        $this->Publie = $Publie;
+
+        return $this;
+    }
+
+    public function getEnAvant(): ?bool
+    {
+        return $this->EnAvant;
+    }
+
+    public function setEnAvant(bool $EnAvant): self
+    {
+        $this->EnAvant = $EnAvant;
+
+        return $this;
+    }
+
 
 
 }
+
+
+
+

@@ -4,6 +4,8 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -21,13 +23,23 @@ class MdpOublieType extends AbstractType
             'required' => true,
             'first_options'=> [
                 'label' => 'Mon nouveau mot de passe',
+                'constraints' => new Length(null, 8, 55),
+                'constraints' => new Regex([
+                    'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$/',
+                    'message' => 'Doit contenir au moins 8 caractères dont une majuscule et un symbole parmi cette liste : #?!@$%^&-= ',
+                    ]),
                 'attr' => [
                     'placeholder' => 'Merci de saisir votre nouveau mot de passe'
                     ]
             ],
             'second_options' => [
                 'label' => 'Confirmez votre nouveau mot de passe',
-            'attr' => [
+                'constraints' => new Length(null, 8, 55),
+                'constraints' => new Regex([
+                    'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$/',
+                    'message' => 'Doit contenir au moins 8 caractères dont une majuscule et un symbole parmi cette liste : #?!@$%^&-= ',
+                    ]),
+                'attr' => [
                 'placeholder' => 'Merci confirmer votre nouveau mot de passe'
             ]
             ],

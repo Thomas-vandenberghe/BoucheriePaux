@@ -75,6 +75,7 @@ return $this->redirect($routeBuilder->setController(CommandeCrudController::clas
         return [
             IdField::new('id'),
             TextField::new('createdAt', 'Passée le'),
+            TextField::new('finishedAt', 'Date de retrait'),
             TextField::new('user.lastname', "Nom"),
             TextField::new('user.firstname', "Prénom"),
             MoneyField::new('total', 'Total produit')->setCurrency('EUR'),
