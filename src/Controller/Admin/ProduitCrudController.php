@@ -26,18 +26,19 @@ class ProduitCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
        return [
-        TextField::new('name','Nom du produit'),
-        SlugField::new('slug')->setTargetFieldName('name'),
-        ImageField::new('illustration')->setBasePath('uploads/')
+        TextField::new('name','Produit'),
+        SlugField::new('slug')->setTargetFieldName('name')
+        ->hideOnIndex(),
+        ImageField::new('illustration', 'Img')->setBasePath('uploads/')
     ->setUploadDir('public/uploads/')
     ->setUploadedFileNamePattern('[randomhash].[extension]')
-    ->setRequired(false),
-        IntegerField::new('subtitle', 'Quantité/portion'),
+    ->setRequired(true),
+        IntegerField::new('subtitle', 'Qté (gr)'),
         TextareaField::new('description'),
         BooleanField::new('publie', 'Publié'),
-        BooleanField::new('enAvant', 'Mettre en avant'),
-        MoneyField::new('priceKg','Prix au Kg')->setCurrency('EUR'),
-        MoneyField::new('priceQuantity', 'Prix par portion')->setCurrency('EUR'),
+        BooleanField::new('enAvant', 'Favoris'),
+        MoneyField::new('priceKg','Prix/kg')->setCurrency('EUR'),
+        MoneyField::new('priceQuantity', 'Prix/portion')->setCurrency('EUR'),
         AssociationField::new('categorie')
        ];
     }

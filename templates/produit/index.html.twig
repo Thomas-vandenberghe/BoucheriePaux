@@ -3,19 +3,19 @@
 {% block title %}Nos produits{% endblock %}
 
 {% block body %}
-<div class= 'container'>
+<div class= 'container-fluid'>
     <h1 class= "mt-5 mb-5 text-center dore">Nos produits</h1>
     <div class="row text-light ">
         <div class="col-md-3  ">
-            <section class="bgFiltre  px-2 pb-1">
-                <h3 class= "mt-2 text-center black mb-3  "> Filtrer</h3>
+            <section class="bgFiltre   pb-1 pt-4 d-flex justify-content-center mx-auto">
+                {# <h3 class= "mt-2 text-center black mb-3  "> Filtrer</h3> #}
                 <div class=" d-flex justify-content-center mx-auto">
                     {{form(form)}}
                 </div>
             </section>
         </div>
         <div class="col-md-9 ">
-            <div class="row product-container-fluid">
+            <div class="row pe-2 product-container-fluid d-flex justify-content-center">
             {% for produit in produits %}
              {% if produit.publie == 1 %}
                 <div class="col-md-4 card img-fluid bg-dark m-2 pb-1 contour" >
