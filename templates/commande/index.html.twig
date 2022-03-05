@@ -1,72 +1,86 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CommandeController!{% endblock %}
+{% block title %}Ma commande{% endblock %}
 
 {% block body %}
-{# <div class="container shadow min-vh-100 py-2">
-    <h5>Bootstrap 5 date picker</h5>
-    <div class="row justify-content-center">
-        <div class="col-lg-3 col-sm-6">
-            <label for="startDate">Start</label>
-            <input id="startDate" class="form-control" type="date" />
-            <span id="startDateSelected"></span>
-        </div>
-    </div>
-
-    <script>
-    let startDate = document.getElementById('startDate')
-let endDate = document.getElementById('endDate')
-
-startDate.addEventListener('change',(e)=>{
-  let startDateVal = e.target.value
-  document.getElementById('startDateSelected').innerText = startDateVal
-})  </script> #}
 
 
- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-    $( ".datepicker" ).datepicker({ minDate: +3, maxDate: "+1M +10D", dateFormat: 'dd-mm-yy' });
-  } );
+   
+    
+  $(function () {
+        function disableDays(date) {
+            var day = date.getDay();
+            return [(day != 0 & day != 6 ), ""];
+        }
+
+        $(".datepicker").datepicker({
+            minDate: +3,
+            maxDate: "+1M +10D", dateFormat: 'yy-mm-dd',
+            beforeShowDay: disableDays,
+            closeText: 'Fermer',
+            prevText: 'Précédent',
+            nextText: 'Suivant',
+            currentText: 'Aujourd\'hui',
+            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+            dayNames: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+            dayNamesShort: ['Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.', 'Dim.'],
+            dayNamesMin: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
+            weekHeader: 'Sem.',
+        });
+ });   
+
   </script>
-</head>
 
-
-
-<div class="text-light">
+<div class='text-center mt-5  '>
+    <b class="dore  fs-2 mb-5">Récapitulatif de ma commande</b> <br>
+    <p class= "fs-3 text-light mb-5 mt-3"> Quand retirer ma commande ? </p>
+    <hr class="bg-light col-6 mx-auto">
+</div>
+<div class="text-light container ">
     <div class="row">
-        <div class="col-md-6">
-            {% set formHtml %}
-            {{form_start(form,{action:path('commande-validation')}) }} 
-            {{form_end(form)}} 
-            {% endset %}
+        <div class="col-4"></div>
+            <div class="col-md-4  mt-5 fa fa-calendar d-flex content-justify-center"> 
+                <div class="col-2"></div>
+                    <div class= "form-control bg-dark text-light mb-3 mx-auto d-flex justify-content-center">
+        
+                    {% set formHtml %}
+                    {{form_start(form,{action:path('commande-validation')}) }} 
+                    {{form_label(form, 'A quelle date voulez-vous retirer votre commande ?')}}
+                    {{form_end(form)}} 
+                    {% endset %}
 
-            {{ formHtml|replace({'[br]' : '</br>'})|raw }}
-
-        </div>
-
-        <div class="col-md-6">
-            <div class='text-center'>
-                <b>Récap de ma commande</b> <br>
-                <p>Retrouvez le récapitulatif de vos produits.</p>
+                    {{ formHtml|replace({'[br]' : '</br>'})|raw }}
+                    
+                    </div> 
+                <div class="col-2"></div>
             </div>
+        </div>
+    </div>
+</div>
 
-
-        <div class="order-summary">
+        <div class=" container mt-5">
+        <div class="order-summary ms-4 text-light ">
                 {% for produit in panier %}
-                    <div class="row mt-2" >
-                        <div class="col-2">
-                            <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" height='75px'>
-                        </div>
-                        <div class="col-8 my-auto">
+                    <div class="row mt-2 mb-2" >
+                        <div class ="col-1"></div>
+                            <div class="col-md-4">
+                                <img src="/uploads/{{produit.produit.illustration}}" alt="produit.produit.name" width='200px' height="133px" style="border-radius:3px">
+                            </div>
+                        <div class="col-md-4 my-auto">
                             {{produit.produit.name}} <br>
-                            <small>{{produit.produit.subtitle}}</small>
+                            <small>{{produit.produit.subtitle}} Gr</small>
                         </div> 
+                        <div class="col-1 my-auto">
+                            x{{produit.quantity}} 
+                        </div>
                         <div class="col-2 my-auto">
-                            x {{produit.quantity}}
+                             {{(produit.produit.priceQuantity / 100 )|number_format(2, ',', '.') }}€
                         </div>
                     </div>
                 {% endfor %}
@@ -74,8 +88,6 @@ startDate.addEventListener('change',(e)=>{
         </div>
     </div>
 </div>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+
 {% endblock %}

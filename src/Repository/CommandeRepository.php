@@ -19,6 +19,35 @@ class CommandeRepository extends ServiceEntityRepository
         parent::__construct($registry, Commande::class);
     }
 
+    public function findCommandesPayees($user)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.etat > 0')
+            ->andWhere('c.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    public function findCommandesSemaine($datemin, $datemax)
+    {
+        return $this->createQueryBuilder('c')
+        ->andWhere('c.finishedAt >= :datemin')
+        ->andWhere('c.finishedAt <= :datemax')
+        ->andWhere('c.etat = 1')
+        ->setParameter('datemin', $datemin)
+        ->setParameter('datemax', $datemax)
+        ->orderBy('c.id', 'DESC')
+        ->getQuery()
+        ->getResult();
+
+    }
+
+
+
+
+
     // /**
     //  * @return Commande[] Returns an array of Commande objects
     //  */
@@ -47,4 +76,4 @@ class CommandeRepository extends ServiceEntityRepository
         ;
     }
     */
-}
+} 

@@ -5,18 +5,18 @@
 
 {% block body %}
 
-<div class="text-light">
-<h1>Mon panier</h1>
-<hr>
+<div class=" container text-light">
+    <h1 class="titrePanier mt-3 dore">Mon panier</h1> <br> <br>
+
 
 {% if panier|length > 0 %}
 
-    <table class="table mt-3 text-light">
-    <thead>
+    <table class="table table-dark table-hover mt-3">
+    <thead class="enteteTableau">
         <tr>
-        <th scope="col">Produit</th>
+        <th class="textProduit" scope="col">Produit</th>
         <th scope="col"></th>
-        <th scope="col">Qantité</th>
+        <th scope="col" class="mx-3">Quantité</th>
         <th scope="col">Prix</th>
         <th scope="col">Total</th>
         <th scope="col"></th>
@@ -31,26 +31,37 @@
     
          <tr>
         
-        <td>
-        <img src="/uploads/{{produit.produit.illustration}}" alt="nom" height='75px'>  <br>
+        <td class="imgPanier">
+        <img  src="/uploads/{{produit.produit.illustration}}" alt="nom" height='100px' width='150px'>  <br>
         </td>
-        <td>{{produit.produit.name}} <br>
-            <small> {{produit.produit.subtitle}}</small>
+        <td class="qty-width">{{produit.produit.name}} <br>
+            <small> {{produit.produit.subtitle}} Gr</small>
+        </td>
+        
+        <td class="qty-width"> 
+        <span class="ms-1 me-1 dore bg-qty px-1 pt-1 fw-bold ms-3">x {{produit.quantity}}</span> <br> <br>
+            
+            <a class="lienX bouton me-0 dore  " href="{{path('panier-reduire', {'id' : produit.produit.id }) }}"> <span class="badge text-dark">-1</span>
+                {# <img class="iconPanier" src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">    #}
+            </a>
+            <a class="lienX dore bouton ms-1 " class="quantite" href="{{path('panier-ajouter', {'id' : produit.produit.id }) }}"><span class="badge text-dark">+1</span>  <br> 
+                {# <img class="iconPanier" class="imgPanier" src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">    #}
+            </a> 
+             <a class="lienX  me-0 dore  bouton  mt-2 " href="{{path('panier-reduire-cinq', {'id' : produit.produit.id }) }}"> <span class="mt-2 badge text-dark">-5</span>
+                {# <img class="iconPanier" src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">     #}
+            </a>
+           
+            <a class="lienX  ms-1 quantite bouton dore mt-2 "  href="{{path('panier-ajouter-cinq', {'id' : produit.produit.id }) }}"><span class="mt-2 badge text-dark">+5</span>
+                {# <img class="iconPanier" class="imgPanier" src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">    #}
+            </a>
+            
+                
+            
         </td>
 
-        <td>
-            <a href="{{path('panier-reduire', {'id' : produit.produit.id }) }}">
-                <img src="{{ asset('assets/images/minus.png') }}" height="12px" alt="reduction">   
-            </a>
-                x {{produit.quantity}}
-            <a href="{{path('panier-ajouter', {'id' : produit.produit.id }) }}">
-                <img src="{{ asset('assets/images/plus.png') }}" height="12px" alt="augmentation">   
-            </a>
-        </td>
-
-        <td>{{(produit.produit.priceQuantity / 100)|number_format(2, ',', '.')}} €</td>
-        <td>{{((produit.produit.priceQuantity * produit.quantity)/ 100 )|number_format(2, ',', '.') }} €</td>
-        <td> <a href="{{path('panier-supprimer', {'id': produit.produit.id})}}"> <img src="{{ asset('assets/images/delete.png') }}" height="18px" alt="supression"></a> </td>
+        <td>{{(produit.produit.priceQuantity / 100)|number_format(2, ',', '.')}}€</td>
+        <td>{{((produit.produit.priceQuantity * produit.quantity)/ 100 )|number_format(2, ',', '.') }}€</td>
+        <td> <a class="lienX" href="{{path('panier-supprimer', {'id': produit.produit.id})}}"> <img class="iconPanier" src="{{ asset('assets/images/delete.png') }}" height="18px" alt="supression"></a> </td>
 
 
             {% set nb_produit = nb_produit + produit.quantity %}
@@ -60,20 +71,17 @@
     {% endfor %}
     </table>
 
-    <div class="mb-5  text-right">
-    <b>Nombre de produits :</b> {{ nb_produit }} <br>
-    <b>Totale de mon panier :</b> {{(total / 100 )|number_format(2, ',', '.') }} € <br>
-    <a href=" {{path('commande')}} "class="btn btn-success btn-block mt-2">Valider mon panier</a>
-
+    <div class="mb-8 pb-5 float-end containerValidation">
+        <b>Nombre de produits :</b> {{ nb_produit }} <br>
+        <b>Totale de mon panier :</b> {{(total / 100 )|number_format(2, ',', '.') }} € <br>
+        <a href=" {{path('commande')}} "class="btn btn-block mt-2 btn-connexion">Valider mon panier</a>
     </div>
-
 
     
     {% else %}
         <hr>
         <b><p>Votre panier est vide</p></b>
     {% endif %} 
-
 </div>
 {% endblock %}
 

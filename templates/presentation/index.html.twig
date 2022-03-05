@@ -5,32 +5,59 @@
 {% block body %}
 
     <div class="container-fluid containerGlobal img-fluid">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center mb-5">
         <a class="navbar-brand logo-navbar " href="{{ path('home') }}">
-            <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class=" logoBig block align-text-top ">
+            <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class=" logoBig block align-text-top  ">
         </a>
     </div>
 
-<section
-      class=" text-light py-5 p-lg-0 pt-lg-5 text-center text-md-start"
+{# <section
+      class=" text-light  p-lg-0  text-center text-md-start  "
     >
-      <div class="container">
-        <div class="d-sm-flex align-items-center justify-content-between img-fluid">
+    <div class="row"></div>
+      <div class="containerPhotoTexte  col-12 ">
+        <div class="d-sm-flex align-items-center  img-fluid col-6">
 
         <img
             class="img-fluid w-50 d-none d-md-block mb-5 photoBenoitPaux"
             src="{{ asset('build/images/benoitPaux.png')}}"
             alt=""
           />
-          <div class= "textePresentation">
+          </div>
+          <div class= "textePresentation col-6 ">
             <h1 class=" text-center my-2 titrePresentation">Boucherie Paux</h1>
-            <p class="lead my-0 my-lg-5 text-center m-5 description">
+            <p class="lead my-0 my-lg-5 text-center  description">
               La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter. Dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. 
             </p>
-</div>
+
         </div>
       </div>
       
+    </section> #}
+
+    <section>
+       <div class="containerPhotoTexte ">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="photoPaux mt-3">
+              <img class=" photoBenoitPaux w-50" src="{{ asset('build/images/benoitPaux.png')}}" alt=""/>
+            </div>
+          </div>
+
+          <div class="col-lg-5 p-0 " >
+            <div class= "textePresentation  mt-3  ">
+             
+                <h1 class=" text-center titrePresentation">Boucherie Paux</h1>
+              <p class="description fs-5 mb-5">
+                  La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter. Dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. 
+
+              </div>
+              
+              </p>
+            </div>
+          
+        </div>
+      </div>
     </section>
 
 

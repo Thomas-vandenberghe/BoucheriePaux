@@ -42,8 +42,10 @@ class ProduitController extends AbstractController
 
         return $this->render('produit/index.html.twig',[
             'produits' => $produits,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
+
+        
     }
 
 
@@ -55,13 +57,14 @@ class ProduitController extends AbstractController
     {
     
         // $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
-
+        $produits = $this->entityManager->getRepository(Produit::class)->findAll();
         $produit = $this->entityManager->getRepository(Produit::class)->findOneBySlug($slug);
            if (!$produit){
                return $this->redirectToRoute('nos-produits');
            }
         return $this->render('produit/show.html.twig',[
             'produit' => $produit,
+            'produits'=> $produits
             // 'products' => $products
         ]);
     }

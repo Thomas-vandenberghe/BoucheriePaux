@@ -7,8 +7,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -26,17 +26,19 @@ class ProduitCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
        return [
-        TextField::new('name','Nom du produit'),
-        SlugField::new('slug')->setTargetFieldName('name'),
-        ImageField::new('illustration')->setBasePath('uploads/')
+        TextField::new('name','Produit'),
+        SlugField::new('slug')->setTargetFieldName('name')
+        ->hideOnIndex(),
+        ImageField::new('illustration', 'Img')->setBasePath('uploads/')
     ->setUploadDir('public/uploads/')
     ->setUploadedFileNamePattern('[randomhash].[extension]')
-    ->setRequired(false),
-        TextField::new('subtitle', 'Quantité par portion (en gramme)'),
+    ->setRequired(true),
+        IntegerField::new('subtitle', 'Qté (gr)'),
         TextareaField::new('description'),
-       // BooleanField::new('isBest'),
-        MoneyField::new('priceKg','Prix au Kg')->setCurrency('EUR'),
-        MoneyField::new('priceQuantity', 'Prix par portion')->setCurrency('EUR'),
+        BooleanField::new('publie', 'Publié'),
+        BooleanField::new('enAvant', 'Favoris'),
+        MoneyField::new('priceKg','Prix/kg')->setCurrency('EUR'),
+        MoneyField::new('priceQuantity', 'Prix/portion')->setCurrency('EUR'),
         AssociationField::new('categorie')
        ];
     }

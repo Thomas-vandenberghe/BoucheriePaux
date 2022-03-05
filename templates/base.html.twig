@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 <html>
     <head>
+    
+      {% if block('cookies') is defined %}
+      
+        <script type="text/javascript" src="https://tarteaucitron.io/load.js"></script>
+        <script src="/tarteaucitron/tarteaucitron.js"></script>
+        <script>
+        tarteaucitron.init({
+            "privacyUrl": "", /* Privacy policy url */
+
+            "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+            "cookieName": "tarteaucitron", /* Cookie name */
+
+            "orientation": "middle", /* Banner position (top - bottom - middle - popup) */
+
+            "groupServices": false, /* Group services by category */
+
+            "showAlertSmall": false, /* Show the small banner on bottom right */
+            "cookieslist": false, /* Show the cookie list */
+            
+            "showIcon": true, /* Show cookie icon to manage cookies */
+            // "iconSrc": "", /* Optionnal: URL or base64 encoded image */
+            "iconPosition": "BottomRight", /* Position of the icon between BottomRight, BottomLeft, TopRight and TopLeft */
+
+            "adblocker": false, /* Show a Warning if an adblocker is detected */
+
+            "DenyAllCta" : true, /* Show the deny all button */
+            "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+            "highPrivacy": true, /* HIGHLY RECOMMANDED Disable auto consent */
+
+            "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+
+            "removeCredit": false, /* Remove credit link */
+            "moreInfoLink": true, /* Show more info link */
+            "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+
+            //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for subdomain website */
+
+            "readmoreLink": "", /* Change the default readmore link pointing to tarteaucitron.io */
+            
+            "mandatory": true /* Show a message about mandatory cookies */
+        });
+          tarteaucitron.user.gtagUa = 'G-EFTGCYD0CK';
+        // tarteaucitron.user.gtagCrossdomain = ['example.com', 'example2.com'];
+        tarteaucitron.user.gtagMore = function () { /* add here your optionnal gtag() */ };
+        (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+        (tarteaucitron.job = tarteaucitron.job || []).push('facebook');
+        </script>
+      {% endif %}
+
+        
         <meta charset="UTF-8">
         <title>{% block title %}Boucherie Paux{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,10 +67,16 @@
   
   {% block javascript %}{% endblock %}
         {# ********************** block header ****************************** #}
+        {% block header %}
 
-{% block header %} 
+        {% if vide is defined %}
+
+
+{% else %}
+  
+ 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-dark ">
     <div class="container">
         <a class="navbar-brand logo-navbar" href="{{ path('home') }}">
             <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="d-inline logo block align-text-top ">
@@ -56,19 +112,32 @@
          {% endif %}
             </form>
             </div>
-            <a href=" {{path('panier')}}" class="">
-                <img src="{{ asset('assets/images/shopping-cart.png')}}" class ="cart-icon m-3" alt="Mon panier">
+            <a href=" {{path('panier')}}" class="position-relative">
+                <img src="{{ asset('assets/images/shopping-cart.png')}}" class ="cart-icon ms-3 " alt="Mon panier"><span id="cart-count-badge" class='badge position-absolute top-0 start-100 translate-middle cartCount'>
+
+{{ render(controller('App\\Controller\\PanierController::getBadge' )) }}
+
+{# 
+{% set nb_produit = null %}
+{% for produit in panier %}
+{% set nb_produit = nb_produit + produit.quantity %}
+{% endfor %}
+{{nb_produit}} #}
+
+
+
+
+</span>
             </a>
-        </div>
-        
+        </div>      
     </nav>
 </header>
 
-
-
-
-
+{% endif %}
 {% endblock %}
+
+
+
 
 
 {# ************************* Contenu de la page ************************************ #}
@@ -94,14 +163,14 @@
       <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
           <div>
-            <h1 class="dore text-center my-2">Boucher - Traiteur</h1>
+            <h1 class="dore text-center my-2 mt-3">Boucher - Traiteur</h1>
             
             <p class="lead my-0 my-lg-5 text-center m-5 texte">
               La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter. Dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. 
             </p>
             </div>
           <img
-            class="img-fluid w-50 d-none d-md-block mb-5 mt-5"
+            class="img-fluid col-5 d-none d-md-block mb-5 mt-5"
             src="{{ asset('build/images/viande1.jpg')}}"
             alt=""
           />
@@ -117,7 +186,7 @@
         <div class="d-sm-flex align-items-center justify-content-between">
 
         <img
-            class="img-fluid w-50 d-none d-md-block mb-5"
+            class="img-fluid col-5 d-none d-md-block mb-5"
             src="{{ asset('build/images/viande2.jpg')}}"
             alt=""
           />
@@ -136,8 +205,64 @@
     </body>
 {# **************************** block footer *********************************************** #}
 
+
+
 {% block footer %}
-        <footer class="footer-custom ">
+{% if vide is defined %}
+
+
+
+
+        <footer class="footer-custom " style=" color:white;" >
+            <div class="container text-white align-middle">
+                <div class="row ">
+                    <div class="col-4 ">
+                        <div class="d-flex justify-content-between align-center ">
+                           <a href="https://www.facebook.com/Boucherie-Merlier-Paux-366599614148895">
+                                {# <img src="{{ asset('build/images/facebook.svg')}}" class="bg-primary icon-facebook"   width="26" height="26" alt="icon-facebook"> #}
+                            </a>
+                          <div class=" contact foot text-center ">
+                            <p class = "jours-ouverts ">Contact</p>  
+                            <p>03.21.95.21.54</p>  
+                            <p> info@paux.fr</p>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-4 logo-cvg d-flex justify-content-center">
+                      <div>
+                        {# <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="logo-footer">  #}
+                        <a href="{{ path('condition_utilisation')}}" class="lien-CVG foot" style="color:white; ">
+                            <p>Conditions d'utilisation</p>
+                        </a>
+                      </div>
+                    </div>
+                  <div class="col-4 horaires d-flex justify-content-between align-middle">
+                <div class="foot align-center">
+                  <p class='foot d-block '>
+                    <p class="jours-ouverts">
+                    lundi au samedi 
+                    </p>
+                    <p>
+                    07h00-12h30
+                    </p>
+                    <p>
+                    14h30-19h00
+                    </p>
+                        </p>
+                        </div>
+                        {# <a href="#" class=""> #}
+                                {# <img src="{{ asset('build/images/arrow-up-circle.svg')}}" class="icon-up " width="32" height="32" alt="icon-facebook"> #}
+                            {# </a> #}
+                </div>
+              </div>
+        </footer>
+
+{% else %}
+
+
+
+ 
+        <footer class="footer-custom  ">
             <div class="container text-white align-middle">
                 <div class="row ">
                     <div class="col-4 ">
@@ -155,7 +280,7 @@
                     <div class="col-4 logo-cvg d-flex justify-content-center">
                       <div>
                         <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="logo-footer"> 
-                        <a href="" class="lien-CVG foot">
+                        <a href="{{ path('condition_utilisation')}}" class="lien-CVG foot">
                             <p>Conditions d'utilisation</p>
                         </a>
                       </div>
@@ -180,12 +305,9 @@
                 </div>
               </div>
         </footer>
-
+ {% endif %}
 {% endblock %}
 
-<<<<<<< HEAD
-=======
     </body>
     {% block script %}{% endblock %}
->>>>>>> e77d0a7e4d57a8b6b71bd80539d0712fa3606dc9
 </html>

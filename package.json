@@ -22,6 +22,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "js-datepicker": "^5.18.0"
+        "js-datepicker": "^5.18.0",
+        "tarteaucitronjs": "^1.9.5"
     }
 }

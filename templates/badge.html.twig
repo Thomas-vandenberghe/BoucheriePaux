@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Boucherie Paux{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Boucherie instalée dans le pas de calais, spécialisée dans la boucherie et la charcuterie artisanal">
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }} 
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+<body class="pb-5 bg-dark">
+  
+  {% block javascript %}{% endblock %}
+        {# ********************** block header ****************************** #}
+
+{% block header %} 
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-dark ">
+    <div class="container">
+        <a class="navbar-brand logo-navbar" href="{{ path('home') }}">
+            <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="d-inline logo block align-text-top ">
+        </a>
+        
+         <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ">
+                    <a class="nav-link navigation" href="{{path('nos-produits')}}">Nos produits</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link navigation" href=" {{ path('presentation')}}">Qui sommes-nous?</a>
+                </li>
+            </ul>            
+            <form class="d-flex">
+            
+{% if app.user %}
+            <a class="dore btn btn-connexion" type="submit" href=" {{path ('mon-compte')}} ">Mon compte <small> ({{ app.user.firstname}})</small></a>
+            <a class= "btn-inscription btn" href="{{path ('deconnexion')}}">Déconnexion</a>
+            {% else %}
+
+                <a class="dore btn btn-connexion" type="submit" href="{{ path('connexion')}}">  Se connecter </a>
+                <a class="btn-inscription btn"  type="submit" href="{{ path('inscription')}}" >S'inscrire</a>
+         {% endif %}
+            </form>
+            </div>
+            <a href=" {{path('panier')}}" class="">
+                <img src="{{ asset('assets/images/shopping-cart.png')}}" class ="cart-icon m-3" alt="Mon panier">
+            </a>
+        </div>   
+            {{ render(controller('App\\Controller\\PanierController::', {'': 'valeur'})) }}
+    </nav>
+</header>
+
+
+
+
+
+{% endblock %}
+
+
+{# ************************* Contenu de la page ************************************ #}
+{% block body %}{% endblock %}
+
+
+{# ************************* block photo page d'accueil ************************************ #}
+
+{% if block('photoPageAccueil') is defined %}
+        <div >
+        <div class="row g-0">
+            <div class="col-1 bordure-photo-accueil  bg-dark"></div>
+            <div class="col-10">
+                <img src="{{ asset('build/images/devanture.png')}}" class="imageDevanture" alt="devanture">
+            </div>
+            <div class="col-md-1 bordure-photo-accueil2 gx-0 bg-dark"></div>
+        </div>
+    </div>
+
+<section
+      class="bg-dark text-light  p-lg-0 pt-lg-5 text-center text-md-start"
+    >
+      <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+          <div>
+            <h1 class="dore text-center my-2 mt-3">Boucher - Traiteur</h1>
+            
+            <p class="lead my-0 my-lg-5 text-center m-5 texte">
+              La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter. Dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. 
+            </p>
+            </div>
+          <img
+            class="img-fluid col-5 d-none d-md-block mb-5 mt-5"
+            src="{{ asset('build/images/viande1.jpg')}}"
+            alt=""
+          />
+          
+        </div>
+      </div>
+    </section>
+
+<section
+      class="bg-dark text-light py-5 p-lg-0 pt-lg-5 text-center text-md-start"
+    >
+      <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+
+        <img
+            class="img-fluid col-5 d-none d-md-block mb-5"
+            src="{{ asset('build/images/viande2.jpg')}}"
+            alt=""
+          />
+          <div >
+            <h1 class="dore text-center my-2">La qualité au prix juste</h1>
+            <p class="lead my-0 my-lg-5 text-center m-5 texte">
+              La boucherie Paux, basée à Serques dans le pas de calais est spécialisé dans le commerce de la boucherie et charcuterie artisanale. Son gérant Benoit Paux, vous propose des viandes de qualité, des charcuteries maisons et un service traiteur à emporter. Dolore illum ullam suscipit in adipisci totam reprehenderit temporibus ipsum dolor sit, amet consectetur adipisicing elit. 
+            </p>
+</div>
+        </div>
+      </div>
+    </section>
+
+{% endif %}
+
+    </body>
+{# **************************** block footer *********************************************** #}
+
+{% block footer %}
+        <footer class="footer-custom  ">
+            <div class="container text-white align-middle">
+                <div class="row ">
+                    <div class="col-4 ">
+                        <div class="d-flex justify-content-between align-center ">
+                           <a href="https://www.facebook.com/Boucherie-Merlier-Paux-366599614148895">
+                                <img src="{{ asset('build/images/facebook.svg')}}" class="bg-primary icon-facebook"   width="26" height="26" alt="icon-facebook">
+                            </a>
+                          <div class=" contact foot text-center ">
+                            <p class = "jours-ouverts ">Contact</p>  
+                            <p>03.21.95.21.54</p>  
+                            <p> info@paux.fr</p>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-4 logo-cvg d-flex justify-content-center">
+                      <div>
+                        <img src="{{ asset('build/images/logo.png') }}" alt="logo"  class="logo-footer"> 
+                        <a href="{{ path('condition_utilisation')}}" class="lien-CVG foot">
+                            <p>Conditions d'utilisation</p>
+                        </a>
+                      </div>
+                    </div>
+                  <div class="col-4 horaires d-flex justify-content-between align-middle">
+                <div class="foot align-center">
+                  <p class='foot d-block '>
+                    <p class="jours-ouverts">
+                    lundi au samedi 
+                    </p>
+                    <p>
+                    07h00-12h30
+                    </p>
+                    <p>
+                    14h30-19h00
+                    </p>
+                        </p>
+                        </div>
+                        <a href="#" class="">
+                                <img src="{{ asset('build/images/arrow-up-circle.svg')}}" class="icon-up " width="32" height="32" alt="icon-facebook">
+                            </a>
+                </div>
+              </div>
+        </footer>
+
+{% endblock %}
+
+    </body>
+    {% block script %}{% endblock %}
+</html>

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+
+<h1 class=" dore mb-5 text-center">Mes commandes</h1>
+<h5 class="text-light"> C'est dans cet espace que vous allez pouvoir consulter toutes vos commandes. </h5>
+    <a href="{{path('mon-compte')}}" class="dore">Retour</a> <br><br>
+    {% if commandes|length == 0  %}
+    <hr>
+        <p class= "text-center text-light">
+            Vous n'avez pas encore passé de commande chez nous.
+        </p>
+    {% else %}
+<table class="table mt-4 table-dark  dore">
+  <thead>
+    <tr class="dore">
+        <th scope="col">Référence</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Passée le</th>
+        <th scope="col">Date de retrait</th>
+        <th scope="col">Produit(s)</th>
+        <th scope="col">Total</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for commande in commandes %}
+      
+  
+    <tr class ="align-middle text-light">
+      <td><span class="badge badge-primary">{{commande.reference}}</span></td>
+    
+    <td>
+        {% if commande.etat == 1 %}
+        Paiement accepté.
+        {% elseif commande.etat == 2 %}
+        Commande prête  <img src="/assets/images/check.svg" height="20px" alt="checked">
+        {% endif %}
+    </td>
+      <td>{{commande.createdAt|date('d/m/Y')}}</td>
+      <td>{{commande.finishedAt|date('d/m/Y')}}</td>
+      <td>{{commande.detailsCommandes|length}} </td>
+      <td  class ="align-middle">{{((commande.getTotal) / 100)|number_format(2, ',', '.')}} €</td>
+      <td class="text-right"><a class ="btn-connexion btn" href="{{path('compte-commande-afficher', {'reference': commande.reference})}}">Voir ma commande</a></td>
+    </tr>
+  
+  {% endfor %}
+  </tbody>
+</table>
+    
+    {% endif %}
+
+</div>
+{% endblock %}

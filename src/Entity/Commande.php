@@ -26,12 +26,12 @@ class Commande
     private $user;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255)
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255)
      */
     private $finishedAt;
 
@@ -79,24 +79,24 @@ class Commande
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt($createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getFinishedAt(): ?\DateTimeInterface
+    public function getFinishedAt(): ?string
     {
         return $this->finishedAt;
     }
 
-    public function setFinishedAt(\DateTimeInterface $finishedAt): self
+    public function setFinishedAt( $finishedAt): self
     {
         $this->finishedAt = $finishedAt;
 
@@ -167,6 +167,15 @@ class Commande
         $this->stripeSessionId = $stripeSessionId;
 
         return $this;
+    }
+
+    public function getTotal()
+    {
+        $total=null;
+        foreach($this->getDetailsCommandes()->getValues() as $produit){
+            $total = $total + ($produit->getPrice() * $produit->getQuantity());
+        }
+        return $total;
     }
 
 }

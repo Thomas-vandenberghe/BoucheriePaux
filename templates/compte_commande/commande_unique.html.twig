@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commande{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="dore text-center mb-5">Ma commande Boucherie Paux <br>{{commande.reference}}</h1>
+    <h5 class="text-light ">Ci-dessous, vous retrouverez le contenu de la commande que vous avez passée</h5>
+
+    
+    <a class="dore" {% if vide is defined %}style="color:white;"{% endif %} href="{{path('compte-commande')}}">Retour</a>
+    
+    <hr>
+    <div class="text-light">
+    <strong class="text-light">Statut de la commande :</strong>
+    {% if commande.etat == 1 %}
+        Paiement accepté.
+        {% elseif commande.etat == 2 %}
+        Commande prête
+        {% endif %}
+        <br>
+        
+     <strong class="text-light"> Commande passée le :</strong> {{commande.createdAt|date('d/m/Y')}} <br>
+     <strong class="text-light"> Date de retrait :</strong> {{commande.finishedAt|date('d/m/Y')}} <br>
+    <strong class="text-light">Référence de la commande :</strong> <small>{{commande.reference}}</small> <br>
+    <hr>
+    </div>
+    <strong class="text-light">Détails</strong>
+  
+<table class="table mt-4 dore">
+  <thead>
+    <tr>
+      <th scope="col">Produit</th>
+      <th scope="col">Quantité </th>
+      <th scope="col">Prix par portion</th>
+      <th scope="col">Sous-total</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for produit in commande.detailsCommandes %}
+
+    <tr class="text-light" >
+      <td >{{produit.product}}</td>
+      <td>{{produit.quantity}}</td>
+      <td>{{(produit.price / 100)|number_format(2, ',', ',')}} €</td>
+      <td>{{(produit.total / 100)|number_format(2, ',', ',')}} €</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="text-start text-light mt-4">
+    <strong class=" fs-5"> <p class=" dore d-inline"> Montant total : </p>{{(commande.getTotal / 100)|number_format(2, ',', ',')}} €</strong><br>
+    
+    
+    
+      
+    <a href="{{path('pdf',{'reference': commande.reference})}}" class="btn btn-connexion mt-5" {% if vide is defined %}style="color:white;"{% endif %}>Télécharger ma facture</a>
+    
+</div>
+</div>
+
+
+
+{% endblock %}

@@ -1,5 +1,6 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 
@@ -12,20 +13,29 @@ $dore: #b48700;
 
 html{
     position: relative;
+    // height: 100%;
 }
 body {
     overflow-x: hidden;
     // position: relative;
     // background-color: $black;
-    min-height:1400px;
+     min-height:auto;
     margin-right: -12px;
+    min-height: 900px;
+    margin-bottom: 40px ;
    
 }
 p{
     margin: 0;
 }
+.text-dark{
+    text-decoration: none !important;
+}
 .dore{
     color: $dore;
+}
+.black{
+    color: $black;
 }
 
 // *********************** style de la navbar ********************************
@@ -83,19 +93,30 @@ p{
             border: 3px solid $dore;
         }
 }
+.btn-centre {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
 
 @media (min-width: 990px)  {
     .navbar-collapse {
         display: none !important;
     }
  }
+
+.cartCount{
+    background-color: $dore;
+    color: black;
+    border-radius: 20px;
+} 
 // **************************************style image page d'accueil ************************
 @media (max-width: 770px) { 
 
     .texte{
-        background-image: url('../images/metro2.png');
+        background-image: url('../images/metro6.png');
         border-radius: 15px;
-        padding: 5px;
+        padding: 10px;
         color : $black;
         font-weight:500;
          font-size: 15px;
@@ -103,12 +124,10 @@ p{
     }
 }
 
-
-
 .texte{
-    background-image: url('../images/metro2.png');
+    background-image: url('../images/metro6.png');
     border-radius: 15px;
-    padding: 5px;
+    padding: 10px;
     color : $black;
     font-weight:500;
      font-size: 20x;
@@ -157,15 +176,36 @@ p{
     margin-left: 20px;
 }
 .containerGlobal{
+    // position: relative;
     background-image: url('../images/bgViande.jpg');
     background-size: cover;
     background-position: center;
-    height: 1400px;
+      height: 1100px;
     margin-left: -12px;
     
+    // height: 700px;
+    // margin-left: -12px;
+    // margin-right: -10px;
+
+}
+.containerPhotoTexte {
+    // height: 500px;
+    // display: flex;
+    text-align: center;
+    // justify-content: space-between ;
+    margin-top: 13px;
+
+        @media (max-width: 980px) {
+            // flex-flow: column wrap;
+            height: 800px;
+    }
 }
 .logoBig{
     height: 200px;
+
+    @media (max-width: 980px) { 
+        height: 100px;
+    }
 }
 // .infoGenerale {
 //     position: relative;
@@ -194,30 +234,56 @@ p{
     font-weight: 400;
     text-align: center;
     padding: 10px;
+    height: auto;
+    margin: auto;
+    @media (max-width: 370px) {
+        font-size : 15px;
 }
+}
+
+
 .textePresentation {
     background-color: #0000006b;
     border-radius: 5px;
-    margin-left: 20px;
+    // margin-left: 20px;
+    margin-top: 30px; 
+      
 }
+// .centre {
+//     text-align: center;
+// }
+
 .photoBenoitPaux {
-    height: 400px;
-    margin: 20px 0 0 20px;
+    height: auto;
+    margin: auto;
     border-radius: 5px;
+    padding-bottom: 20px;
+
+    @media (max-width: 980px) {
+        height: auto;
 }
+}
+
+
+
 
 // ****************************************style du footer *********************************
 .footer-custom {
     position: absolute;
+    
     // z-index: 3;
     width: 100%;
     height: 90px;
     background-color: $black;
     padding-top: 9px;
+    padding-bottom: 3px;
     bottom: 0;
-    margin-top :90px;
+    // margin-top :90px; ---------------------------------
     
+    margin-top :30px;
     // padding-top: 25px;
+
+
 }
 .lien-CVG {
     color: $dore;
@@ -254,8 +320,33 @@ p{
         font-size: 10px;
     }
 }
+@media (max-width: 360px) { 
+    .foot{
+        margin-bottom: 0px;
+        font-size: 8px;
+        
+    }
+}
 
 //*************************************** CATALOGUE*********************************************
+.contour{
+    width: 300px;
+}
+.contour:hover{
+Outline: solid $dore 3px;
+width: 300px;
+height: 370px;
+}
+.filtre{
+    background-color: $black;
+    border-radius: 3px;
+}
+.bgFiltre{
+background-color: $dore;
+border-radius: 3px;
+max-width: 280px;
+min-width: 170px;
+}
 .produit-item h5 {
     text-transform: uppercase;
     font-size: 15px;
@@ -305,3 +396,177 @@ p{
     filter: brightness(100%);
     border-radius: 2%;
 }
+
+.couleur-icone{
+filter: invert(100%)
+}
+// *********************************** style du panier **********************
+.bouton{
+    background-color: $dore;
+    color: $black;
+    border-radius: 10px;
+    padding : 0px 0px;
+    border: solid $black 2px;
+    margin-top: 10px;
+}
+.bouton:hover{
+    background-color: $dore;
+    color: $white;
+    font-weight: bold;
+}
+.badge{
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+.bg-qty{
+    background-color: $black;
+    color: $dore;
+    border-radius: 3px;
+    padding-bottom: 5px;
+}
+.qty-width{
+    min-width:100px;
+    @media (max-width:325px) {
+        max-width: 79px;
+        min-width: 10px;
+        min-height: 1400px;
+        
+    }
+}
+.titrePanier {
+    text-align: center;
+}
+.enteteTableau {
+    color: $dore;
+}
+.lienX {
+    text-decoration: none;
+}
+.iconPanier {
+    filter: invert(100%);
+    @media (max-width: 462px) {
+        height: 8px;
+    }
+}
+.iconPanier2 {
+    filter: invert(100%);
+    @media (max-width: 462px) {
+        height: 30px;
+    }
+}
+
+.iconPanier2 :hover{
+height: 50px;
+@media (max-width: 462px) {
+    height: 40px;
+    }
+}
+.containerValidation {
+    height: 220px;
+}
+.imgPanier {
+    @media (max-width: 462px) {
+        display: none;
+}
+}
+.textProduit {
+    @media (max-width: 462px) {
+        display: none;
+}
+}
+.container {
+    @media (max-width: 462px) {
+        font-size: 12px;
+}
+}
+
+// ********************************** style des CGV **************************
+
+
+.h1Cgv {
+    color: $white;
+    margin: 30px 0;
+    text-align: center;
+}
+.h3Cgv {
+    margin: 10px 0;
+    text-decoration: underline;
+    color: $dore;
+}
+.texteCgv {
+    line-height: 30px;
+}
+.line {
+    height: 3px;
+    background-color: $white;
+    width: 50%;
+    margin: 50px auto;
+}
+
+
+// -------------------Vue simple--------------------------
+
+.articleSimple {
+    background-image: url('../images/metro6.png');
+    background-size: 200%;
+    border-radius: 10px;
+    // background-repeat: no-repeat;
+
+    @media (max-width: 993px) { 
+        background-size: 500%;
+    }
+    @media (max-width: 768px) { 
+        background-size: 600%;
+    }
+
+    @media (max-width: 360px) { 
+        background-size: 850%;
+    }
+
+    @media (max-width: 310px) { 
+        background-size: 900%;
+        
+    }
+    @media (max-width: 290px) { 
+        background-size: 1100%;
+        
+    }
+
+}
+.labeldore{
+    color: $dore;
+    font-weight: 600;
+}
+
+//-----------------------------------DATEPICKER CSS-------------------------------------------
+
+.ui-widget-header{
+    background-color: $black !important ; 
+    color: $dore !important;
+}
+.ui-widget-content{
+    background-color: $dore !important;
+    color: $white !important;
+}
+table.ui-datepicker-calendar{
+    background-color: $black !important ; 
+    color: $dore !important;
+}
+.ui-state-default{
+    background-color: $dore !important;
+    color: $white !important;
+    
+}
+.ui-state-unselectable{
+    background-color: $dore !important;
+
+}
+.ui-state-disabled{
+    opacity: .30 !important;
+    font-weight:lighter !important;
+}
+.ui-state-active{
+    color: $black !important;
+    font-weight: 600 !important;
+}
+

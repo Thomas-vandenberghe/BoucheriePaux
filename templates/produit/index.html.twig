@@ -3,29 +3,86 @@
 {% block title %}Nos produits{% endblock %}
 
 {% block body %}
-<div class= 'container'>
-<div class="row text-light ">
-    <div class="col-md-3 ">
-        <h3 class= "mt-5 text-center dore mb-5">Filtrer</h3>
-        {{form(form)}}
-    </div>
-
-    <div class="col-md-9">
-        <h3 class= "mt-5 mb-5 text-center dore">Nos produits</h3>
-
-        <div class="row product-container">
-
+<div class= 'container-fluid'>
+    <h1 class= "mt-5 mb-5 text-center dore">Nos produits</h1>
+    <div class="row text-light ">
+        <div class="col-md-3  ">
+            <section class="bgFiltre   pb-1 pt-4 d-flex justify-content-center mx-auto">
+                {# <h3 class= "mt-2 text-center black mb-3  "> Filtrer</h3> #}
+                <div class=" d-flex justify-content-center mx-auto">
+                    {{form(form)}}
+                </div>
+            </section>
+        </div>
+        <div class="col-md-9 ">
+            <div class="row pe-2 product-container-fluid d-flex justify-content-center">
             {% for produit in produits %}
-                <div class="col-md-4 card img-fluid bg-dark m-2" style="width: 300px">
+             {% if produit.publie == 1 %}
+             
+                <div class="col-md-4 card img-fluid bg-dark m-2 pb-1 contour" >
+                   
                     {% include "produit/single_produit.html.twig" %}
-                </div>  
-            {% endfor %}
+                  </div>  
+              
+{# -------- MODAL ---------- #}
+
+ <div class="modal fade" id="modal{{produit.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl  ">
+                        <div class="modal-content bg-dark">
+                            <div class="m-3">
+                                <button type="button" class="btn-connexion float-end" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                <div class="container-fluid  ">
+    <div class="row articleSimple p-5  text-dark  mt-5  mb-5 ">
+        <div class="col-lg-6 ">
+
+            <img src="/uploads/{{produit.illustration}}" alt="{{produit.name}}" class="img-fluid d-none d-sm-block">
 
         </div>
+ 
+        <div class="col-lg-6 my-auto">
+            <h3 class="fs-4" > {{produit.name}} </h3>
+            <p>{{produit.subtitle}} Gr</p>
+            <span class=""> {{(produit.priceQuantity / 100)|number_format(2, ',', '.') }} €/portion  {% if produit.priceKg %} | {{(produit.priceKg / 100)|number_format(2, ',', '.') }} €/kg{% endif %}</span> 
+            <br> <br>
+            <p>
+                {{produit.description}}
+            </p>
+            <br> <br>
+            <a href="{{path('panier-ajouter-vers-produits', {'id' : produit.id}) }}" class="btn-sm btn btn-connexion">Ajouter au panier</a>
 
+            {# {{path('add-to-cart', {'id': produit.id})  }} #}
+        </div>
     </div>
-    </div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container text-light bg-dark ">
+<h2 class="text-center dore mt-4">Nos meilleures ventes</h2>
+         <p class="text-center dore">Découvrez nos produits les plus vendus.</p>
+        <div class="row d-flex justify-content-around mt-3">
+            {% for produit in produits %}
+            {% if produit.enAvant == 1 %}
+                
+            
+                <div class="col-md-4 text-light card articleSimple m-1 mb-4 contour" style="width: 300px">
+                    {% include "produit/single_produit.html.twig" %}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+</div>
+                </div>
 
+            {% endif %}
+            {% endfor %}
+            
+
+
+            </div>
+            
+        </div>
+    </div>
 </div>
 
 

@@ -10,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class DetailCommande
 {
+
+
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -107,4 +110,9 @@ class DetailCommande
 
         return $this;
     }
+
+    public function __toString()
+{
+    return $this->getProduct().' x'.$this->getQuantity();
+}
 }
