@@ -15,6 +15,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+
 class DashboardController extends AbstractDashboardController
 {
     /**
@@ -32,6 +34,12 @@ class DashboardController extends AbstractDashboardController
             ->setTitle('Boucherie Paux');
     }
 
+    public function configureAssets(): Assets
+    {
+        return parent::configureAssets()
+            ->addWebpackEncoreEntry('admin');
+    }
+    
     public function configureMenuItems(): iterable
     {
         // yield MenuItem::linkToDashboard("Interface d'administration", 'fa fa-home');
